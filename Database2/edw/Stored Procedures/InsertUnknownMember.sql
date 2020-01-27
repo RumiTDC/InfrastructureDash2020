@@ -1,7 +1,7 @@
 ﻿
 
 CREATE PROCEDURE [edw].[InsertUnknownMember]
-/*Version 1,2*/
+/*Version 1,3*/
 (
             @SchemaName VARCHAR(MAX) ,--= 'edw' -- Skemanavnet p� den tabel hvor der skal inds�ttes en Unknown key
             @TableName VARCHAR(MAX) ,--= 'Date'--, -- Tabelnavnet p� den tabel hvor der skal inds�ttes en Unknown key
