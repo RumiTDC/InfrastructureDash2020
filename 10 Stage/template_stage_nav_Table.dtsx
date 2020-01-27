@@ -1,0 +1,1793 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{12D7A40B-EBF1-4BA4-A9FE-742B3492E15A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="template_stage_nav_Table"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{4D7999F6-9007-4137-B5DD-BA8937258C93}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source_Navision]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D434440A-321B-4648-B1F6-0010C8FF6B6D}"
+      DTS:ObjectName="Source_Navision">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::SourceConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Demo Database NAV (7-1);Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="BusinessIntelligenceUtilityConnection"
+      DTS:ConfigurationType="2"
+      DTS:ConfigurationVariable="\Package.Connections[Utility].Properties[ConnectionString]"
+      DTS:CreationName=""
+      DTS:DTSID="{0819A649-17C2-4106-9955-929AD3A91575}"
+      DTS:ObjectName="Utility connectionString" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;Utility&quot;;&quot;[setup].[EDWConfiguration]&quot;;&quot;Stage ConnectionString&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{2CAFA958-CD02-4F3A-BEFE-78428FE7D1AF}"
+      DTS:ObjectName="Stage ConnectionString" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;Utility&quot;;&quot;[setup].[EDWConfiguration]&quot;;&quot;NavCompanyPrefixDefault&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{D8D57AFF-0326-482D-B50C-B80DBD98D48F}"
+      DTS:ObjectName="Nav Sql Prefix Default" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;Utility&quot;;&quot;[setup].[EDWConfiguration]&quot;;&quot;NavConnectionStringDefault&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{B4BDF75F-B42A-41A6-8CD1-B9330B89DFED}"
+      DTS:ObjectName="Source ConnectionString Default" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{B72662DC-9766-4BD0-ACEE-9A9047E42676}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACCAA01F-98FC-42B4-B48A-6000FFC88ACE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CompaniesToLoop">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A4B53662-CAB6-4C7F-B337-2EAC6A33B6DB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">ServiceItemLog</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{06FE1758-90CB-47B1-9629-165FE1B13C22}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">Nav</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{991A1AC4-FFE3-495C-9765-FF3B0B395DC5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71C639EF-D865-4772-B502-84D09D0EDC2A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NavSqlPrefix">
+      <DTS:VariableValue
+        DTS:DataType="8">TestCompany1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B391C234-86DB-4633-8513-33E2A9655473}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43DBEBD9-433D-401C-AEC9-2FA8AC251B37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3CE8198B-8AE7-4751-B606-300BB272EB90}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=localhost;Initial Catalog=Demo Database NAV (7-1);Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Stage - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{501AEA8E-DDAF-4D62-8EBF-1FAE90E7A7DF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Stage - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [Nav].[ServiceItemLog]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Stage - Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{743E62D8-1239-41AA-BED0-F0239D3398ED}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Stage - Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [Nav].[ServiceItemLog]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BB17CD87-665B-491D-BA6D-7DDEF1BA9A88}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'template_stage_nav_Table'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.31'&#xA;&#x9;,@DestinationTableSchema = 'Nav'&#xA;&#x9;,@DestinationTableName = 'ServiceItemLog'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{963B6ADF-6F82-4BEA-91B1-AD244F867A2D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20)@[User::LogDetailID] + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] + ", NULL, NULL, " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, NULL, NULL, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop companies"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{9955A4A0-BA18-48E5-BAFC-C0051CE806AC}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop companies">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{A50F70C9-2787-48C9-A1C7-874E43B1606A}"
+        DTS:ObjectName="{A50F70C9-2787-48C9-A1C7-874E43B1606A}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::CompaniesToLoop" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{3B021002-6D25-4B36-916B-01ADDEB9D06E}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="CompanyID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{AAB4E291-8485-4D8F-AC3A-8D64FC15824D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="LogDetailCompanyID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{94FF5FBB-82A6-4DEC-AA61-E4AA20D8D544}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="RowCountFetch">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{EBCAD527-0BFE-430B-BE03-D412B5DF0F0E}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="RowCountInsert">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{29311675-54DE-4F80-B825-FF8B3A446EC8}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;SELECT  [No_]&#xA;      ,[Name]&#xA;      ,[Customer Posting Group] FROM [dbo].[&quot; + @[User::NavSqlPrefix]  + &quot;$Customer] with (NOLOCK)&quot;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SourceSqlSelect">
+          <DTS:VariableValue
+            DTS:DataType="8">SELECT  [No_]
+      ,[Name]
+      ,[Customer Posting Group] FROM [dbo].[TestCompany1$Customer] with (NOLOCK)</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop companies\LogDetailCompany End"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B0FA59FE-E529-4033-9CE3-DCC6EB8FC55B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LogDetailCompany End"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [log].[LogDetailCompany_End] " + (DT_WSTR, 20)@[User::LogDetailCompanyID] + ", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="EXEC [log].[LogDetailCompany_End] 0, 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop companies\LogDetailCompany Start"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{924BA723-AC39-4268-B1FA-6B4F56D6BE93}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LogDetailCompany Start"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [log].[LogDetailCompany_Begin] " + (DT_WSTR, 20)@[User::LogDetailID] + ", " +  (DT_WSTR, 20)@[User::CompanyID]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="EXEC [log].[LogDetailCompany_Begin] 0, 0"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="LogDetailCompanyID"
+                SQLTask:DtsVariableName="User::LogDetailCompanyID" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop companies\Source to Stage"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8C203CEC-EDFF-4BA2-8924-80881B3628B7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Source to Stage"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Loop companies\Source to Stage\CompanyID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="CompanyID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\CompanyID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\CompanyID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]"
+                          name="CompanyID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::CompanyID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::CompanyID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\CompanyID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\nav Customer"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="nav Customer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[nav].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop companies\Source to Stage\nav Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].Columns[No_]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="No_"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[No_]"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[No_]" />
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].Columns[Customer Posting Group]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Customer Posting Group"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[Customer Posting Group]"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Customer Posting Group]" />
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].Columns[CompanyID]"
+                          cachedDataType="i4"
+                          cachedName="CompanyID"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                          lineageId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[No_]"
+                          dataType="wstr"
+                          length="20"
+                          name="No_" />
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="30"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[Customer Posting Group]"
+                          dataType="wstr"
+                          length="10"
+                          name="Customer Posting Group" />
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                          dataType="i4"
+                          name="CompanyID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\nav Customer.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\nav Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\nav Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\nav Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\Row Count Fetch"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Fetch">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountFetch</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Row Count Fetch.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop companies\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\Row Count Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  localeId="1033"
+                  name="Row Count Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountInsert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Row Count Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop companies\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Company]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 1 AS X</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SourceSqlSelect</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop companies\Source to Stage\Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Source_Navision]"
+                      connectionManagerRefId="Package.ConnectionManagers[Source_Navision]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="30"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[No_]"
+                          length="20"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]"
+                          name="No_"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]"
+                          codePage="1250"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[Customer Posting Group]"
+                          length="10"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]"
+                          name="Customer Posting Group"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          codePage="1250"
+                          dataType="str"
+                          length="30"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[No_]"
+                          codePage="1250"
+                          dataType="str"
+                          length="20"
+                          name="No_" />
+                        <externalMetadataColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].ExternalColumns[Customer Posting Group]"
+                          codePage="1250"
+                          dataType="str"
+                          length="10"
+                          name="Customer Posting Group" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[No_]"
+                          codePage="1250"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[No_]"
+                          name="No_" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          codePage="1250"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[Customer Posting Group]"
+                          codePage="1250"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[Customer Posting Group]"
+                          name="Customer Posting Group" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\TRIM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="TRIM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input].Columns[No_]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="No_"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(No_)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input].Columns[Name]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="Name"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(Name)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input].Columns[Customer Posting Group]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Customer Posting Group"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM([Customer Posting Group])</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop companies\Source to Stage\Unicode"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Unicode"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input].Columns[No_]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="No_"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]" />
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="Name"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input].Columns[Customer Posting Group]"
+                          cachedCodepage="1250"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Customer Posting Group"
+                          lineageId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[No_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[No_]"
+                          name="No_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[No_]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Customer Posting Group]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output].Columns[Customer Posting Group]"
+                          name="Customer Posting Group"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output].Columns[Customer Posting Group]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[Data Conversion Output]"
+                  endId="Package\Loop companies\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\Loop companies\Source to Stage\Unicode.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[Derived Column Output]"
+                  endId="Package\Loop companies\Source to Stage\TRIM.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\Loop companies\Source to Stage\CompanyID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[Derived Column Output1]"
+                  endId="Package\Loop companies\Source to Stage\Unicode.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\Loop companies\Source to Stage\TRIM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[OLE DB Source Output]"
+                  endId="Package\Loop companies\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Loop companies\Source to Stage\Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[Row Count Output 1]"
+                  endId="Package\Loop companies\Source to Stage\nav Customer.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop companies\Source to Stage\Row Count Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Loop companies\Source to Stage.Paths[Row Count Output 11]"
+                  endId="Package\Loop companies\Source to Stage\CompanyID.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop companies\Source to Stage\Row Count Fetch.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop companies.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{97B0056A-C23B-4E43-BF15-AB03BCE80532}"
+          DTS:From="Package\Loop companies\LogDetailCompany Start"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loop companies\Source to Stage" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop companies.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{71DFEDDE-4DD6-4C66-A300-F20C6C313CDE}"
+          DTS:From="Package\Loop companies\Source to Stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Loop companies\LogDetailCompany End" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Loop companies.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{102C5A09-0CB7-4246-9D50-0AA371B780E2}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{B3F5D4E8-CA8B-409C-9FE6-8706B71C1A31}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop companies.EventHandlers[OnError]\Utility - Update Error"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{f6570c47-dbd0-4f1a-bc6a-fdc691366392}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Utility - Update Error"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="4000" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{192281E4-2D71-49CF-809C-D012DD5B86F4}"
+          DTS:ObjectName="{192281E4-2D71-49CF-809C-D012DD5B86F4}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::SourceConnectionString" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E25CAC1D-EE67-42EC-B160-22B9AA29ABEC}"
+          DTS:ObjectName="{E25CAC1D-EE67-42EC-B160-22B9AA29ABEC}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::NavSqlPrefix" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{39C7B620-916D-451C-8601-E66D21B1F994}"
+          DTS:ObjectName="{39C7B620-916D-451C-8601-E66D21B1F994}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CompanyID" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre stage"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0DB39C25-F5DF-4DEB-985F-E69883980455}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre stage">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Pre stage\EDW_Stage - Truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A7FB69EA-6E6D-465A-9A75-5D320B72991C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW_Stage - Truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName]  + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [Nav].[ServiceItemLog]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Pre stage\EDW_Utility - Get companies to loop"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{08E3E0D7-3AC8-41C4-B12E-84D8A7900533}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW_Utility - Get companies to loop"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="EXEC setup.GetDynamicsNavCompanies"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CompaniesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Pre stage.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D9F790A1-A7C3-48AF-ADB3-8248C34C869E}"
+          DTS:From="Package\Pre stage\EDW_Stage - Truncate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Pre stage\EDW_Utility - Get companies to loop" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CD24EF7D-1DA9-47D7-A17B-36E6F236E0EA}"
+      DTS:From="Package\Loop companies"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EDW_Stage - Row Count After" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0EC505F6-9CDF-4CDD-8E38-63A90C391472}"
+      DTS:From="Package\EDW_Stage - Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Pre stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{546F4A81-C0B3-4854-85D1-00D5CB341DEF}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\EDW_Stage - Row Count Before" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0FD35C8B-20BF-4693-ADFC-20E8A325BCA6}"
+      DTS:From="Package\Pre stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Loop companies" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{43CA5AF5-80E7-4FF7-A239-91FCC5D825D6}"
+      DTS:From="Package\EDW_Stage - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\EDW_Utility - Update LogDetail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\EDW_Stage - Row Count After"
+          TopLeft="173.5,933.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\EDW_Stage - Row Count Before"
+          TopLeft="169.5,107.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\EDW_Utility - Update LogDetail"
+          TopLeft="171.5,1035.5" />
+        <NodeLayout
+          Size="200,44"
+          Id="Package\Loop companies\LogDetailCompany End"
+          TopLeft="8.50000000000003,213.5" />
+        <NodeLayout
+          Size="206,44"
+          Id="Package\Loop companies\LogDetailCompany Start"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\Loop companies\Source to Stage"
+          TopLeft="31,109.5" />
+        <EdgeLayout
+          Id="Package\Loop companies.PrecedenceConstraints[Constraint]"
+          TopLeft="108.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies.PrecedenceConstraints[Constraint 1]"
+          TopLeft="108.5,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="217,312"
+          Size="217,356"
+          Id="Package\Loop companies"
+          TopLeft="176,517.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Pre stage\EDW_Stage - Truncate"
+          TopLeft="37.5,5.5" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Pre stage\EDW_Utility - Get companies to loop"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Pre stage.PrecedenceConstraints[Constraint]"
+          TopLeft="130.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="261,204"
+          Size="261,248"
+          Id="Package\Pre stage"
+          TopLeft="154,209.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="284.5,873.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="284.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="284.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="284.5,457.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="284.5,975.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Loop companies.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Loop companies.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Loop companies\Source to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\Unicode"
+          TopLeft="5.5,332.141509433962" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\CompanyID"
+          TopLeft="5.5,168.820754716981" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\nav Customer"
+          TopLeft="5.5,495.462264150943" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\Row Count Insert"
+          TopLeft="5.5,413.801886792453" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\Row Count Fetch"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Loop companies\Source to Stage\TRIM"
+          TopLeft="5.5,250.481132075472" />
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[Data Conversion Output]"
+          TopLeft="73.3867924528302,376.066037735849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[Row Count Output 11]"
+          TopLeft="73.3867924528302,457.72641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[Row Count Output 1]"
+          TopLeft="73.3867924528302,131.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[OLE DB Source Output]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[Derived Column Output1]"
+          TopLeft="73.3867924528302,212.745283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies\Source to Stage.Paths[Derived Column Output]"
+          TopLeft="73.3867924528302,294.405660377358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop companies\Source to Stage\nav Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop companies\Source to Stage\Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

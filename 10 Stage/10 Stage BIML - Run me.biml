@@ -1,0 +1,183 @@
+<#@ template language="C#" hostspecific="true" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="Varigence.Utility.Logging" #>
+
+
+ <#@ include file="08 UtilityConnectionDefinition.biml" #>
+ 
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Connections>
+        <# /* Renders all connections */
+            DataTable dtConnections = BIMLExtensions.GetDataTableFromSQL("exec BIML.GetConnections;", ConnectionString_EDW_Utility_ADO);
+           
+            foreach(DataRow connection in dtConnections.Rows)
+            {
+            if (connection["ConnectionType"].ToString().ToLower().Trim() == "oledb") //ToLower()
+            {
+                #>
+                    <OleDbConnection Name="<#=connection["Name"].ToString().Trim()#>" ConnectionString="<#=connection["ConnectionString"].ToString().Trim()#>" CreateInProject="<#=connection["InCludeInProject"].ToString().ToLower().Trim()#>"/>
+                <#
+            }
+            else if (connection["ConnectionType"].ToString().ToLower().Trim() == "odbc")
+            {
+           
+                #>
+                     <OdbcConnection Name="<#=connection["Name"].ToString().Trim()#>" ConnectionString="<#=connection["ConnectionString"].ToString().Trim()#>" CreateInProject="<#=connection["InCludeInProject"].ToString().ToLower().Trim()#>"/>
+                <#
+
+            }            
+            else if (connection["ConnectionType"].ToString().ToLower().Trim() == "adonet")
+            {
+           
+                #>
+                     <AdoNetConnection Name="<#=connection["Name"].ToString().Trim()#>" ConnectionString="<#=connection["ConnectionString"].ToString().Trim()#>" CreateInProject="<#=connection["InCludeInProject"].ToString().ToLower().Trim()#>" Provider="<#=connection["ADONETProvider"].ToString()#>" />
+                <#
+
+            }
+            }
+        #>
+    </Connections>
+    <Packages>
+        <#
+            DataTable dtStageTables = BIMLExtensions.GetDataTableFromSQL("exec BIML.GetStageTables;", ConnectionString_EDW_Utility_ADO);
+            
+            foreach(DataRow stageTable in dtStageTables.Rows)
+            {  
+            //ValidationReporter.Report(Severity.Warning, stageTable["PackageName"].ToString().Trim() + " started...");
+                string DestinationConnectionName = StageConnectionName;
+                string DestinationConnectionADO = BIMLExtensions.GetMetaDataConnectionString(DestinationConnectionName, ConnectionString_EDW_Utility_ADO);
+          
+                bool TableExist = BIMLExtensions.TableExist(DestinationConnectionADO,stageTable["DestinationSchemaUnsafe"].ToString().Trim(),stageTable["DestinationTableNameUnsafe"].ToString().Trim());
+                bool AllowTableRecreation = Convert.ToBoolean(stageTable["AllowTableRecreation"]);
+                bool IncludePrimaryKey = Convert.ToBoolean(stageTable["IncludePrimaryKey"]);
+                bool EnableHistory = Convert.ToBoolean(stageTable["EnableHistory"]);
+                
+               
+                
+                if(!TableExist)
+                {                 
+                    //string CreateTableSQL = BIMLExtensions.GetStageTableCreateScript(stageTable, BIMLExtensions.GetMetaDataConnectionString(stageTable["SourceConnectionNameUnsafe"].ToString().Trim(), ConnectionString_EDW_Utility_ADO), ConnectionString_EDW_Utility_ADO);
+                    string CreateTableSQL = BIMLExtensions.GetStageTableCreateScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                   //ValidationReporter.Report(Severity.Error, CreateTableSQL);
+                    BIMLExtensions.ValidateOrCreateStageSchema(stageTable["DestinationSchemaUnsafe"].ToString().Trim(), DestinationConnectionADO);
+                   // ValidationReporter.Report(Severity.Error, CreateTableSQL);
+                    BIMLExtensions.ExecuteSQL(CreateTableSQL, DestinationConnectionADO);
+                }
+                else if(TableExist && AllowTableRecreation)
+                {
+                    string DropTableSQL = "DROP TABLE " + stageTable["DestinationSchema"].ToString().Trim() + "." + stageTable["DestinationTableName"].ToString().Trim() + ";";
+                    string CreateTableSQL = BIMLExtensions.GetStageTableCreateScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                    DropTableSQL = DropTableSQL + Environment.NewLine + CreateTableSQL;
+                    BIMLExtensions.ExecuteSQL(DropTableSQL, DestinationConnectionADO);
+                       
+                }
+            #>
+                <Package Name="<#=stageTable["PackageName"].ToString().Trim()#>" ConstraintMode="Linear">
+                    <Connections>
+                        <#
+                        foreach(DataRow connection in dtConnections.Rows)
+                        { 
+                            if(connection["IncludeInProject"].ToString().Trim() == "True" || connection["Name"].ToString().Trim() == stageTable["SourceConnectionName"].ToString().Trim())
+                            {
+                            #> 
+                                <Connection ConnectionName="<#=connection["Name"].ToString().Trim()#>" >
+                                    <Expressions>
+                                        <Expression ExternalProperty="ConnectionString"><#=connection["Expression"].ToString().Trim()#></Expression>
+                                    </Expressions>
+                                </Connection>
+                            <# 
+                            }
+                        }#>
+                    </Connections>
+                    <Variables>
+        				<Variable Name="DestinationTableName" DataType="String"><![CDATA[<#=stageTable["DestinationTableNameUnsafe"].ToString().Trim()#>]]></Variable>
+        				<Variable Name="DestinationTableSchema" DataType="String"><![CDATA[<#=stageTable["DestinationSchemaUnsafe"].ToString().Trim()#>]]></Variable>
+        				<Variable Name="LogDetailID" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				<Variable Name="LogID" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				<Variable Name="RowCountAfter" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				<Variable Name="RowCountBefore" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				<Variable Name="RowCountFetch" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				<Variable Name="RowCountInsert" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+        				    
+        				<#  /* Include template specific variables */ #>
+    				    <#=CallBimlScript(stageTable["TemplateVariablesFileName"].ToString().Trim(), DestinationConnectionName, UtilityConnectionName, stageTable, ConnectionString_EDW_Utility_ADO)#>
+ 
+                        <#  /* Include History specific variables if enabled */ #>
+                        <#
+                            if (EnableHistory)
+                            {
+                                #>
+                                <Variable Name="HistoryDatabase" DataType="String" IncludeInDebugDump="Include">EDW_Stage_History</Variable>
+                                <Variable Name="HistoryPrefix_Enabled" DataType="Int32" IncludeInDebugDump="Include">0</Variable>
+                                <#
+                            }
+                        #>
+    				        
+                    </Variables>
+                    <Parameters>
+                        <Parameter Name="LogDetailID" DataType="Int32" IsRequired="false" IsSensitive="false">0</Parameter>
+                    </Parameters>
+                    <Tasks>
+                        <# /* Log detail start include */#>
+                        <#@ include file="../90 BIML Templates/Snippet_LogDetailStart.biml" #>
+
+                        <# /* Row Count before include */#>
+                        <#=CallBimlScript("../90 BIML Templates/Snippet_RowCountBefore.biml", DestinationConnectionName)#>
+                       
+                        <#  /* Include relevant tempalte */ #>
+                        <#=CallBimlScript(stageTable["TemplateNameFileName"].ToString().Trim(), DestinationConnectionName, UtilityConnectionName, stageTable, ConnectionString_EDW_Utility_ADO)#>
+ 
+                        <# /* Include History snippet */ #>
+                        <#
+                            if (EnableHistory)
+                            {
+                                #>
+                                <#@ include file="Snippet_History_Merge.biml" #>
+                          <#
+                            }
+                        #>
+                        
+                        <#  /* Row Count after include */#>
+                        <#=CallBimlScript("../90 BIML Templates/Snippet_RowCountAfter.biml", DestinationConnectionName)#>
+
+                        <# /* Log detail end include */#>
+                        <#@ include file="../90 BIML Templates/Snippet_LogDetailEnd.biml" #>
+                    </Tasks>
+                </Package>
+            <#}
+        #>
+    </Packages>
+    <Projects>
+        <PackageProject Name="10 Stage" ProtectionLevel="DontSaveSensitive">
+			<Annotations>
+				<Annotation Tag="ProjectParametersPath"></Annotation>
+			</Annotations>
+            <Packages>
+                <#
+                foreach(DataRow stageTable in dtStageTables.Rows)
+                {#>
+                    <Package PackageName="<#=stageTable["PackageName"].ToString().Trim()#>"/>
+                <#}
+                #> 
+            </Packages>
+            <Parameters>
+                <#
+                foreach(DataRow connection in dtConnections.Rows)
+                {
+                 if(connection["IncludeInProject"].ToString().Trim() == "True")
+                    {
+                        #>
+                        <Parameter Name="ConnectionString_<#=connection["Name"].ToString().Trim()#>" DataType="String" IsRequired="true"><#=connection["ConnectionString"].ToString().Trim()#></Parameter>
+                        <#
+                    }
+                    
+                }#>
+                <Parameter Name="MasterExecutionNoOfThreads" DataType="Int32" IsRequired="true">1</Parameter>
+                <Parameter Name="FolderNameSSISDB" DataType="String" IsRequired="true">BI</Parameter><!--To do Dynamic-->
+                <Parameter Name="FullLoad" DataType="Boolean" IsRequired="true">1</Parameter>
+            </Parameters>
+        </PackageProject>
+    </Projects>
+</Biml>

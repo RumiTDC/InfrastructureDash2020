@@ -1,0 +1,93 @@
+﻿
+CREATE VIEW [dbo].[InfrastructureBaseData_LastLoadedMonth]
+AS
+WITH LastLoadMonth AS (
+	SELECT TOP 1
+		MAX(I.[Month]) AS [LastMonth]		
+	FROM [dbo].[InfrastructureBaseData_tbl] I WITH(NOLOCK)
+)
+SELECT I.[Filename]
+      ,I.[Month]
+      ,I.[Adresse_By]
+      ,I.[Adresse_Etage]
+      ,I.[Adresse_Husnummerbogstav]
+      ,I.[Adresse_Husnummertal]
+      ,I.[Adresse_Kommunekode]
+      ,I.[Adresse_Kommunenavn]
+      ,I.[Adresse_Kvh]
+      ,I.[Adresse_Kvhx]
+      ,I.[Adresse_Latitude]
+      ,I.[Adresse_Lokalitet]
+      ,I.[Adresse_Longitude]
+      ,I.[Adresse_Postnummer]
+      ,I.[Adresse_Sidedoer]
+      ,I.[Adresse_Stednavn]
+      ,I.[Adresse_Vejkode]
+      ,I.[Adresse_Vejnavn]
+      ,I.[Archetypes_3rd_party]
+      ,I.[Archetypes_ALL]
+      ,I.[BBR_BbrKode]
+      ,I.[BBR_Coax_anlaeg_id]
+      ,I.[BBR_Coax_ejer]
+      ,I.[BBR_Coax_max_coax_ds]
+      ,I.[BBR_Coax_max_coax_us]
+      ,I.[BBR_DSL_Mulig_REV]
+      ,I.[BBR_Fiber_down_rev]
+      ,I.[BBR_Fiber_up_rev]
+      ,I.[BBR_kobber_downprio_ds]
+      ,I.[BBR_kobber_downprio_us]
+      ,I.[BBR_MDU_SDU_rev]
+      ,I.[BBR_PB_rev]
+      ,I.[BL_Coax]
+      ,I.[BL_Coax_Installationsstatus]
+      ,I.[Business_BB_Tech_Coax]
+      ,I.[Business_BB_Tech_Fiber]
+      ,I.[Business_BB_Tech_GSHDSL]
+      ,I.[Business_BB_Tech_XDSL]
+      ,I.[Business_BB_Total]
+      ,I.[WL_Coax]
+      ,I.[WL_Coax_Adgang_Andre_BBOperatoer]
+      ,I.[WL_Coax_BB_Styret_afsaetning]
+      ,I.[WL_Coax_Installationsstatus]
+      ,I.[WL_Coax_KAPGR_Name]
+      ,I.[WL_Coax_sloejfe]
+      ,I.[WL_Coax_Topgruppekode]
+      ,I.[WL_Fiber]
+      ,I.[WL_Fiber_deselection_reasondate]
+      ,I.[WL_Fiber_deselection_reasontekst]
+      ,I.[WL_Fiber_digging_length]
+      ,I.[WL_Fiber_kapstik]
+      ,I.[WL_Fiber_TDC_DIGG]
+      ,I.[WLEWII_ejer]
+      ,I.[WS_Coax_Antal_pr_KVHX]
+      ,I.[WS_Coax_HASTIGHED]
+      ,I.[WS_Coax_OPERATOER]
+      ,I.[WS_Fiber_Antal_pr_KVHX]
+      ,I.[WS_Fiber_HASTIGHED]
+      ,I.[WS_Fiber_Hovedprodukt]
+      ,I.[WS_Fiber_OPERATOER]
+      ,I.[WS_Fiber_OPERATOER_GROUP]
+      ,I.[WS_RAA_KOBBER]
+      ,I.[WS_RAA_KOBBER_OPERATOER]
+      ,I.[WS_XDSL_Antal_pr_KVHX]
+      ,I.[WS_XDSL_HASTIGHED]
+      ,I.[WS_XDSL_OPERATOER]
+      ,I.[WS_XDSL_OPERATOER_GROUP]
+      ,I.[YS_Antal_BB_CHB]
+      ,I.[YS_BB_antal]
+      ,I.[YS_BB_package_name]
+      ,I.[YS_BB_technology]
+FROM [dbo].[InfrastructureBaseData_tbl] I WITH(NOLOCK)
+	JOIN LastLoadMonth LLM
+		ON LLM.[LastMonth] = I.[Month]
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[InfrastructureBaseData_LastLoadedMonth] TO [BaseDataReader]
+    AS [dbo];
+
+
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[InfrastructureBaseData_LastLoadedMonth] TO [GeneralReportReader]
+    AS [dbo];
+

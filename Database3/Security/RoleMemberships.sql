@@ -1,0 +1,2 @@
+﻿ALTER ROLE [db_datareader] ADD MEMBER [ACCDOM01\m88954];
+

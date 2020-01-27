@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Outputs]
+    AUTHORIZATION [dbo];
+

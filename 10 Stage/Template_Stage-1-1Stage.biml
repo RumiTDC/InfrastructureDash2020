@@ -1,0 +1,99 @@
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="stageTable" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="String" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+
+ 
+<!-- 1-1 Stage template begin -->
+<Container ConstraintMode="Linear" Name="Staging">
+    <Tasks>
+        <#  /* Truncate table before */#> 
+        <#=CallBimlScript("../90 BIML Templates/Snippet_TruncateTable.biml", DestinationConnectionName) #>
+        
+        <Dataflow Name="Source to Stage">
+            <Transformations>
+                                <# if (stageTable["ConnectionType"].ToString().ToLower().Trim() == "adonet")
+                {  
+                   string SourceSelect = BIMLExtensions.GetStageSourceSelectScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                     
+                #> 
+                                <AdoNetSource Name="<#=stageTable["DataFLowSourceName"].ToString()#>" ConnectionName="<#=stageTable["SourceConnectionName"].ToString()#>">
+               <DirectInput><![CDATA[<#=SourceSelect#>]]></DirectInput>
+              
+             
+            </AdoNetSource>
+                <#
+                }
+                
+                
+                  else if (stageTable["ConnectionType"].ToString().ToLower().Trim() == "odbc")
+                {
+                   string SourceSelect = BIMLExtensions.GetStageSourceSelectScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                //   ValidationReporter.Report(Severity.Error, stageTable["SourceConnectionName"].ToString());
+                #> 
+                                <OdbcSource Name="<#=stageTable["DataFLowSourceName"].ToString()#>" Connection="<#=stageTable["SourceConnectionName"].ToString()#>">
+              <DirectInput><![CDATA[<#=SourceSelect#>]]></DirectInput>
+              
+             
+            </OdbcSource>
+                <#
+                }
+                
+                else {
+                    #> 
+                    <# 
+    string SourceSelect = BIMLExtensions.GetStageSourceSelectScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+#> 
+                <OleDbSource Name="<#=stageTable["DataFLowSourceName"].ToString()#>" ConnectionName="<#=stageTable["SourceConnectionName"].ToString()#>">
+                    <DirectInput><![CDATA[<#=SourceSelect#>]]></DirectInput>
+                </OleDbSource>
+                 <#
+                }
+                #>
+                
+				<#@ include file="../90 BIML Templates/Snippet_RowCountFetch.biml" #>
+				
+				                                <#
+                                if(Convert.ToBoolean(stageTable["TrimChars"].ToString()))
+                                {
+                                    string SourceConnectionString = BIMLExtensions.GetMetaDataConnectionString(stageTable["SourceConnectionNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO);
+                                    string NavisionTableName = stageTable["NavisionCompanyPrefix"].ToString() + "$" + stageTable["SourceTableNameUnsafe"].ToString();
+                                    //DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), NavisionTableName, SourceConnectionString, stageTable["ConnectionId"].ToString());
+                                    // Todo Make connectionstring dynamic
+                                    DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), stageTable["SourceTableNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                                    DataTable DataTypeConversions = BIMLExtensions.GetDataTypeConversions(ConnectionString_EDW_Utility_ADO, stageTable["DataConversionType"].ToString());
+                                    #>
+    								<DerivedColumns Name="TrimChars">
+    									<Columns>
+                                    
+                                    <#
+                                    foreach(DataRow charColumn in CharColumns.Rows)
+                                    {
+                                        string CharLength = charColumn["CHARACTER_MAXIMUM_LENGTH"].ToString();
+                                         //  ValidationReporter.Report(Severity.Error, charColumn["DATA_TYPE"].ToString());
+                                    #> 
+    										<Column Name="<#=charColumn["COLUMN_NAME"].ToString()#>" ReplaceExisting="true" Length="<#=CharLength#>" DataType="<#=BIMLExtensions.GetDataType(DataTypeConversions, charColumn, "BIMLDataType")#>">TRIM([<#=charColumn["COLUMN_NAME"].ToString()#>])</Column>
+                                    <#
+                                    }
+                                    #>
+    									</Columns>
+    								</DerivedColumns>
+                                    <#
+                                }
+                                #>
+				
+				
+				
+				<#@ include file="../90 BIML Templates/Snippet_RowCountInsert.biml" #>
+                <OleDbDestination Name="Stage" ConnectionName="<#=DestinationConnectionName#>" KeepIdentity="false" KeepNulls="false" UseFastLoadIfAvailable="true">
+                    <ExternalTableOutput Table="<#=stageTable["DestinationSchema"].ToString()#>.<#=stageTable["DestinationTableName"].ToString().Replace("&","&amp;")#>" />
+                </OleDbDestination>
+            </Transformations>
+        </Dataflow>
+    </Tasks>
+</Container>
+
+<!-- 1-1 Stage template end -->

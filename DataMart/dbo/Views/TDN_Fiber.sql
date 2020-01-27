@@ -1,0 +1,42 @@
+﻿CREATE VIEW [dbo].[TDN_Fiber]
+AS
+SELECT 
+	[KVHX]
+	,[TDN_Antenneforeningen_Vejen]
+	,[TDN_Bolignet_Aarhus]
+	,[TDN_ComX_Networks]
+	,[TDN_It_Lauget_Parknet]
+	,[TDN_Altibox]
+	,[TDN_Andels_net]
+	,[TDN_Bolig_net]
+	,[TDN_Cirque]
+	,[TDN_Colt_Technology_Services]
+	,[TDN_Connect_me]
+	,[TDN_Dansk_Kabel_TV]
+	,[TDN_Dansk_Net]
+	,[TDN_Fiberby]
+	,[TDN_Flexfone]
+	,[TDN_Gigabit]
+	,[TDN_GlobalConnect]
+	,[TDN_Info_Connect]
+	,[TDN_IP_Group]
+	,[TDN_ipvision]
+	,[TDN_Jaynet]
+	,[TDN_Netgroup]
+	,[TDN_Nianet]
+	,[TDN_Perspektiv_Bredband]
+	,[TDN_Sagitta]
+	,[TDN_Stofa_fiber]
+	,[TDN_TDC]
+	,[TDN_Telenor]
+	,[TDN_Telia]
+	,[TDN_Waoo_]
+	,[TDN_ZebNET]
+	,[TDN_Zen_Systems]
+	,[Logtime]
+FROM [dbo].[TDN_Fiber_tbl] WITH(NOLOCK)
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[TDN_Fiber] TO [BaseDataReader]
+    AS [dbo];
+

@@ -1,0 +1,23 @@
+﻿
+CREATE VIEW [pbi].[Dim_TDNCoax] AS
+SELECT [TDNCoax_Key]
+      ,[TDN_Antenneforeningen_Vejen]
+      ,[TDN_Bolignet_Aarhus]
+      ,[TDN_ComX_Networks]
+      ,[TDN_It_Lauget_Parknet]
+      ,[BK_TDNCoax]
+      ,[TDN_Comflex]
+      ,[TDN_Faaborg_Vest_Antenneforening]
+      ,[TDN_Glentevejs_Antennelaug]
+      ,[TDN_GVD_Antenneforening]
+      ,[TDN_Kj_rgaard_Nettet]
+      ,[TDN_Klarup_Antenneforening]
+      ,[TDN_Korup_Antenneforening]
+      ,[TDN_NAL_Medienet]
+      ,[TDN_Nordby_Antenneforening]
+      ,[TDN_Skagen_Antennelaug]
+      ,[TDN_Stofa_bredb_nd]
+      ,[TDN_YouSee]
+      ,[KonkCoax]
+  FROM [edw].[Dim_TDNCoax]
+  where tdncoax_Key > -1

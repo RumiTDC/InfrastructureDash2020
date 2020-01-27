@@ -1,0 +1,80 @@
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="StageConnectionName" type="String" #>
+<#@ property name="dimension" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="string" #>
+
+
+<#
+    //BIMLExtensions.GetConnectionString(StageConnectionName, ConnectionString_EDW_Utility_ADO)
+    string getFactColumnsSQL = @"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" + dimension["SourceSchemaUnsafe"].ToString().Trim() + "' AND TABLE_NAME = '" + dimension["SourceViewNameUnsafe"].ToString().Trim() + "'";
+                                
+    DataTable dtFactColumns = BIMLExtensions.GetDataTableFromSQL(getFactColumnsSQL, BIMLExtensions.GetMetaDataConnectionString(StageConnectionName, ConnectionString_EDW_Utility_ADO));
+
+    string SourceSelect = BIMLExtensions.GetFactSourceSelectScript(dimension, BIMLExtensions.GetMetaDataConnectionString(StageConnectionName, ConnectionString_EDW_Utility_ADO), ConnectionString_EDW_Utility_ADO);
+#>
+
+<!-- Template Fact Standard Start -->
+<Container ConstraintMode="Linear" Name="Load Fact">
+    <Tasks>
+        <#=CallBimlScript("../90 BIML Templates/Snippet_TruncateTable.biml", DestinationConnectionName)#>
+        <Dataflow Name="Load Fact">
+            <Transformations>
+    			<OleDbSource ConnectionName="<#=StageConnectionName#>" Name="Stage" ValidateExternalMetadata="false">
+    				<DirectInput><#=SourceSelect#></DirectInput>
+    			</OleDbSource>
+				<#@ include file="../90 BIML Templates/Snippet_RowCountFetch.biml" #>
+                <#
+                DataTable dtDimensionKeys = new DataTable();
+                SqlDataAdapter daDimensionKeys = new SqlDataAdapter("exec BIML.GetDimensionsKeys;", ConnectionString_EDW_Utility_ADO);
+                daDimensionKeys.Fill(dtDimensionKeys);   
+
+                foreach (DataRow dimensionKey in dtDimensionKeys.Rows)
+                {
+                    if (BIMLExtensions.SearchDataTableForValue(dtFactColumns, "COLUMN_NAME", dimensionKey["DimensionBusinessKeyColumnName"].ToString().Trim()))
+                    {
+                        #>
+						<Lookup CacheMode="Full" NoMatchBehavior="IgnoreFailure" OleDbConnectionName="EDW" Name="Lookup <#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString().Trim() #>">
+							<DirectInput><#=dimensionKey["SurrogatKeyLookupSQL"].ToString().Trim() #></DirectInput>
+							<Inputs>
+								<Column TargetColumn="<#=dimensionKey["DimensionBusinessKeyColumnName"].ToString().Trim() #>" SourceColumn="<#=dimensionKey["DimensionBusinessKeyColumnName"].ToString().Trim() #>" />
+							</Inputs>
+							<Outputs>
+								<Column SourceColumn="<#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString().Trim() #>" TargetColumn="<#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString().Trim() #>" />
+							</Outputs>
+						</Lookup>									
+                        <#
+                    }
+                }
+                #>
+				<DerivedColumns Name="Handle nulls">
+					<Columns>
+						<#
+                foreach (DataRow dimensionKey in dtDimensionKeys.Rows)
+                {
+                    if (BIMLExtensions.SearchDataTableForValue(dtFactColumns, "COLUMN_NAME", dimensionKey["DimensionBusinessKeyColumnName"].ToString().Trim()))
+                    {
+						#>
+						<Column DataType="Int32" ReplaceExisting="true" Name="<#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString() #>">
+							ISNULL( [<#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString() #>]  ) ? -1 : [<#=dimensionKey["DimensionSurrogatKeyColumnName"].ToString() #>]
+						</Column>
+                        <#
+                    }
+                }
+                #>
+					</Columns>
+				</DerivedColumns>
+            <#@ include file="../90 BIML Templates/Snippet_RowCountInsert.biml" #>
+				<OleDbDestination Name="EDW" ConnectionName="<#=DestinationConnectionName#>" KeepIdentity="false" KeepNulls="false" UseFastLoadIfAvailable="true">
+					<ExternalTableOutput Table="<#=dimension["DestinationSchema"].ToString().Trim()#>.<#=dimension["DestinationTableName"].ToString().Trim()#>"></ExternalTableOutput>
+				</OleDbDestination>
+                
+            </Transformations>
+        </Dataflow>    
+    </Tasks>
+</Container>
+
+<!-- Template Fact Standard End -->

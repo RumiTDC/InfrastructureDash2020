@@ -1,0 +1,2043 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{DD8A11B7-3893-4C6C-AA6E-830403CF5EDF}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="execution_GetSSISPackageFromSSISDB"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{C33F49EE-072F-4379-A33F-326B5742EBAB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get SSIS packages from SSISDB"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7BAE99E8-96F2-45CA-9F13-A47D9AB3DEDE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get SSIS packages from SSISDB">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{C0D0A839-8C0F-4744-AF42-67D69D7EE434}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackageFolder2Loop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{62719FB4-D530-4EB8-913F-E4626F01F8CF}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Loop Container">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{623E468D-112F-42A9-87C7-533C8820D465}"
+            DTS:ObjectName="{623E468D-112F-42A9-87C7-533C8820D465}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackageFolder2Loop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{88B02F32-E10D-4DA5-B68A-A4C8C754EB4D}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageFolderID">
+              <DTS:VariableValue
+                DTS:DataType="8">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{8A7D5EA8-1633-485A-BC8D-56858BAA5972}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageFolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{B50E96CB-8109-40EF-8E5F-0110D038FDCA}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load_SSISPackages"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:DTSID="{9C0EC02D-464A-4125-AA42-E88173EE436D}"
+                  DTS:Expression="&quot;SELECT &#xA;      [name]&#xA;      ,[package_guid]&#xA;      ,[description]&#xA;      ,[version_major]&#xA;      ,[version_minor]&#xA;      ,[version_build]&#xA;      ,[version_comments]&#xA;      ,[version_guid]&#xA;      ,[project_id]&#xA;  FROM [SSISDB].[internal].[packages]&#xA;  where [project_id]=&quot;+ (DT_WSTR,100) @[User::PackageProjectID]"
+                  DTS:IncludeInDebugDump="2345"
+                  DTS:Namespace="User"
+                  DTS:ObjectName="SQL">
+                  <DTS:VariableValue
+                    DTS:DataType="8"
+                    xml:space="preserve"></DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="Insert Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[setup].[Package]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[name]"
+                              cachedDataType="wstr"
+                              cachedLength="260"
+                              cachedName="name"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[FolderName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="FolderName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FolderName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProjectName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="ProjectName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProjectName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[version_guid]"
+                              cachedDataType="guid"
+                              cachedName="version_guid"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageGuid]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[version_major]"
+                              cachedDataType="i4"
+                              cachedName="version_major"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MajorVersion]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[version_minor]"
+                              cachedDataType="i4"
+                              cachedName="version_minor"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinorVersion]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[version_build]"
+                              cachedDataType="i4"
+                              cachedName="version_build"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Build]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[ExistsInSSISDB]"
+                              cachedDataType="bool"
+                              cachedName="ExistsInSSISDB"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExistsInSSISDB]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[project_id]"
+                              cachedDataType="i8"
+                              cachedName="project_id"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProjectID]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[ExecutionOrder]"
+                              cachedDataType="i4"
+                              cachedName="ExecutionOrder"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExecutionOrder]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[ExecutionOrder]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].Columns[Active]"
+                              cachedDataType="bool"
+                              cachedName="Active"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[Active]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageID]"
+                              dataType="i4"
+                              name="PackageID" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                              dataType="wstr"
+                              length="260"
+                              name="PackageName" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FolderName]"
+                              dataType="wstr"
+                              length="128"
+                              name="FolderName" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProjectName]"
+                              dataType="wstr"
+                              length="128"
+                              name="ProjectName" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExecutionOrder]"
+                              dataType="i4"
+                              name="ExecutionOrder" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParallelExecution]"
+                              dataType="bool"
+                              name="ParallelExecution" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForceExecutionThreadID]"
+                              dataType="i4"
+                              name="ForceExecutionThreadID" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                              dataType="bool"
+                              name="Active" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageGuid]"
+                              dataType="guid"
+                              name="PackageGuid" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MajorVersion]"
+                              dataType="i4"
+                              name="MajorVersion" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinorVersion]"
+                              dataType="i4"
+                              name="MinorVersion" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Build]"
+                              dataType="i4"
+                              name="Build" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExistsInSSISDB]"
+                              dataType="bool"
+                              name="ExistsInSSISDB" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProjectID]"
+                              dataType="i8"
+                              name="ProjectID" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup lastest version of package attributes"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	[name]
+	,[package_guid]
+	,[description]
+	,[version_major]
+	,[version_minor]
+	,[version_build]
+	,[version_comments]
+	,[version_guid]
+	,[project_id]
+FROM [catalog].[packages]
+order by package_id desc</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT 
+	[name]
+	,[package_guid]
+	,[description]
+	,[version_major]
+	,[version_minor]
+	,[version_build]
+	,[version_comments]
+	,[version_guid]
+	,[project_id]
+FROM [catalog].[packages]
+order by package_id desc) [refTable]
+where [refTable].[name] = ? and [refTable].[project_id] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="name" dataType="DT_WSTR" length="260" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="package_guid" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="description" dataType="DT_WSTR" length="1024" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_major" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_minor" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_build" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_comments" dataType="DT_WSTR" length="1024" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version_guid" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="project_id" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]};#{Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Connections[OleDbConnection]"
+                          connectionManagerID="{938449F6-03B1-4725-9176-1609DDB01CFB}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[SSISDB]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input].Columns[name]"
+                              cachedDataType="wstr"
+                              cachedLength="260"
+                              cachedName="name"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">name</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input].Columns[project_id]"
+                              cachedDataType="i8"
+                              cachedName="project_id"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">project_id</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          errorRowDisposition="IgnoreFailure"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[description]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="1024"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[description]"
+                              name="description"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">description</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]"
+                              name="version_major"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">version_major</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]"
+                              name="version_minor"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">version_minor</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]"
+                              name="version_build"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">version_build</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_comments]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Copy Column"
+                              length="1024"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_comments]"
+                              name="version_comments"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">version_comments</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]"
+                              dataType="guid"
+                              errorOrTruncationOperation="Copy Column"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]"
+                              name="version_guid"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn">version_guid</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="Set Active and ExecutionOrder"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[Active]"
+                              dataType="bool"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[Active]"
+                              name="Active"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression"> FALSE </property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression"> FALSE </property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[ExecutionOrder]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output].Columns[ExecutionOrder]"
+                              name="ExecutionOrder"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">9999999</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">9999999</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="Set PackageFolder and ExistsInSSISDB"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="128"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]"
+                              name="FolderName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,128)@[$Project::FolderNameSSISDB]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,128)@[$Project::FolderNameSSISDB]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]"
+                              dataType="bool"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]"
+                              name="ExistsInSSISDB"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression"> TRUE </property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression"> TRUE </property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="128"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]"
+                              name="ProjectName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,128)@[User::PackageFolderName]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,128)@[User::PackageFolderName]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension"
+                      componentClassID="Microsoft.SCD"
+                      contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                      description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                      name="Slowly Changing Dimension"
+                      version="3">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SELECT statement used to create a schema rowset."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Build], [ExistsInSSISDB], [FolderName], [MajorVersion], [MinorVersion], [PackageGuid], [PackageName], [ProjectID], [ProjectName] FROM [setup].[Package]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                          name="CurrentRowWhere"></property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                          name="UpdateChangingAttributeHistory">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                          name="FailOnFixedAttributeChange">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column name for the inferred member."
+                          name="InferredMemberIndicator"></property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether inferred member updates are detected."
+                          name="EnableInferredMember">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                          name="FailOnLookupFailure">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies that all rows in the input are new or the transformation detects the change type."
+                          name="IncomingRowChangeType"
+                          typeConverter="IncomingRowChangeType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Connections[LookupConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="Defines the connection to use for lookups in the dimension table"
+                          name="LookupConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                          name="Slowly Changing Dimension Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[version_build]"
+                              cachedDataType="i4"
+                              cachedName="version_build"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Build]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ExistsInSSISDB]"
+                              cachedDataType="bool"
+                              cachedName="ExistsInSSISDB"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ExistsInSSISDB]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FolderName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="FolderName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FolderName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[version_major]"
+                              cachedDataType="i4"
+                              cachedName="version_major"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MajorVersion]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[version_minor]"
+                              cachedDataType="i4"
+                              cachedName="version_minor"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MinorVersion]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[version_guid]"
+                              cachedDataType="guid"
+                              cachedName="version_guid"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PackageGuid]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[name]"
+                              cachedDataType="wstr"
+                              cachedLength="260"
+                              cachedName="name"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PackageName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">1</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[project_id]"
+                              cachedDataType="i8"
+                              cachedName="project_id"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProjectID]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">2</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ProjectName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="ProjectName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProjectName]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  name="ColumnType"
+                                  typeConverter="ColumnType">1</property>
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Build]"
+                              dataType="i4"
+                              name="Build" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ExistsInSSISDB]"
+                              dataType="bool"
+                              name="ExistsInSSISDB" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FolderName]"
+                              dataType="wstr"
+                              length="128"
+                              name="FolderName" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MajorVersion]"
+                              dataType="i4"
+                              name="MajorVersion" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MinorVersion]"
+                              dataType="i4"
+                              name="MinorVersion" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PackageGuid]"
+                              dataType="guid"
+                              name="PackageGuid" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PackageName]"
+                              dataType="wstr"
+                              length="260"
+                              name="PackageName" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProjectID]"
+                              dataType="i8"
+                              name="ProjectID" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ProjectName]"
+                              dataType="wstr"
+                              length="128"
+                              name="ProjectName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                          description="Unchanged rows"
+                          exclusionGroup="1"
+                          name="Unchanged Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[New Output]"
+                          description="New rows"
+                          exclusionGroup="1"
+                          name="New Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                          description="Rows with changes in columns tagged FixedAttribute"
+                          exclusionGroup="1"
+                          name="Fixed Attribute Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                          description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                          exclusionGroup="1"
+                          name="Changing Attribute Updates Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                          description="HistoricalAttribute (Type 2) changes result in these new rows"
+                          exclusionGroup="2"
+                          name="Historical Attribute Inserts Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                          description="Information to update unpopulated initial dimension row"
+                          exclusionGroup="1"
+                          name="Inferred Member Updates Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="SSIS Packages Source"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT distinct
+
+      [name]
+
+      ,[project_id]
+
+  FROM [catalog].[packages]
+
+  where [project_id]=?</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SQL</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping">"Parameter0:Input",{88B02F32-E10D-4DA5-B68A-A4C8C754EB4D};</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Connections[OleDbConnection]"
+                          connectionManagerID="{938449F6-03B1-4725-9176-1609DDB01CFB}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[SSISDB]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                              length="260"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]"
+                              name="name"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].ExternalColumns[project_id]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]"
+                              name="project_id"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                              dataType="wstr"
+                              length="260"
+                              name="name" />
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].ExternalColumns[project_id]"
+                              dataType="i8"
+                              name="project_id" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                              dataType="wstr"
+                              length="260"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                              name="name" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[project_id]"
+                              dataType="i8"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[project_id]"
+                              name="project_id" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="Update Setup Packages"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [setup].[Package] SET [Build] = ?,[ExistsInSSISDB] = ?,[FolderName] = ?,[MajorVersion] = ?,[MinorVersion] = ?,[PackageGuid] = ?,[ProjectID] = ? WHERE [PackageName] = ? AND [ProjectName] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[version_build]"
+                              cachedDataType="i4"
+                              cachedName="version_build"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[ExistsInSSISDB]"
+                              cachedDataType="bool"
+                              cachedName="ExistsInSSISDB"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[FolderName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="FolderName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[version_major]"
+                              cachedDataType="i4"
+                              cachedName="version_major"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[version_minor]"
+                              cachedDataType="i4"
+                              cachedName="version_minor"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[version_guid]"
+                              cachedDataType="guid"
+                              cachedName="version_guid"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[name]"
+                              cachedDataType="wstr"
+                              cachedLength="260"
+                              cachedName="name"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[project_id]"
+                              cachedDataType="i8"
+                              cachedName="project_id"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]" />
+                            <inputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].Columns[ProjectName]"
+                              cachedDataType="wstr"
+                              cachedLength="128"
+                              cachedName="ProjectName"
+                              externalMetadataColumnId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="i4"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="bool"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              dataType="wstr"
+                              length="128"
+                              name="Param_2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                              dataType="i4"
+                              name="Param_3">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                              dataType="i4"
+                              name="Param_4">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                              dataType="guid"
+                              name="Param_5">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                              dataType="i8"
+                              name="Param_6">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">81</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                              dataType="wstr"
+                              length="260"
+                              name="Param_7">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                              dataType="wstr"
+                              length="128"
+                              name="Param_8">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Changing Attribute Updates Output]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages.Inputs[OLE DB Command Input]"
+                      name="Changing Attribute Updates Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Derived Column Output]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Derived Column Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Derived Column Output1]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Lookup Match Output]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB.Inputs[Derived Column Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[New Output]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder.Inputs[Derived Column Input]"
+                      name="New Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension.Outputs[New Output]" />
+                    <path
+                      refId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[OLE DB Source Output]"
+                      endId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes.Inputs[Lookup Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{F40CA12E-428A-41B1-B48C-D5C17A9217E5}"
+              DTS:ObjectName="{F40CA12E-428A-41B1-B48C-D5C17A9217E5}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageFolderID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{1892FCEA-A079-40F1-B857-BD33BD6D455F}"
+              DTS:ObjectName="{1892FCEA-A079-40F1-B857-BD33BD6D455F}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageFolderName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Get SSIS packages from SSISDB\GetSSISDBProjects2Loop"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6DAF8F18-6064-4321-B286-22033968932E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="GetSSISDBProjects2Loop"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+declare @RootFolder nvarchar(128)
+set @RootFolder = '" + @[$Project::FolderNameSSISDB] +"'
+SELECT    
+	CAST(catalog.projects.project_id as varchar(50)) as project_id,
+	catalog.projects.name
+FROM            
+	catalog.projects INNER JOIN
+	catalog.folders ON catalog.projects.folder_id = catalog.folders.folder_id
+WHERE 
+catalog.folders.name = @RootFolder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{938449F6-03B1-4725-9176-1609DDB01CFB}"
+              SQLTask:SqlStatementSource="&#xA;declare @RootFolder nvarchar(128)&#xA;set @RootFolder = 'BusinessIntelligence'&#xA;SELECT    &#xA;&#x9;CAST(catalog.projects.project_id as varchar(50)) as project_id,&#xA;&#x9;catalog.projects.name&#xA;FROM            &#xA;&#x9;catalog.projects INNER JOIN&#xA;&#x9;catalog.folders ON catalog.projects.folder_id = catalog.folders.folder_id&#xA;WHERE &#xA;catalog.folders.name = @RootFolder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackageFolder2Loop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Get SSIS packages from SSISDB\Mark packages not exists in SSISDB"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C923E9AD-AD14-4C93-B463-732AC57DB6A0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Mark packages not exists in SSISDB"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="UPDATE&#xA;&#x9;P&#xA;SET&#xA;&#x9;ExistsInSSISDB = 0&#xA;FROM&#xA;&#x9;setup.Package AS P&#xA;WHERE&#xA;&#x9;PackageID NOT IN (&#xA;&#x9;&#x9;SELECT distinct&#xA;&#x9;&#x9;&#x9;P.PackageID&#xA;&#x9;&#x9;&#x9;&#x9;FROM&#xA;&#x9;&#x9;&#x9;&#x9;setup.Package AS P &#xA;&#x9;&#x9;&#x9;&#x9;INNER JOIN [SSISDB].[catalog].[packages] AS SSISDB_P&#xA;    &#x9;&#x9;&#x9;&#x9;ON SSISDB_P.name = P.PackageName COLLATE danish_norwegian_ci_as AND SSISDB_P.project_id = P.ProjectID&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Get SSIS packages from SSISDB.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8870AF1F-E6BC-4885-9AC6-FB92CD153877}"
+          DTS:From="Package\Get SSIS packages from SSISDB\GetSSISDBProjects2Loop"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Get SSIS packages from SSISDB\Foreach Loop Container" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Get SSIS packages from SSISDB.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{37CEFC21-CB4B-479F-A9C5-12BCE78F6DE7}"
+          DTS:From="Package\Get SSIS packages from SSISDB\Foreach Loop Container"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Get SSIS packages from SSISDB\Mark packages not exists in SSISDB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="215,103"
+          Size="215,146"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container"
+          TopLeft="37.5,107.5" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Get SSIS packages from SSISDB\GetSSISDBProjects2Loop"
+          TopLeft="31,5.5" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Get SSIS packages from SSISDB\Mark packages not exists in SSISDB"
+          TopLeft="5.50000000000006,313.5" />
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB.PrecedenceConstraints[Constraint]"
+          TopLeft="129,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,60"
+              Start="0,0"
+              End="16,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="12,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,30"
+                    Point2="16,30"
+                    Point3="16,34" />
+                  <mssgle:LineSegment
+                    End="16,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB.PrecedenceConstraints[Constraint 1]"
+          TopLeft="145,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.9999999999999,60"
+              Start="0,0"
+              End="-15.9999999999999,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-11.9999999999999,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.9999999999999,30"
+                    Point2="-15.9999999999999,30"
+                    Point3="-15.9999999999999,34" />
+                  <mssgle:LineSegment
+                    End="-15.9999999999999,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="258,410"
+          Size="258,454"
+          Id="Package\Get SSIS packages from SSISDB"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set Active and ExecutionOrder"
+          TopLeft="729.5,384.5" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes"
+          TopLeft="933,109.5" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Set PackageFolder and ExistsInSSISDB"
+          TopLeft="945.5,211.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension"
+          TopLeft="972,313.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Update Setup Packages"
+          TopLeft="993,415.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination"
+          TopLeft="764.5,502.5" />
+        <NodeLayout
+          Size="164,44"
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source"
+          TopLeft="994,5.49999999999989" />
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[OLE DB Source Output]"
+          TopLeft="1076,49.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[New Output]"
+          TopLeft="1042.66666666667,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-202.666666666667,29.0000000000001"
+              Start="0,0"
+              End="-202.666666666667,21.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.73282442748097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.73282442748097"
+                    Point2="0,11.732824427481"
+                    Point3="-4,11.732824427481" />
+                  <mssgle:LineSegment
+                    End="-198.666666666667,11.732824427481" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-198.666666666667,11.732824427481"
+                    Point2="-202.666666666667,11.732824427481"
+                    Point3="-202.666666666667,15.732824427481" />
+                  <mssgle:LineSegment
+                    End="-202.666666666667,21.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-128.424720052084,16.732824427481,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Lookup Match Output]"
+          TopLeft="1076,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Derived Column Output1]"
+          TopLeft="843,426.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.9999999999999"
+              Start="0,0"
+              End="0,68.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Derived Column Output]"
+          TopLeft="1076,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages.Paths[Changing Attribute Updates Output]"
+          TopLeft="1109.33333333333,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.3333333333333,60"
+              Start="0,0"
+              End="-21.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2748091603054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2748091603054"
+                    Point2="0,24.2748091603054"
+                    Point3="-4,24.2748091603054" />
+                  <mssgle:LineSegment
+                    End="-17.3333333333333,24.2748091603054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.3333333333333,24.2748091603054"
+                    Point2="-21.3333333333333,24.2748091603054"
+                    Point3="-21.3333333333333,28.2748091603054" />
+                  <mssgle:LineSegment
+                    End="-21.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-89.2005729166667,29.2748091603054,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Lookup lastest version of package attributes">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{6A91EB5A-1DE8-40F3-B6F9-F14B4144D108}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[setup].[Package]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_build]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Build&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ExistsInSSISDB]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ExistsInSSISDB&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[FolderName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FolderName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_major]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MajorVersion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_minor]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MinorVersion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Lookup lastest version of package attributes.Outputs[Lookup Match Output].Columns[version_guid]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PackageGuid&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SSIS Packages Source.Outputs[OLE DB Source Output].Columns[name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PackageName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SSIS Packages Source.Outputs[OLE DB Source Output].Columns[project_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProjectID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Set PackageFolder and ExistsInSSISDB.Outputs[Derived Column Output].Columns[ProjectName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProjectName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get SSIS packages from SSISDB\Foreach Loop Container\Load_SSISPackages\SSIS Packages Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

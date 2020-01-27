@@ -1,0 +1,8 @@
+<ExecuteSQL Name="Utility - Update LogDetail" ForcedExecutionValueDataType="Empty" ConnectionName="EDW_Utility">
+    <Expressions>
+        <Expression PropertyName="SqlStatementSource">
+		"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20)@[User::LogDetailID] + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] + ", NULL, NULL, " +  (DT_WSTR, 20)@[User::RowCountAfter]
+		</Expression>
+    </Expressions>
+    <DirectInput>EXEC [log].[LogDetail_End] 0, 0, NULL, NULL, 0</DirectInput>
+</ExecuteSQL>

@@ -1,0 +1,3963 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{D16170A5-0AE4-4D70-8876-3EB9A9DE8A9B}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="execution_MasterExecution"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{EC5DE90D-9F50-4422-8412-4C6F009CF63F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="Must match a value in EDW_Utility.Setup.PackageJob.JobName"
+      DTS:DTSID="{DF5015CC-67F1-4074-9E05-B67572EA691B}"
+      DTS:ObjectName="JobName"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TestJob</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9196C2F9-4CF3-4093-AC55-4F2176E8CF40}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FAB71C6D-B063-456F-96D5-050F03906158}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::MasterExecutionNoOfThreads]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NoOfThreads">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="log CreatePackagesExecutionPlan"
+      DTS:DTSID="{DE95C952-87ED-43A7-AAA1-4F446F0DD345}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - CreatePackageExecutionPlan"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[CreatePackagesExecutionPlan] @JobName = '" + @[$Package::JobName]  +"', @NoOfThreads = '" + (DT_WSTR, 3)@[User::NoOfThreads] +"', @LogID = '" + (DT_WSTR, 10)@[User::LogID] +"'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[CreatePackagesExecutionPlan] @JobName = 'TestJob', @NoOfThreads = '1', @LogID = '0'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Log End"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="End Log"
+      DTS:DTSID="{A9A5CAEA-952F-4DD7-B9C5-2B61A91323AD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Log End"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[Log_End] @LogID = "+(DT_WSTR, 20) @[User::LogID]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[Log_End] @LogID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Log Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2B7CD01C-C53B-484F-A0F2-0E89BA4B182C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Log Start"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogID AS INT
+EXEC
+ [log].[Log_Begin]
+@JobName = '" + @[$Package::JobName]  + "'
+,@LogID = @LogID OUTPUT
+SELECT LogID = @LogID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogID AS INT&#xA;EXEC&#xA; [log].[Log_Begin]&#xA;@JobName = 'TestJob'&#xA;,@LogID = @LogID OUTPUT&#xA;SELECT LogID = @LogID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogID"
+            SQLTask:DtsVariableName="User::LogID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C88E27BF-505F-4422-BC45-B14C01E6FA1B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{ED12840D-F232-4BEF-B9D2-126C2FFC077C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{90543D95-42AD-4176-8E02-FC6834A63D81}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 1\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{10640B2F-EDD0-432E-885B-5A31C6B6FF9E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '1'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 1\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{5105CB47-DDAD-4C1C-9E59-AD7164669112}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{4E269575-30E1-415D-AC9F-A7C424BB49FA}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{0A0080BD-10D2-4EF1-AAB1-2775FC197DF5}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{0B8CE5EC-EC2E-4886-993C-0BDAF6EB05F8}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{26478353-20D8-4A37-9561-A635A72961F3}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{CAD8D538-2518-4066-BE1A-34FD659185E7}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{3D00CDC9-853A-47EB-BFDC-B95663EF840E}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{A397D95D-3553-492B-AABA-31B60C5AFAF5}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{F1279350-DA09-4829-826B-D5BBBFA172A2}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 1\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{8E6E75A1-F886-49FB-B174-5A82A9660655}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 1\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{2AD2381A-3D70-497B-ACB1-A13CD99AD8EA}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 1\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{672EEEBF-A39F-4546-A33D-6E59958D17C3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 1\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{80D5A1E2-301E-4AEB-8CF0-EA0FE6C35703}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA;&#x9;log.LogPackageExecutionPlan&#xA;SET&#xA;&#x9;LogDetailID = ?&#xA;WHERE&#xA;&#x9;LogID = ?&#xA;&#x9;AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{996F4BF6-B344-4658-B573-E73B0707FD7F}"
+              DTS:From="Package\Thread 1\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 1\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{989F721B-67B4-4AE0-9812-5B4E3EEB5E60}"
+              DTS:From="Package\Thread 1\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 1\Loop Packages\Execute Package" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{AEFE2B45-FF3D-4C6C-B114-441678F05E30}"
+              DTS:From="Package\Thread 1\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 1\Loop Packages\LogDetail End" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 1\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{A90011BF-60CB-4860-B30A-7B42E357F271}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{E6FFDE7F-71C4-4CD0-B921-A524CE9A3147}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 1\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{D42FD221-BD91-4FF8-8C49-F17D37F58714}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{73375DBA-D10A-4AD4-852F-FFC3FC5556C4}"
+          DTS:From="Package\Thread 1\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 1\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4A1DEBFD-21DF-49E6-9704-C04DCDBAB3CF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 2">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{539C7D0F-DA9C-4539-959B-14942FF4D679}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2F65DEEA-1705-442F-BDF8-B7862330E0E5}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">2</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 2\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{21DD3CB1-A388-478D-89E5-93021DE0036D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '2'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 2\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{AA9EE4EE-A96F-4AF1-AE3D-7315FD813F63}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{443E56D5-B3A9-4276-A0B1-7A4770B28F8D}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{02951C03-33F2-4879-BDBD-AE950D1295C7}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{737F3D19-3075-4138-8C89-A6D437FD8AF2}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{CE9C7548-F58C-49D1-997D-1DEF9CF9C993}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{1DB37DF0-0E96-486B-8BAD-604A3A26B45D}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{29CDD509-B4C1-45CF-B022-0B88E12B14C8}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{C5AB0C5F-B3A2-4722-9DF9-16C243676285}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{41DD937E-9554-4DEC-8611-D7C214596D7A}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 2\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{0F336D60-3455-467E-9B37-EE035DD33662}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 2\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{36713C96-3C50-42E8-BF01-C0DF97C33C3C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 2\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{E1FD95E6-6282-4C2F-AB05-5B54D83C79DD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 2\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{B0ABE31F-428E-45FE-B2A5-A0F613B6781E}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA; log.LogPackageExecutionPlan&#xA;SET&#xA; LogDetailID = ?&#xA;WHERE&#xA; LogID = ?&#xA; AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{AC5E48FA-3241-4C3A-858C-C3692DB0D731}"
+              DTS:From="Package\Thread 2\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 2\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{4D696AA0-7F28-47A6-8AFF-5BA22522F112}"
+              DTS:From="Package\Thread 2\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 2\Loop Packages\LogDetail End" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{B0337CD3-0CFA-4208-8E02-7B9D35844A9C}"
+              DTS:From="Package\Thread 2\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 2\Loop Packages\Execute Package" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 2\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{7C4D79CF-7950-4584-A4C5-C878BEA56FD3}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{3E1A68EC-DB90-4665-A571-856993120630}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 2\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{2C07CAB8-C92F-4BCB-B55D-38906E9C140D}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{2F6824CB-F4AD-447F-AF1C-188A78D488C2}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D9425D1E-F694-407A-9E21-5C49B5B7F93D}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{98EE1753-0061-4764-9C2D-5B14C172A884}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{7EE46602-FFE8-4C25-A8E1-34363CC0122C}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 2.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{37087F33-AA7E-4F3D-B0A6-DC45FBDAF061}"
+          DTS:From="Package\Thread 2\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 2\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7CF73108-0704-44C7-BA51-1C1AF5D010AF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 3">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{90021F03-224C-46C4-8766-B9E192246020}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{FFD55289-7595-440D-91B8-C8DF3EA6E9BE}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">3</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 3\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{CA2EFBC1-BDCE-448B-952D-C16AE4F74280}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '3'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 3\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{5FAD956D-641D-45B4-95C1-4FD552092BB4}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{AE73313E-C7DA-4E61-B77F-E66EB287E97C}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{B17B03E8-1CED-40CA-8E6C-458FF4E450D4}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{E4CA9FE6-3F7D-4AD5-8665-0FB39265E4CB}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{FA1EEBFC-A061-483C-B3AF-0998C7813ADC}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{44AA3BCE-A166-4D6A-B76B-142DA899A3D1}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{6385CA67-D2E1-4F5C-A6C1-1AC7A080D3A6}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{D3129E78-6B4C-4B31-B669-6011B2F4793C}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{F366DD31-9DE9-489A-8E12-AD7D4038B6FF}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 3\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{C212F002-2C24-40EA-8DB5-DDED038992FE}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 3\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{31A006AC-BC1C-4E71-A348-90799AB642CE}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 3\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{CAD7C52D-E7B2-4E85-A8DC-48B3913E515A}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 3\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{C490E52B-CECA-4ACF-B2E2-89093414E196}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="3">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA; log.LogPackageExecutionPlan&#xA;SET&#xA; LogDetailID = ?&#xA;WHERE&#xA; LogID = ?&#xA; AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{8926F8D7-8008-4572-B490-2ABBEA7D9440}"
+              DTS:From="Package\Thread 3\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 3\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{55FDB10D-F72B-4A12-BF78-F2A765A8ECDC}"
+              DTS:From="Package\Thread 3\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 3\Loop Packages\Execute Package" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{DB2CE35E-C512-4778-9222-DD6870646EE5}"
+              DTS:From="Package\Thread 3\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 3\Loop Packages\LogDetail End" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 3\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{305177F7-703C-472C-B2F9-B8B4DFB7AC67}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{4A25F61B-EC11-482E-9313-FA07923D1B75}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 3\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{F9C73EDE-2FE7-4E2B-AB84-95A140BF9F1B}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8350A753-AC37-476B-AA23-F9BC8435ADF1}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{0432D4FA-E78B-40B8-8CB1-769553909B44}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{9A37E799-0FEB-4DF8-9699-95B1DC3A3BD1}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{9E920202-8F5F-4DF1-946C-C83E06DC2EA9}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 3.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D79B6AA5-76DE-4DB2-9D8B-C1E8E286B85D}"
+          DTS:From="Package\Thread 3\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 3\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 4"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D775193B-D043-4054-AF35-7489C1FA1C09}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 4">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{BC1FBB96-6D32-4EBC-A587-B11DB28DE24A}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{B27FC4A2-6BAC-4109-BE88-F7737EAAC1A0}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">4</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 4\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{4905CBD3-EDA4-4677-931B-9B12FFDFE77C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '4'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 4\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{5C276461-348F-4AA2-B398-74FBD097A95F}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{8093D929-65B8-4FA0-8807-376F4776B27A}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{2D615771-532F-4F3B-9801-EC06C1252ECD}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{251A2AB7-2074-472A-BF13-040C2F92DB7D}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{10A7D856-C344-48CD-B698-8ABC26A44937}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{3E7E2FEB-9CE5-429C-8FA2-D5608B4E071D}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{CDF36F05-3F87-4BC1-90D0-AAD6B01F0B87}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{E732598D-2DBF-4325-9821-6341E06B8ED5}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{50EE4DBD-C242-4FD1-8069-D0EA93E47F5F}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 4\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{1CEE5031-37FA-49A9-81FA-0574644AB5E7}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 4\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{01DD0964-A297-4F68-85E0-7CA89E6F7BDC}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 4\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{EBAD495C-833F-458B-9E2F-12A2785706AD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 4\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{DAA779E2-23CF-405C-9A69-3DAB3166722D}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA; log.LogPackageExecutionPlan&#xA;SET&#xA; LogDetailID = ?&#xA;WHERE&#xA; LogID = ?&#xA; AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{1F0BE988-1E8F-4146-BDE9-51FE77F7398D}"
+              DTS:From="Package\Thread 4\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 4\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{EE76B5AF-4F25-4B6F-9254-073E0BB6A0DD}"
+              DTS:From="Package\Thread 4\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 4\Loop Packages\Execute Package" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{05267E7B-F5DF-4DE3-9870-D93EA857005C}"
+              DTS:From="Package\Thread 4\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 4\Loop Packages\LogDetail End" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 4\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{CD882EDA-9457-4272-8FE9-ABEEB3433F40}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{4F1033C2-91E6-41EB-9CEC-9EB161C2F13C}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 4\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{D2C82147-54B1-4C1B-90F8-BB24D395F31E}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{47886863-563C-45BA-A774-4DE638B90DCC}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{90D1B1CB-5CF6-4C43-8720-596C289AC9E7}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B751CD06-3AE9-4D18-ADDD-286D17FD9DF9}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B494148D-15E6-46E8-BFA0-4E490BBF8DC3}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 4.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3B0620C6-A7B2-40C3-AA35-FD94D75FE03E}"
+          DTS:From="Package\Thread 4\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 4\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 5"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8266F431-5C67-4445-AF34-7076670F10CE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 5">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{26BF1CA9-9C23-4E73-A666-557996A26F2C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2B1E3C90-7162-44E7-9CEE-75A75D69FDAF}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">5</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 5\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{495DA49B-5DE7-4D75-835B-C6A9103C6341}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '5'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 5\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{09CFE948-31E5-4512-BA05-9FC9F41DBA84}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{D25152D9-C02C-4B06-94E4-4B8CF35D42D9}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{743C092F-CCCB-4804-A254-CCB14A471133}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{0360E536-6997-4451-9121-71224AC7D0AC}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{E0E1BC9C-70DF-4477-A708-3CE506E2EEBA}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{308AF241-27C7-478C-BEAA-9C7F0F08456D}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{67EFDA11-098B-408F-9F08-DFDB3CD897E8}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{1F82E790-37B2-4D7A-9F5F-13D23F278636}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{39CB3759-AB16-49A0-B6AB-99617F43C5C6}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 5\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{51D6EF04-C317-4B28-B630-278AA655691C}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 5\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{1DFFDE8B-39E0-4079-9BDD-3E8A6964633C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="5">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 5\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{C09A0C68-9CA6-43E6-B800-4C59D1487B4F}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="5">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 5\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{C1797541-904B-4778-801F-A0899652DDFB}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="5">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA; log.LogPackageExecutionPlan&#xA;SET&#xA; LogDetailID = ?&#xA;WHERE&#xA; LogID = ?&#xA; AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{2A00F431-825A-4B36-9B5D-738BBFD3AED9}"
+              DTS:From="Package\Thread 5\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 5\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{16294DF1-CA05-4A5C-AAD1-8BCD24FC6BAF}"
+              DTS:From="Package\Thread 5\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 5\Loop Packages\Execute Package" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{6EF37E25-5342-468A-B456-2980E0DB00D2}"
+              DTS:From="Package\Thread 5\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 5\Loop Packages\LogDetail End" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 5\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{366D7DC5-A0D3-4E80-8676-C3080CCD86FA}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{0936EB11-FC7C-40AF-81AC-44CC81E5C74C}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 5\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{FC8E5748-2C9B-4F9F-A7E4-F774B1E6DA9D}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{14C644E6-B1B8-4D6E-8557-19CCCE6D8980}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{14BC095D-30A9-4738-B0BB-597F3D21CCDE}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{A75422C0-FEE8-4729-BB38-2D7DA8CC5D56}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{F7E480AA-54F7-4DA1-9788-2ED64BDC7D68}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 5.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F84931C4-289E-4D1A-8BCD-607A98A0C1C6}"
+          DTS:From="Package\Thread 5\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 5\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Thread 6"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8E5755C1-1D88-4D4C-8609-42A1C5A81147}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Thread 6">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{90D681FD-6A4D-4428-9F2E-9367DCFA0631}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackagesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{E7907907-0998-4A64-9CC8-CD1BD06628D3}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="ThreadID">
+          <DTS:VariableValue
+            DTS:DataType="3">6</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Thread " + (DT_WSTR, 3)@[User::ThreadID]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Thread 6\Get Packages"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="log LogPackageExecutionPlan - Get Packages to loop"
+          DTS:DTSID="{98BB437E-E13D-4CA4-B1AB-F76D4511F3F3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Packages"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT
+	PEP.PackageID
+	,P.PackageName
+	,P.FolderName
+	,P.ProjectName
+FROM
+	log.LogPackageExecutionPlan AS PEP
+	INNER JOIN setup.Package AS P
+		ON P.PackageID = PEP.PackageID
+WHERE
+	PEP.LogID = '" + (DT_WSTR, 10)@[User::LogID]  +"'
+	AND PEP.ThreadID = '" + (DT_WSTR, 3)@[User::ThreadID]  +"'
+ORDER BY
+	PEP.ExecutionOrder
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="&#xA;SELECT&#xA;&#x9;PEP.PackageID&#xA;&#x9;,P.PackageName&#xA;&#x9;,P.FolderName&#xA;&#x9;,P.ProjectName&#xA;FROM&#xA;&#x9;log.LogPackageExecutionPlan AS PEP&#xA;&#x9;INNER JOIN setup.Package AS P&#xA;&#x9;&#x9;ON P.PackageID = PEP.PackageID&#xA;WHERE&#xA;&#x9;PEP.LogID = '0'&#xA;&#x9;AND PEP.ThreadID = '6'&#xA;ORDER BY&#xA;&#x9;PEP.ExecutionOrder&#xA;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::PackagesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Thread 6\Loop Packages"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{4EE048DB-8836-4FFD-9787-C7E7DA3F9808}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Packages">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{25C7E6AB-09B4-4ACF-AB93-2D769639B8A2}"
+            DTS:ObjectName="{9B4AAD7F-FD03-4DA7-B19C-768918601E2E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::PackagesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{9858C23A-32D9-4133-BF0D-51B62BFC8346}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="FolderName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{4AEED3A3-CE20-4B71-8FC7-3AA7A29E6977}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="LogDetailID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{AFD8AB6E-9FA2-4B9E-9396-A9CB1C3665FF}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{D2FF8DC4-0AED-4505-BFE3-7701BB14EAF6}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{7351B078-5B62-42CB-B2FD-7BE90A255E51}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackagePath">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{BD64D235-D6EF-455F-9E23-6D108DB513E4}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="PackageThreadID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{4CC71859-8D7C-4D2E-B2F4-DC305901DBFB}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="ProjectName">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Thread 6\Loop Packages\Execute Package"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute Package Task from SSISDB"
+              DTS:DTSID="{D08CD8D2-9BB6-40A8-97B8-1C843B1DED2C}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute Package"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="PackageName">@[User::PackageName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <ParameterAssignment>
+                    <ParameterName>LogDetailID</ParameterName>
+                    <BindedVariableOrParameterName>User::LogDetailID</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 6\Loop Packages\LogDetail End"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{94071F06-D00F-4B03-B579-2FC578D683E5}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail End"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="4">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+UPDATE
+	[log].LogDetail
+SET [ExecutionIdInSSISDB] =
+
+		(SELECT TOP 1 [execution_id]
+		FROM [SSISDB].[internal].[executions] WITH (NOLOCK)
+		Where 
+			[package_name]=N'"+ @[User::PackageName] +"'
+			and [project_name]=N'"+ @[User::ProjectName] +"'
+			and [folder_name]=N'"+ @[User::FolderName] +"'
+		order by 
+			[execution_id] desc)
+WHERE
+		LogDetailID = " + (DT_WSTR, 100) @[User::LogDetailID]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;UPDATE&#xA;&#x9;[log].LogDetail&#xA;SET [ExecutionIdInSSISDB] =&#xA;&#xA;&#x9;&#x9;(SELECT TOP 1 [execution_id]&#xA;&#x9;&#x9;FROM [SSISDB].[internal].[executions] WITH (NOLOCK)&#xA;&#x9;&#x9;Where &#xA;&#x9;&#x9;&#x9;[package_name]=N''&#xA;&#x9;&#x9;&#x9;and [project_name]=N''&#xA;&#x9;&#x9;&#x9;and [folder_name]=N''&#xA;&#x9;&#x9;order by &#xA;&#x9;&#x9;&#x9;[execution_id] desc)&#xA;WHERE&#xA;&#x9;&#x9;LogDetailID = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 6\Loop Packages\LogDetail Start"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Initiate new DetailLogID"
+              DTS:DTSID="{ACB99D3E-F0E3-4947-B16D-AAB054F86075}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="LogDetail Start"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="4">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT
+EXEC [log].[LogDetail_Begin]
+@LogID = " + (DT_WSTR, 20) @[User::LogID] + ",
+@PackageName = '" + "/"+@[User::FolderName]+"/"+ @[User::ProjectName]+"/"+ @[User::PackageName]  + "',
+
+@PackageID = " + (DT_WSTR, 20)@[User::PackageID] + ",
+@LogDetailID = @LogDetailID OUTPUT
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="DECLARE @LogDetailID INT&#xA;EXEC [log].[LogDetail_Begin]&#xA;@LogID = 0,&#xA;@PackageName = '///',&#xA;&#xA;@PackageID = 0,&#xA;@LogDetailID = @LogDetailID OUTPUT&#xA;SELECT LogDetailID = @LogDetailID"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="LogDetailID"
+                    SQLTask:DtsVariableName="User::LogDetailID" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Thread 6\Loop Packages\UPDATE ExecutionPlan"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="UPDATE LogDetailID to log LogPackageExecutionPlan"
+              DTS:DTSID="{FC9DDD75-ADC2-448E-8BA9-A56BFCBA953A}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UPDATE ExecutionPlan"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="4">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="UPDATE&#xA; log.LogPackageExecutionPlan&#xA;SET&#xA; LogDetailID = ?&#xA;WHERE&#xA; LogID = ?&#xA; AND PackageID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::LogID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::PackageID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{643F97FC-FA64-44AD-BEEA-FE2B488F7DDD}"
+              DTS:From="Package\Thread 6\Loop Packages\LogDetail Start"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Thread 6\Loop Packages\UPDATE ExecutionPlan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{FD6D8A1B-7510-49D9-B0FA-1B605FC89A66}"
+              DTS:From="Package\Thread 6\Loop Packages\UPDATE ExecutionPlan"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Thread 6\Loop Packages\Execute Package" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{3972FA2A-7EAD-4B25-BED3-BAC0C885EC89}"
+              DTS:From="Package\Thread 6\Loop Packages\Execute Package"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Thread 6\Loop Packages\LogDetail End" />
+          </DTS:PrecedenceConstraints>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Thread 6\Loop Packages.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{CB278654-7B38-4FB8-B909-F6F3147F72B2}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{BB14448B-02F6-4A2B-BD93-5F271C476C23}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Thread 6\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{0483F9B4-B873-4260-A8AF-D73247F00836}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Utility - Update Error"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                      SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="0"
+                        SQLTask:DtsVariableName="User::LogDetailID"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="3"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="1"
+                        SQLTask:DtsVariableName="System::ErrorDescription"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="130"
+                        SQLTask:ParameterSize="4000" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{022396C3-0C9E-4A46-A645-3E4CB2C0E227}"
+              DTS:ObjectName="{6743BB47-1C65-4530-BAB3-B38011EA0959}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::PackageID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{59CA71D7-EB6A-4866-807D-C63D37BA952E}"
+              DTS:ObjectName="{0ED8E577-8C4B-447C-AAE9-84B4BD69E4A4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::PackageName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{54209FAD-26F6-4206-9656-02DCF351FBC0}"
+              DTS:ObjectName="{624B2E23-6462-4320-8C05-C832BA1D36EB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::FolderName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B426B9BA-FC9A-484F-81C0-D35EF459B7C0}"
+              DTS:ObjectName="{23DC25AF-E448-4021-A7AD-0852720D01C4}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::ProjectName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Thread 6.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FC41574C-9047-4D8C-ADA4-9F7F2C25D4B1}"
+          DTS:From="Package\Thread 6\Get Packages"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Thread 6\Loop Packages" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4A7A1B59-6CB8-4F8C-9846-753F3F7CAC60}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Thread 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A94D012D-3FA8-4D78-9E51-3C7A558439C9}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Thread 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{51F027DD-61B9-4D7C-99E0-D2D77C4D62E1}"
+      DTS:From="Package\Thread 4"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\EDW_Utility - Log End" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{64F0D21E-3872-4AFF-B80C-1CAB24EF5B30}"
+      DTS:From="Package\Thread 5"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\EDW_Utility - Log End" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{7BBCC591-B536-4223-9EF8-60C2B4AC88C4}"
+      DTS:From="Package\Thread 6"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\EDW_Utility - Log End" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{BEF7C398-3DDE-44B9-BE0B-6EA266F40B0B}"
+      DTS:From="Package\EDW_Utility - Log Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\EDW_Utility - CreatePackageExecutionPlan" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C253B7EF-5F09-4254-8CEF-401417EA7B01}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Thread 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{742AA6E1-B470-4CE6-B09D-081ED27E6214}"
+      DTS:From="Package\Thread 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\EDW_Utility - Log End" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{A6552A4F-EABA-4FD2-A28F-0A299B2023C3}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Thread 4" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{BBC86532-0E34-46EF-8ECD-AE7664330F0F}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Thread 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{F24EA5D9-F466-4C2C-BE6D-DCBAF9DBF9DF}"
+      DTS:From="Package\EDW_Utility - CreatePackageExecutionPlan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Thread 6" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{2CF4ABB8-3D26-42BE-B790-08F8A7ADE482}"
+      DTS:From="Package\Thread 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\EDW_Utility - Log End" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{31609EF3-5CB6-48DC-A1DD-5792F1696006}"
+      DTS:From="Package\Thread 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\EDW_Utility - Log End" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="280,42"
+          Id="Package\EDW_Utility - CreatePackageExecutionPlan"
+          TopLeft="901.5,211.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\EDW_Utility - Log End"
+          TopLeft="963,1165.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\EDW_Utility - Log Start"
+          TopLeft="947.5,109.5" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 1\Get Packages"
+          TopLeft="5.5,4.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 1\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 1\Loop Packages\LogDetail End"
+          TopLeft="20.5,318.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 1\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 1\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 1\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="90.5,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 1\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 1.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,624"
+          Size="207,668"
+          Id="Package\Thread 1"
+          TopLeft="104.5,311.5" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 2\Get Packages"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 2\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 2\Loop Packages\LogDetail End"
+          TopLeft="17.5,317.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 2\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 2\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 2\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 2\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 2.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,622"
+          Size="207,666"
+          Id="Package\Thread 2"
+          TopLeft="376.5,315.5" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 3\Get Packages"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 3\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 3\Loop Packages\LogDetail End"
+          TopLeft="17.5,317.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 3\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 3\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 3\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 3\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 3.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,622"
+          Size="207,666"
+          Id="Package\Thread 3"
+          TopLeft="646.5,315.833333333333" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 4\Get Packages"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 4\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 4\Loop Packages\LogDetail End"
+          TopLeft="17.5,317.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 4\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 4\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 4\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 4\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 4.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,622"
+          Size="207,666"
+          Id="Package\Thread 4"
+          TopLeft="914.166666666667,317.166666666667" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 5\Get Packages"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 5\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 5\Loop Packages\LogDetail End"
+          TopLeft="17.5,317.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 5\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 5\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 5\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 5\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 5.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,622"
+          Size="207,666"
+          Id="Package\Thread 5"
+          TopLeft="1172.5,313.5" />
+        <NodeLayout
+          Size="196,44"
+          Id="Package\Thread 6\Get Packages"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Thread 6\Loop Packages\Execute Package"
+          TopLeft="19,213.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Thread 6\Loop Packages\LogDetail End"
+          TopLeft="17.5,317.5" />
+        <NodeLayout
+          Size="129,44"
+          Id="Package\Thread 6\Loop Packages\LogDetail Start"
+          TopLeft="24.5,5.5" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Thread 6\Loop Packages\UPDATE ExecutionPlan"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint]"
+          TopLeft="89,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint 1]"
+          TopLeft="89,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Thread 6\Loop Packages.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="178,414"
+          Size="178,458"
+          Id="Package\Thread 6\Loop Packages"
+          TopLeft="14.5,109.5" />
+        <EdgeLayout
+          Id="Package\Thread 6.PrecedenceConstraints[Constraint]"
+          TopLeft="103.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="207,622"
+          Size="207,666"
+          Id="Package\Thread 6"
+          TopLeft="1440.5,313.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="983.214285714286,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-503.214285714286,62"
+              Start="0,0"
+              End="-503.214285714286,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8505154639175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8505154639175"
+                    Point2="0,22.8505154639175"
+                    Point3="-4,22.8505154639175" />
+                  <mssgle:LineSegment
+                    End="-499.214285714286,22.8505154639175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-499.214285714286,22.8505154639175"
+                    Point2="-503.214285714286,22.8505154639175"
+                    Point3="-503.214285714286,26.8505154639175" />
+                  <mssgle:LineSegment
+                    End="-503.214285714286,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1022.07142857143,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-272.071428571429,62.333333333333"
+              Start="0,0"
+              End="-272.071428571429,54.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.8428362573098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.8428362573098"
+                    Point2="0,28.8428362573098"
+                    Point3="-4,28.8428362573098" />
+                  <mssgle:LineSegment
+                    End="-268.071428571429,28.8428362573098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-268.071428571429,28.8428362573098"
+                    Point2="-272.071428571429,28.8428362573098"
+                    Point3="-272.071428571429,32.8428362573098" />
+                  <mssgle:LineSegment
+                    End="-272.071428571429,54.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="1017.66666666667,983.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.333333333333,182.333333333333"
+              Start="0,0"
+              End="49.333333333333,174.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.8504398826978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93.8504398826978"
+                    Point2="0,97.8504398826978"
+                    Point3="4,97.8504398826978" />
+                  <mssgle:LineSegment
+                    End="45.333333333333,97.8504398826978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.333333333333,97.8504398826978"
+                    Point2="49.333333333333,97.8504398826978"
+                    Point3="49.333333333333,101.850439882698" />
+                  <mssgle:LineSegment
+                    End="49.333333333333,174.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="1276,979.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184,186"
+              Start="0,0"
+              End="-184,178.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.969072164948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,112.969072164948"
+                    Point2="0,116.969072164948"
+                    Point3="-4,116.969072164948" />
+                  <mssgle:LineSegment
+                    End="-180,116.969072164948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180,116.969072164948"
+                    Point2="-184,116.969072164948"
+                    Point3="-184,120.969072164948" />
+                  <mssgle:LineSegment
+                    End="-184,178.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="1544,979.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-427,186"
+              Start="0,0"
+              End="-427,178.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.236514522822" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,137.236514522822"
+                    Point2="0,141.236514522822"
+                    Point3="-4,141.236514522822" />
+                  <mssgle:LineSegment
+                    End="-423,141.236514522822" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-423,141.236514522822"
+                    Point2="-427,141.236514522822"
+                    Point3="-427,145.236514522822" />
+                  <mssgle:LineSegment
+                    End="-427,178.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1041.5,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="944.357142857143,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-736.357142857143,58"
+              Start="0,0"
+              End="-736.357142857143,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.59375000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.59375000000001"
+                    Point2="0,13.59375"
+                    Point3="-4,13.59375" />
+                  <mssgle:LineSegment
+                    End="-732.357142857143,13.59375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-732.357142857143,13.59375"
+                    Point2="-736.357142857143,13.59375"
+                    Point3="-736.357142857143,17.59375" />
+                  <mssgle:LineSegment
+                    End="-736.357142857143,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="208,979.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="784,186"
+              Start="0,0"
+              End="784,178.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.236514522822" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,137.236514522822"
+                    Point2="0,141.236514522822"
+                    Point3="4,141.236514522822" />
+                  <mssgle:LineSegment
+                    End="780,141.236514522822" />
+                  <mssgle:CubicBezierSegment
+                    Point1="780,141.236514522822"
+                    Point2="784,141.236514522822"
+                    Point3="784,145.236514522822" />
+                  <mssgle:LineSegment
+                    End="784,178.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1060.92857142857,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.2619047619044,63.666666666667"
+              Start="0,0"
+              End="-43.2619047619044,56.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4597953216376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.4597953216376"
+                    Point2="0,29.4597953216376"
+                    Point3="-4,29.4597953216376" />
+                  <mssgle:LineSegment
+                    End="-39.2619047619044,29.4597953216376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.2619047619044,29.4597953216376"
+                    Point2="-43.2619047619044,29.4597953216376"
+                    Point3="-43.2619047619044,33.4597953216376" />
+                  <mssgle:LineSegment
+                    End="-43.2619047619044,56.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="1099.78571428571,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.214285714286,60"
+              Start="0,0"
+              End="176.214285714286,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1134020618557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1134020618557"
+                    Point2="0,22.1134020618557"
+                    Point3="4,22.1134020618557" />
+                  <mssgle:LineSegment
+                    End="172.214285714286,22.1134020618557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.214285714286,22.1134020618557"
+                    Point2="176.214285714286,22.1134020618557"
+                    Point3="176.214285714286,26.1134020618557" />
+                  <mssgle:LineSegment
+                    End="176.214285714286,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1138.64285714286,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="405.357142857143,60"
+              Start="0,0"
+              End="405.357142857143,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.0625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.0625"
+                    Point2="0,14.0625"
+                    Point3="4,14.0625" />
+                  <mssgle:LineSegment
+                    End="401.357142857143,14.0625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="401.357142857143,14.0625"
+                    Point2="405.357142857143,14.0625"
+                    Point3="405.357142857143,18.0625" />
+                  <mssgle:LineSegment
+                    End="405.357142857143,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="480,981.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="537,184"
+              Start="0,0"
+              End="537,176.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,111.711340206186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,111.711340206186"
+                    Point2="0,115.711340206186"
+                    Point3="4,115.711340206186" />
+                  <mssgle:LineSegment
+                    End="533,115.711340206186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="533,115.711340206186"
+                    Point2="537,115.711340206186"
+                    Point3="537,119.711340206186" />
+                  <mssgle:LineSegment
+                    End="537,176.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="750,981.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="292,183.666666666667"
+              Start="0,0"
+              End="292,176.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.5659824046922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,94.5659824046922"
+                    Point2="0,98.5659824046922"
+                    Point3="4,98.5659824046922" />
+                  <mssgle:LineSegment
+                    End="288,98.5659824046922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="288,98.5659824046922"
+                    Point2="292,98.5659824046922"
+                    Point3="292,102.565982404692" />
+                  <mssgle:LineSegment
+                    End="292,176.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="How it works:&#xA;1. An execution plan is created and placed in log.LogPackageExecutionPlan&#xA;2. Each thread selects packages filtered on ThreadID and executes&#xA;&#xA;How to configure:&#xA;- Allow packages to execute parallel by setting ParallelExecution flag in table setup.Package&#xA;- In setup.Package table it is possible to force use of a specific thread&#xA;- Package variable NoOfThreads defines how many threads are used&#xA;  (defined in package configuration (setup.EDWConfiguration in Utility)&#xA;&#xA;How to add a new thread:&#xA;1. Copy existing thread container&#xA;2. Change variable ThreadID on the new thread container scope"
+          ParentId="Package"
+          Size="475,214"
+          Id="d5ae5ae4-f224-4d7e-8dcb-374715ee0876"
+          TopLeft="120.5,14.4999999999998">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Thread 1\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 1\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="243,104" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Thread 2\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 2\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Thread 3\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 3\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Thread 4\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 4\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Thread 5\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 5\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Thread 6\Loop Packages.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Thread 6\Loop Packages.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

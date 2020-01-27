@@ -1,0 +1,31 @@
+﻿CREATE ROLE [GeneralReportReader]
+    AUTHORIZATION [dbo];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\m88954];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\r37938];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\M88136];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\M87316_ADM];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\M87960];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\M85685];
+
+
+GO
+ALTER ROLE [GeneralReportReader] ADD MEMBER [ACCDOM01\A15559];
+

@@ -1,0 +1,11 @@
+<#@ property name="DestinationConnectionName" type="String" #>
+
+<ExecuteSQL Name="Row Count Before" ForcedExecutionValueDataType="Empty" ConnectionName="<#=DestinationConnectionName#>" ResultSet="SingleRow">
+    <Expressions>
+        <Expression PropertyName="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM " + @[User::DestinationTableSchema] + ".[" + @[User::DestinationTableName] + "]"</Expression>
+    </Expressions>
+    <Results>
+        <Result Name="RowCountBefore" VariableName="User.RowCountBefore" />
+    </Results>
+    <DirectInput>SELECT COUNT(*) AS RowCountBefore FROM [nav].[Customer]</DirectInput>
+</ExecuteSQL>

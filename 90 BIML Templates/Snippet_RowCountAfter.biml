@@ -1,0 +1,11 @@
+<#@ property name="DestinationConnectionName" type="String" #>
+
+<ExecuteSQL Name="Row Count After" ConnectionName="<#=DestinationConnectionName#>" ResultSet="SingleRow">
+	<Expressions>
+		<Expression ExternalProperty="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</Expression>
+	</Expressions>
+	<DirectInput>SELECT COUNT(*) AS RowCountAfter FROM [dbo].[Adresse]</DirectInput>
+	<Results>
+		<Result Name="RowCountAfter" VariableName="User.RowCountAfter" />
+	</Results>
+</ExecuteSQL>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [csv].[RaaKobber] (
+    [KVH_X]    NVARCHAR (200) NULL,
+    [OPERATØR] NVARCHAR (50)  NULL,
+    [PRODUKT]  NVARCHAR (50)  NULL
+);
+

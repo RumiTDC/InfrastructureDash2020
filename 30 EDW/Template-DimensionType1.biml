@@ -1,0 +1,144 @@
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="StageConnectionName" type="String" #>
+<#@ property name="dimension" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="string" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+
+<#
+    string SourceSelect = BIMLExtensions.GetDimensionSourceSelectScript(dimension, BIMLExtensions.GetMetaDataConnectionString(StageConnectionName, ConnectionString_EDW_Utility_ADO), ConnectionString_EDW_Utility_ADO);
+#>
+<!-- Template Dimension Type 1 Start -->
+<Container Name="Load Dimension" ConstraintMode="Linear">
+    <Tasks>
+        <#
+            bool TruncateBeforeLoad = bool.Parse(dimension["TruncateBeforeLoad"].ToString());
+
+            if(TruncateBeforeLoad)
+            {
+        #>
+        <#=CallBimlScript("../90 BIML Templates/Snippet_TruncateTable.biml", DestinationConnectionName)#>
+        <#
+            };//if(TruncateBeforeLoad)
+        #>        
+        <#
+            bool InsertUnknown = bool.Parse(dimension["DimensionInsertUnknown"].ToString());
+
+            if(InsertUnknown)
+            {
+        #>
+		<ExecuteSQL Name="Insert Unknown" ConnectionName="<#=DestinationConnectionName#>">
+			<Expressions>
+				<Expression PropertyName="SqlStatementSource">
+					"EXEC [edw].[InsertUnknownMember] @SchemaName = N'"+ @[User::DestinationTableSchema] + "', @TableName = N'"+ @[User::DestinationTableName] +"'"
+				</Expression>
+			</Expressions>
+			<DirectInput>Select 1</DirectInput>
+		</ExecuteSQL>
+		<#
+            };//if(InsertUnknown)
+		#>
+		<Dataflow Name="Load Dimension" DelayValidation="true" ForcedExecutionValueDataType="Empty">
+			<Expressions>
+				<Expression ExternalProperty="[Surrogate_Key from key store].[SqlCommand]">
+					"SELECT     CAST(SurrogateKey AS BIGINT) AS Surrogate_Key, CAST(DW_BK AS NVARCHAR(400)) AS BusinessKey
+					FROM         dimkey.DimensionKey
+					WHERE     (DimensionTableName = UPPER('"+ @[User::DestinationTableName] +"'))"
+				</Expression>
+			</Expressions>
+            <Transformations>
+				<OleDbSource ConnectionName="<#=StageConnectionName#>" Name="Stage" ValidateExternalMetadata="false">
+				    <DirectInput><#=SourceSelect#></DirectInput>
+					<!--<VariableInput VariableName="User.SourceSqlSelect"></VariableInput>-->
+				</OleDbSource>
+				<#@ include file="../90 BIML Templates/Snippet_RowCountFetch.biml" #>
+				<#
+				    if (string.IsNullOrEmpty(dimension["CustomSourceDimensionSurrogatKeyColumnName"].ToString().Trim()))
+				    {
+				    
+				    string BusinessKeyColumnName = dimension["BusinessKeyColumnName"].ToString().Trim();
+				    string BusinessKey;
+				    BusinessKey = "";
+				    string[] bkSplit;
+				    bkSplit =  BusinessKeyColumnName.Split("||".ToCharArray(),StringSplitOptions.RemoveEmptyEntries);
+			        bool IsFirstBusinessKey = true;
+			
+			   foreach (string bkItem in bkSplit)
+				    {
+				    
+				    if(IsFirstBusinessKey==false)
+				        {
+				          BusinessKey += "+(DT_WSTR,2)(&quot;||&quot;)+";
+				         }
+				        IsFirstBusinessKey=false;
+				        BusinessKey += "(DT_WSTR,130)(" + bkItem.ToString() + ")";
+				    }
+				    
+				    
+				    if (BusinessKey == "") 
+				    { 
+				        BusinessKey = BusinessKeyColumnName;
+				    }
+				    	
+				    
+				    #>
+    				<DerivedColumns Name="SET BusinessKey and DimensionTable for Surrogat Key Lookup">
+    					<Columns>
+    						<Column Name="BusinessKey" DataType="String" Length="400"><#=BusinessKey#></Column>
+    						<Column Name="DimensionTable" DataType="String" Length="50">(DT_WSTR,50)@[User::DestinationTableName]</Column>
+    					</Columns>
+    				</DerivedColumns>
+    				<Lookup Name="Surrogate_Key from key store" CacheMode="Full" OleDbConnectionName="<#=UtilityConnectionName#>" NoMatchBehavior="RedirectRowsToNoMatchOutput">
+    					<DirectInput>
+    							SELECT     CAST(SurrogateKey AS BIGINT) AS Surrogate_Key, CAST(DW_BK AS NVARCHAR(400)) AS BusinessKey
+    						FROM         dimkey.DimensionKey
+    						WHERE     (DimensionTableName = UPPER('Customer'))
+    					</DirectInput>
+    					<Inputs>
+    						<Column SourceColumn="BusinessKey" TargetColumn="BusinessKey" />
+    					</Inputs>
+    					<Outputs>
+    						<Column SourceColumn="Surrogate_Key" TargetColumn="Surrogate_Key" />
+    					</Outputs>
+    				</Lookup>
+    				<DerivedColumns Name="SET Surrogate_Key to -1">
+    					<InputPath OutputPathName="Surrogate_Key from key store.NoMatch" />
+    					<Columns>
+    						<Column Name="Surrogate_Key" DataType="Int64">-1</Column>
+    					</Columns>
+    				</DerivedColumns>
+    				<OleDbCommand Name="Get new Surrogate_Key" ConnectionName="<#=UtilityConnectionName#>">
+    					<InputPath OutputPathName="SET Surrogate_Key to -1.Output" />
+    					<DirectInput>EXEC  [dimkey].[GetSurrogateKey] ?, ?, ? OUTPUT</DirectInput>
+    					<Parameters>
+    						<Parameter SourceColumn="DimensionTable" TargetColumn="@DimensionTableName" />
+    						<Parameter SourceColumn="BusinessKey" TargetColumn="@DW_BK" />
+    						<Parameter SourceColumn="Surrogate_Key" TargetColumn="@SurrogateKey" />
+    					</Parameters>
+    				</OleDbCommand>
+    				<UnionAll Name="UnionAll">
+    					<InputPaths>
+    						<InputPath OutputPathName="Surrogate_Key from key store.Match" />
+    						<InputPath OutputPathName="Get new Surrogate_Key.Output" />
+    					</InputPaths>
+    				</UnionAll>
+    				<DerivedColumns Name="Dimension_Key">
+    					<Columns>
+    						<Column DataType="Int64" Name="<#=dimension["SurrogatKeyColumnName"].ToString().Trim()#>">Surrogate_Key</Column>
+    					</Columns>
+    				</DerivedColumns>
+				    <#
+				    }//if (!string.IsNullOrEmpty(dimension["CustomSourceDimensionSurrogatKeyColumnName"].ToString().Trim()))
+				#>
+                <#@ include file="../90 BIML Templates/Snippet_RowCountInsert.biml" #>
+				<OleDbDestination Name="EDW" ConnectionName="<#=DestinationConnectionName#>" KeepIdentity="false" KeepNulls="false" UseFastLoadIfAvailable="true">
+					<ExternalTableOutput Table="<#=dimension["DestinationSchema"].ToString().Trim()#>.<#=dimension["DestinationTableName"].ToString().Trim()#>"></ExternalTableOutput>
+				</OleDbDestination>
+		    </Transformations>
+		</Dataflow>
+    </Tasks>
+        
+</Container>
+<!-- Template Dimension Type 1 End -->       

@@ -1,0 +1,23 @@
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="stageTable" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="String" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+
+<#
+    string SourceSelect = BIMLExtensions.GetStageSourceSelectScriptNavision(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+#>
+
+<!-- Navision variables begin -->
+<Variable Name="CompaniesToLoop" DataType="Object"></Variable>
+<Variable Name="CompanyID" DataType="Int32">0</Variable>
+<Variable Name="LogDetailCompanyID" DataType="Int32">0</Variable>
+<Variable Name="TimestampMax" DataType="Int64">0</Variable>
+<Variable Name="SourceWHERE" DataType="String" EvaluateAsExpression="true">@[$Project::FullLoad] ? "" : " WHERE cast(timestamp as bigint) > " + (DT_WSTR, 100) @[User::TimestampMax]</Variable>
+<Variable Name="SourceBaseSELECT" DataType="String" EvaluateAsExpression="true"><![CDATA[<#=SourceSelect#>]]></Variable>
+<Variable Name="SourceSqlSelect" DataType="String" EvaluateAsExpression="true">@[User::SourceBaseSELECT] + @[User::SourceWHERE]</Variable>
+<Variable Name="SourceConnectionString" DataType="String"><#=stageTable["NavisionDefaultConnectionString"].ToString()#></Variable>
+<Variable Name="NavSqlPrefix" DataType="String"><#=stageTable["NavisionCompanyPrefix"].ToString()#></Variable>
+<!-- Navision variables end -->

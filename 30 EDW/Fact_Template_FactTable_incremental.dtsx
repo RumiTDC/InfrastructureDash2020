@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{A826C8F3-227E-4F35-ACA4-B360EDAE8187}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Fact_Template_FactTable_incremental"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{F0FC0B96-6ED0-4985-AC2A-3F5369A9C286}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{F7557826-AE77-4662-9B98-C89E67D0ECD1}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42B30CD9-D234-474F-BEC6-02D63FA16003}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">FinanceActual</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3EFC482F-DF4B-4184-AD84-9A93679FBD0D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">dbo</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{24F5AA9F-AD97-4708-990F-DD9C4460B8E3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E944B36-6A03-4B14-8524-82E02B47D653}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DB83D1A-19E3-49D8-95A8-AA0EA281F34E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C832B42D-F1EA-4EDB-96C4-0DE5F6153E72}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountFetch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{394E894A-C39E-4191-83C0-C3ADC15560E2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Build fact incremental"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{13ACA59C-3757-42FC-9441-FF6BF1754349}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build fact incremental">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{FFD1B1D4-F8D4-4BB0-B1DD-16B1504932F9}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="ReportingCurrencyCode">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Build fact incremental\EDW - Trucnate GLEntry_ToUpdate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1C48A5C4-2F52-466D-BBEF-CDA34F9D6208}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW - Trucnate GLEntry_ToUpdate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FinanceActual_ToUpdate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build fact incremental\EDW - Truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{30FB4150-4C8A-4BA0-944E-E0742784B4B4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW - Truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName]  + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[FinanceActual]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build fact incremental\Load Fact"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Loader SalesInvoiced tabellen"
+          DTS:DTSID="{6CBDEFE2-721C-4082-9872-5EAFBA082115}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Fact"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Evaluates and directs rows in a dataset."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input].Columns[EntryNo]"
+                          cachedDataType="i4"
+                          cachedName="EntryNo"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input].Columns[EntryNoMax]"
+                          cachedDataType="i4"
+                          cachedName="EntryNoMax"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[New record]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="New record"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]} &gt; #{Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">EntryNo &gt; EntryNoMax</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Record to update]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Record to update"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\EDW GLEntry"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="EDW GLEntry"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FinanceActual]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Connections[OleDbConnection]"
+                      connectionManagerID="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      connectionManagerRefId="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].Columns[Company_Key]"
+                          cachedDataType="i4"
+                          cachedName="Company_Key"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Company_Key]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].Columns[EntryNo]"
+                          cachedDataType="i4"
+                          cachedName="EntryNo"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].Columns[Timestamp]"
+                          cachedDataType="i4"
+                          cachedName="Timestamp"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Timestamp]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Timestamp]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].Columns[Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Amount]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Company_Key]"
+                          dataType="i4"
+                          name="Company_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                          dataType="i4"
+                          name="EntryNo" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Timestamp]"
+                          dataType="i4"
+                          name="Timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          dataType="r8"
+                          name="Amount" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EDW GLEntry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EDW GLEntry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  localeId="1033"
+                  name="EDW GLEntry_ToUpdate"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FinanceActual_ToUpdate]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Connections[OleDbConnection]"
+                      connectionManagerID="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      connectionManagerRefId="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].Columns[Company_Key]"
+                          cachedDataType="i4"
+                          cachedName="Company_Key"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Company_Key]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          name="Company_Key" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].Columns[EntryNo]"
+                          cachedDataType="i4"
+                          cachedName="EntryNo"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                          name="EntryNo" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].Columns[Timestamp]"
+                          cachedDataType="i4"
+                          cachedName="Timestamp"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Timestamp]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Timestamp]"
+                          name="Timestamp" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].Columns[Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Company_Key]"
+                          dataType="i4"
+                          name="Company_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                          dataType="i4"
+                          name="EntryNo" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Timestamp]"
+                          dataType="i4"
+                          name="Timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          dataType="r8"
+                          name="Amount" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Looks up values in a reference dataset by using exact matching."
+                  name="EntryNoMax and TimestampMax"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+	Company_Key
+	,MAX(EntryNo) AS EntryNoMax
+	,MAX(Timestamp) AS TimestampMax
+FROM
+	dbo.FinanceActual
+GROUP BY
+	Company_Key</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT
+	Company_Key
+	,MAX(EntryNo) AS EntryNoMax
+	,MAX(Timestamp) AS TimestampMax
+FROM
+	dbo.FinanceActual
+GROUP BY
+	Company_Key) [refTable]
+where [refTable].[Company_Key] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Company_Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EntryNoMax" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TimestampMax" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Connections[OleDbConnection]"
+                      connectionManagerID="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      connectionManagerRefId="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input].Columns[Company_Key]"
+                          cachedDataType="i4"
+                          cachedName="Company_Key"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Company_Key</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]"
+                          name="EntryNoMax"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">EntryNoMax</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[TimestampMax]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[TimestampMax]"
+                          name="TimestampMax"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">TimestampMax</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Handle NULL"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="Handle NULL"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input].Columns[EntryNoMax]"
+                          cachedDataType="i4"
+                          cachedName="EntryNoMax"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[EntryNoMax]},0)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(EntryNoMax,0)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input].Columns[TimestampMax]"
+                          cachedDataType="i4"
+                          cachedName="TimestampMax"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[TimestampMax]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output].Columns[TimestampMax]},0)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(TimestampMax,0)</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Handle NULL values"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="Handle NULL values"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL values.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL values.Inputs[Derived Column Input].Columns[Company_Key]"
+                          cachedDataType="i4"
+                          cachedName="Company_Key"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Company_Key,-1)</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Handle NULL values.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Handle NULL values.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Row Count Fetch"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Fetch">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountFetch</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\Row Count Fetch.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Row Count Fetch.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Row Count Fetch.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Row Count Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountInsert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Load Fact\Row Count Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Row Count Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Build fact incremental\Load Fact\Row Count Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage nav GLEntry"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+	COM.Company_Key
+	,GLE.[Entry No_]
+	,GLE.[timestamp]
+	,GLE.Amount
+FROM
+	nav.GLEntry AS GLE
+	INNER JOIN EDW.dbo.Company AS COM
+		ON COM.CompanyID = GLE.CompanyID
+WHERE
+	[timestamp] &gt; (SELECT ISNULL(MAX(timestamp), 0) FROM EDW.dbo.FinanceActual WHERE Company_Key = COM.Company_Key)
+	OR GLE.[Entry No_] &gt; (SELECT ISNULL(MAX(EntryNo), 0) FROM EDW.dbo.FinanceActual WHERE Company_Key = COM.Company_Key)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Connections[OleDbConnection]"
+                      connectionManagerID="{31FAAD41-A53C-40E9-8842-6D52F271CD9A}:invalid"
+                      connectionManagerRefId="{31FAAD41-A53C-40E9-8842-6D52F271CD9A}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                          name="EntryNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Timestamp]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Timestamp]"
+                          name="Timestamp"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Company_Key]"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          name="Company_Key"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                          dataType="i4"
+                          name="Entry No_" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          dataType="i4"
+                          name="timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          dataType="numeric"
+                          name="Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output].ExternalColumns[Company_Key]"
+                          dataType="i4"
+                          name="Company_Key" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Company_Key]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Company_Key]"
+                          name="Company_Key" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                          name="Entry No_" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          name="timestamp" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          dataType="numeric"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          name="Amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Derived Column Output]"
+                  endId="Package\Build fact incremental\Load Fact\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build fact incremental\Load Fact\Handle NULL.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Derived Column Output1]"
+                  endId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build fact incremental\Load Fact\Handle NULL values.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Lookup Match Output]"
+                  endId="Package\Build fact incremental\Load Fact\Handle NULL.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[New record]"
+                  endId="Package\Build fact incremental\Load Fact\Row Count Insert.Inputs[Row Count Input 1]"
+                  name="New record"
+                  startId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[New record]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[OLE DB Source Output]"
+                  endId="Package\Build fact incremental\Load Fact\Row Count Fetch.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Build fact incremental\Load Fact\Stage nav GLEntry.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Record to update]"
+                  endId="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate.Inputs[OLE DB Destination Input]"
+                  name="Record to update"
+                  startId="Package\Build fact incremental\Load Fact\Conditional Split.Outputs[Record to update]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Row Count Output 1]"
+                  endId="Package\Build fact incremental\Load Fact\EDW GLEntry.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Build fact incremental\Load Fact\Row Count Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Build fact incremental\Load Fact.Paths[Row Count Output 11]"
+                  endId="Package\Build fact incremental\Load Fact\Handle NULL values.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Build fact incremental\Load Fact\Row Count Fetch.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build fact incremental\Update Fact"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2C04D4EF-7C4E-413A-AAC5-E5C62743F3FC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Fact"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Build fact incremental\Update Fact\FinanceActual"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Executes an SQL command for each row in a dataset."
+                  name="FinanceActual"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE
+	[dbo].[FinanceActual]
+SET
+	[Timestamp] = ?
+	,[Amount] = ?
+WHERE
+	[Company_Key] = ?
+	AND [EntryNo] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual.Connections[OleDbConnection]"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].Columns[Timestamp]"
+                          cachedDataType="i4"
+                          cachedName="Timestamp"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Timestamp]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].Columns[Amount]"
+                          cachedDataType="r8"
+                          cachedName="Amount"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Amount]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].Columns[Company_Key]"
+                          cachedDataType="i4"
+                          cachedName="Company_Key"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Company_Key]" />
+                        <inputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].Columns[EntryNo]"
+                          cachedDataType="i4"
+                          cachedName="EntryNo"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[EntryNo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="r8"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FinanceActual_ToUpdate"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FinanceActual_ToUpdate]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Connections[OleDbConnection]"
+                      connectionManagerID="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      connectionManagerRefId="{DDF49740-FEFE-4192-A065-BDAAC94D0098}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Company_Key]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Company_Key]"
+                          name="Company_Key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[EntryNo]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                          name="EntryNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Timestamp]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Timestamp]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Timestamp]"
+                          name="Timestamp"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Amount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Company_Key]"
+                          dataType="i4"
+                          name="Company_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[EntryNo]"
+                          dataType="i4"
+                          name="EntryNo" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Timestamp]"
+                          dataType="i4"
+                          name="Timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          dataType="r8"
+                          name="Amount" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Company_Key]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Company_Key]"
+                          name="Company_Key" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[EntryNo]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[EntryNo]"
+                          name="EntryNo" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Timestamp]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Timestamp]"
+                          name="Timestamp" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          dataType="r8"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          name="Amount" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Build fact incremental\Update Fact.Paths[OLE DB Source Output]"
+                  endId="Package\Build fact incremental\Update Fact\FinanceActual.Inputs[OLE DB Command Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build fact incremental.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{25D05AD9-EFBC-4ABF-8329-00EFF4956CF9}"
+          DTS:From="Package\Build fact incremental\EDW - Truncate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Build fact incremental\EDW - Trucnate GLEntry_ToUpdate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build fact incremental.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{165EAD12-6E76-4A8C-B8F3-06E901EBDE89}"
+          DTS:From="Package\Build fact incremental\Load Fact"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Build fact incremental\Update Fact" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build fact incremental.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{AA711421-A53D-4CE0-9C11-CC83CD9E3939}"
+          DTS:From="Package\Build fact incremental\EDW - Trucnate GLEntry_ToUpdate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Build fact incremental\Load Fact" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Build fact incremental.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{CBE6D47B-E202-4D28-A3C5-9FED617AE7C3}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{21301F70-2B4B-4DE3-B279-85AD565D1822}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Build fact incremental.EventHandlers[OnError]\Utility - Update Error"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{37233da8-63bd-4cd5-a748-f73370db2fe9}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Utility - Update Error"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="4000" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6344B472-59A2-4318-BC78-395C32DDDAD9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [dbo].[FinanceActual]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW - Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7F3B0D9D-8D31-46CC-AAA9-606F204EA7A4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW - Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [dbo].[FinanceActual]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{06b44b08-36cf-4b17-9e01-cd3fc0decb58}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Fact_Template_FactTable_incremental'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.41'&#xA;&#x9;,@DestinationTableSchema = 'dbo'&#xA;&#x9;,@DestinationTableName = 'FinanceActual'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4188A108-FA56-4226-A761-1D6ABFD1AFF4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20) @[User::LogDetailID]  + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] +", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert] + ", " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, 0, 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{38770155-846B-4E0B-96D2-39915A2BDDDF}"
+      DTS:From="Package\Build fact incremental"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EDW - Row Count After" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4CB53A0D-FE5E-45DD-85F5-31CB7F1A3CB9}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\EDW - Row Count Before" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9464A3E3-4769-4244-8208-6B6FC4FEF983}"
+      DTS:From="Package\EDW - Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Build fact incremental" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5AB72083-E0E7-4B38-B0FF-62FBDE56A39D}"
+      DTS:From="Package\EDW - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EDW_Utility - Update LogDetail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Build fact incremental\EDW - Trucnate GLEntry_ToUpdate"
+          TopLeft="5.50000000000003,109.5" />
+        <NodeLayout
+          Size="134,44"
+          Id="Package\Build fact incremental\EDW - Truncate"
+          TopLeft="61,5.5" />
+        <NodeLayout
+          Size="105,44"
+          Id="Package\Build fact incremental\Load Fact"
+          TopLeft="75.5,211.5" />
+        <NodeLayout
+          Size="117,44"
+          Id="Package\Build fact incremental\Update Fact"
+          TopLeft="69.5000000000001,315.5" />
+        <EdgeLayout
+          Id="Package\Build fact incremental.PrecedenceConstraints[Constraint]"
+          TopLeft="128,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128,255.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental.PrecedenceConstraints[Constraint 2]"
+          TopLeft="128,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="256,414"
+          Size="256,458"
+          Id="Package\Build fact incremental"
+          TopLeft="156.5,211.5" />
+        <NodeLayout
+          Size="172,44"
+          Id="Package\EDW - Row Count After"
+          TopLeft="198.5,729.5" />
+        <NodeLayout
+          Size="179,44"
+          Id="Package\EDW - Row Count Before"
+          TopLeft="195,107.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\EDW_Utility - Update LogDetail"
+          TopLeft="171.5,833.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="284.5,669.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="284.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="284.5,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="284.5,773.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Build fact incremental.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Build fact incremental.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Build fact incremental\Load Fact">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="148,44"
+          Id="Package\Build fact incremental\Load Fact\Stage nav GLEntry"
+          TopLeft="99.8018867924528,5.5" />
+        <NodeLayout
+          Size="122,44"
+          Id="Package\Build fact incremental\Load Fact\EDW GLEntry"
+          TopLeft="15.9905660377358,577.122641509434" />
+        <NodeLayout
+          Size="212,44"
+          Id="Package\Build fact incremental\Load Fact\EntryNoMax and TimestampMax"
+          TopLeft="67.877358490566,250.481132075472" />
+        <NodeLayout
+          Size="152,44"
+          Id="Package\Build fact incremental\Load Fact\Handle NULL values"
+          TopLeft="97.8018867924528,168.820754716981" />
+        <NodeLayout
+          Size="143,44"
+          Id="Package\Build fact incremental\Load Fact\Row Count Insert"
+          TopLeft="5.5,495.462264150943" />
+        <NodeLayout
+          Size="118,44"
+          Id="Package\Build fact incremental\Load Fact\Handle NULL"
+          TopLeft="114.783018867925,332.141509433962" />
+        <NodeLayout
+          Size="175,44"
+          Id="Package\Build fact incremental\Load Fact\EDW GLEntry_ToUpdate"
+          TopLeft="167.160377358491,495.462264150943" />
+        <NodeLayout
+          Size="134,44"
+          Id="Package\Build fact incremental\Load Fact\Conditional Split"
+          TopLeft="106.820754716981,413.801886792453" />
+        <NodeLayout
+          Size="141,44"
+          Id="Package\Build fact incremental\Load Fact\Row Count Fetch"
+          TopLeft="103.311320754717,87.1603773584906" />
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[OLE DB Source Output]"
+          TopLeft="173.688679245283,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[New record]"
+          TopLeft="152.933962264151,457.72641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-76.0377358490566,37.7358490566038"
+              Start="0,0"
+              End="-76.0377358490566,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-76.0377358490566,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-76.0377358490566,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.5718562057783,23.8679245283018,51.1059765625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Lookup Match Output]"
+          TopLeft="173.688679245283,294.405660377359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566037"
+              Start="0,0"
+              End="0,30.2358490566037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.31323702830187,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Derived Column Output1]"
+          TopLeft="173.688679245283,212.745283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566037"
+              Start="0,0"
+              End="0,30.2358490566037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Derived Column Output]"
+          TopLeft="173.688679245283,376.066037735849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Row Count Output 11]"
+          TopLeft="173.688679245283,131.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Row Count Output 1]"
+          TopLeft="76.8962264150943,539.38679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build fact incremental\Load Fact.Paths[Record to update]"
+          TopLeft="194.443396226415,457.72641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.0754716981132,37.7358490566038"
+              Start="0,0"
+              End="60.0754716981132,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="60.0754716981132,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="60.0754716981132,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.5436118071934,23.8679245283018,77.1626953125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Build fact incremental\Update Fact">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,44"
+          Id="Package\Build fact incremental\Update Fact\FinanceActual_ToUpdate"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="125,44"
+          Id="Package\Build fact incremental\Update Fact\FinanceActual"
+          TopLeft="31.9905660377358,87.1603773584906" />
+        <EdgeLayout
+          Id="Package\Build fact incremental\Update Fact.Paths[OLE DB Source Output]"
+          TopLeft="94.3679245283019,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

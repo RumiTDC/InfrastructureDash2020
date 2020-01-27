@@ -1,0 +1,50 @@
+﻿CREATE TABLE [dbo].[whitelist_trefor_tbl] (
+    [kvhx]                        VARCHAR (17)   NULL,
+    [KOMMUNENR]                   INT            NULL,
+    [VEJKODE]                     FLOAT (53)     NULL,
+    [GADENAVN]                    VARCHAR (40)   NULL,
+    [HUSNUMMER]                   FLOAT (53)     NULL,
+    [HUSBOGSTAV]                  VARCHAR (4)    NULL,
+    [ETAGE]                       VARCHAR (10)   NULL,
+    [SIDE]                        VARCHAR (10)   NULL,
+    [POSTNUMMER]                  INT            NULL,
+    [POSTDISTRIKT]                VARCHAR (40)   NULL,
+    [adgangsadresse_bbrid]        VARCHAR (40)   NULL,
+    [adr_x]                       FLOAT (53)     NULL,
+    [adr_y]                       FLOAT (53)     NULL,
+    [TDC_DIGG]                    SMALLINT       NULL,
+    [IND_EFIB]                    VARCHAR (5)    NULL,
+    [IND_DSC]                     VARCHAR (20)   NULL,
+    [antal_bbr]                   FLOAT (53)     NULL,
+    [digging_length]              NUMERIC (7, 2) NULL,
+    [service_reference]           VARCHAR (1000) NULL,
+    [service_node1]               VARCHAR (20)   NULL,
+    [dslam1]                      NUMERIC (11)   NULL,
+    [service_node2]               VARCHAR (20)   NULL,
+    [dslam2]                      NUMERIC (11)   NULL,
+    [service_node3]               VARCHAR (20)   NULL,
+    [dslam3]                      NUMERIC (11)   NULL,
+    [TECH_TYP]                    VARCHAR (20)   NULL,
+    [flexibility_point]           VARCHAR (30)   NULL,
+    [other_network]               VARCHAR (100)  NULL,
+    [gpon_splitter]               VARCHAR (30)   NULL,
+    [gpon_dslam]                  VARCHAR (100)  NULL,
+    [optisk_krydsfelt]            VARCHAR (30)   NULL,
+    [kapstik_id]                  VARCHAR (500)  NULL,
+    [kapstik_flex_point]          VARCHAR (500)  NULL,
+    [kapstik_service_id]          VARCHAR (1000) NULL,
+    [ejer]                        VARCHAR (40)   NULL,
+    [antal_coax_bb_adr_pr_kvha]   FLOAT (53)     NULL,
+    [antal_coax_stik_adr_pr_kvha] FLOAT (53)     NULL,
+    [coax_tv_kunde]               VARCHAR (20)   NULL,
+    [coax_bb_kunde]               VARCHAR (20)   NULL,
+    [infrastruktur_type]          SMALLINT       NULL,
+    [infrastruktur_tekst]         VARCHAR (50)   NULL,
+    [Logtime]                     DATETIME       CONSTRAINT [whitelist_trefor_tbl_LogtimeDF] DEFAULT (getdate()) NOT NULL
+);
+
+
+GO
+CREATE CLUSTERED INDEX [whitelist_trefor_tblClusteredIndex]
+    ON [dbo].[whitelist_trefor_tbl]([kvhx] ASC) WITH (FILLFACTOR = 90);
+

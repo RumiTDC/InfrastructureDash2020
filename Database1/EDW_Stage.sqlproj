@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>EDW_Stage</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{a1dc814f-bacb-4034-8b98-7f3e185eb2d5}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database1</RootNamespace>
+    <AssemblyName>Database1</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetDatabase>EDW_Stage</TargetDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="utility\" />
+    <Folder Include="utility\Tables\" />
+    <Folder Include="stage\" />
+    <Folder Include="stage\Tables\" />
+    <Folder Include="history_temp\" />
+    <Folder Include="history_temp\Tables\" />
+    <Folder Include="csv\" />
+    <Folder Include="csv\Tables\" />
+    <Folder Include="stage\Views\" />
+    <Folder Include="Outputs\" />
+    <Folder Include="Outputs\Views\" />
+    <Folder Include="csv\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="setup\" />
+    <Folder Include="setup\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="utility\Tables\Calendar.sql" />
+    <Build Include="stage\Tables\YouseeHastigheder.sql" />
+    <Build Include="stage\Tables\Migration.sql" />
+    <Build Include="history_temp\Tables\csv_BredbaandData.sql" />
+    <Build Include="csv\Tables\RaaKobber.sql" />
+    <Build Include="csv\Tables\ServiceProviders.sql" />
+    <Build Include="csv\Tables\TDN_Coax.sql" />
+    <Build Include="csv\Tables\TDN_Fiber.sql" />
+    <Build Include="csv\Tables\PDSKabling.sql" />
+    <Build Include="csv\Tables\KMDData.sql" />
+    <Build Include="csv\Tables\SegmentKvhx.sql" />
+    <Build Include="csv\Tables\CityData.sql" />
+    <Build Include="csv\Tables\MeldteBoliger.sql" />
+    <Build Include="csv\Tables\EniigPostnumre.sql" />
+    <Build Include="csv\Tables\BusinessProduktHastigheder.sql" />
+    <Build Include="csv\Tables\BredbaandData.sql" />
+    <Build Include="csv\Tables\DongOmraade.sql" />
+    <Build Include="csv\Tables\Anlaegsoversigt.sql" />
+    <Build Include="csv\Tables\FastspeedTredjepart.sql" />
+    <Build Include="csv\Tables\BredbaandDataForHistory.sql" />
+    <Build Include="csv\Tables\WLKapgruppe.sql" />
+    <Build Include="csv\Tables\TeliaMarcel.sql" />
+    <Build Include="csv\Tables\Telenor.sql" />
+    <Build Include="csv\Tables\Migration.sql" />
+    <Build Include="csv\Tables\FiberElselskab.sql" />
+    <Build Include="csv\Tables\DSLHastigheder.sql" />
+    <Build Include="csv\Tables\CoaxBlacklist2019.sql" />
+    <Build Include="csv\Tables\TeliaDataBrian.sql" />
+    <Build Include="stage\Views\v_Dim_Operatoer.sql" />
+    <Build Include="stage\Views\v_Dim_TDNCoax.sql" />
+    <Build Include="stage\Views\v_Dim_TDNFiber.sql" />
+    <Build Include="stage\Views\v_Dim_PDS.sql" />
+    <Build Include="stage\Views\v_Dim_Elselskab.sql" />
+    <Build Include="stage\Views\v_Dim_BBRType.sql" />
+    <Build Include="stage\Views\v_Dim_Tredjepartsinfrastruktur.sql" />
+    <Build Include="stage\Views\v_Fact_MeldteBoliger.sql" />
+    <Build Include="stage\Views\v_Dim_Adresse.sql" />
+    <Build Include="stage\Views\v_Dim_Teknologi.sql" />
+    <Build Include="stage\Views\v_Dim_Produkt.sql" />
+    <Build Include="stage\Views\v_Fact_Bredbånd.sql" />
+    <Build Include="stage\Views\v_dim_FromToDateMonth.sql" />
+    <Build Include="stage\Views\v_Dim_Anlægsinformation.sql" />
+    <Build Include="Outputs\Views\TelenorDSLOversigt.sql" />
+    <Build Include="csv\Views\KMDDataView.sql" />
+    <Build Include="csv\Views\KonkFiber.sql" />
+    <Build Include="csv\Views\SegmentData.sql" />
+    <Build Include="csv\Views\BusinessHastigheder.sql" />
+    <Build Include="csv\Views\TeliaCustomer.sql" />
+    <Build Include="csv\Views\v_RaaKobber.sql" />
+    <Build Include="Storage\DATA.sql" />
+    <Build Include="Security\ACCDOM01_m88954.sql" />
+    <Build Include="Security\ACCDOM01_M87316.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\udf_GetSlash.sql" />
+    <Build Include="dbo\Functions\udf_GetNumericsOnly.sql" />
+    <Build Include="dbo\Functions\udf_GetNumeric2.sql" />
+    <Build Include="dbo\Functions\udf_GetNumeric.sql" />
+    <Build Include="dbo\Functions\udf_GetMb.sql" />
+    <Build Include="dbo\Functions\udf_GetKb.sql" />
+    <Build Include="dbo\Functions\udf_GetGb.sql" />
+    <Build Include="dbo\Functions\udf_Get.sql" />
+    <Build Include="dbo\Functions\GenerateDawaKvhxFromKvhx.sql" />
+    <Build Include="dbo\Stored Procedures\Merge_StageToHistory_Incremental.sql" />
+    <Build Include="dbo\Stored Procedures\Merge_StageToHistory.sql" />
+    <Build Include="dbo\Stored Procedures\Merge_Control.sql" />
+    <Build Include="dbo\Stored Procedures\IncrementalMerge.sql" />
+    <Build Include="dbo\Stored Procedures\GetDateForDaniel.sql" />
+    <Build Include="dbo\Stored Procedures\CreateViewCurrentRec.sql" />
+    <Build Include="setup\Stored Procedures\CreateHistTable.sql" />
+    <Build Include="Security\utility.sql" />
+    <Build Include="Security\stage.sql" />
+    <Build Include="Security\setup.sql" />
+    <Build Include="Security\prep.sql" />
+    <Build Include="Security\Outputs.sql" />
+    <Build Include="Security\nav.sql" />
+    <Build Include="Security\history_temp.sql" />
+    <Build Include="Security\geo.sql" />
+    <Build Include="Security\DM.sql" />
+    <Build Include="Security\csv.sql" />
+    <Build Include="Security\agillic.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database2\EDW.sqlproj">
+      <Name>EDW</Name>
+      <Project>{b4e7f615-3dfd-4ce1-80dd-8beef18ccb1f}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>EDW</DatabaseSqlCmdVariable>
+    </ProjectReference>
+    <ProjectReference Include="..\Database3\EDW_Stage_History.sqlproj">
+      <Name>EDW_Stage_History</Name>
+      <Project>{d64ed1e3-d18b-4786-ad91-6f065b85bedc}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>EDW_Stage_History</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="EDW">
+      <DefaultValue>EDW</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="EDW_Stage_History">
+      <DefaultValue>EDW_Stage_History</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2681 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{06B4428D-6D64-4577-9DD1-B193C170F688}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="setup_DynamicsNavCompany"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{1D6AF54D-9D9A-4993-AED3-74043EE1002F}"
+  DTS:VersionMinor="2">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source_Navision]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B30EADEE-43DE-4D9C-A6D0-110D99721BCF}"
+      DTS:ObjectName="Source_Navision">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::SourceConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Demo Database NAV (7-1);Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="BusinessIntelligenceUtilityConnection"
+      DTS:ConfigurationType="2"
+      DTS:ConfigurationVariable="\Package.Connections[Utility].Properties[ConnectionString]"
+      DTS:CreationName=""
+      DTS:DTSID="{66F8AC0D-88B4-4E65-AB4C-EF340040D813}"
+      DTS:ObjectName="Utility connectionString" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;Utility&quot;;&quot;[setup].[EDWConfiguration]&quot;;&quot;NavConnectionStringDefault&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{C849E0E9-7C61-48A7-9C08-8D7ADF350D96}"
+      DTS:ObjectName="Source ConnectionString Default" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;Utility&quot;;&quot;[setup].[EDWConfiguration]&quot;;&quot;NavCompanyPrefixDefault&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{205F0CDE-2AC0-4CE4-995D-9CB079616BD6}"
+      DTS:ObjectName="Nav Sql Prefix Default" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{C1C409A6-86D1-48B2-A3D6-8118325F52CF}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4A8845F6-8720-4D80-8708-D4AC913FD993}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">DynamicsNavCompany</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70E306C0-71CC-423A-BE5D-36C5C162DAF9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">setup</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2C18218F-7064-49AD-8E61-9CEAC00F599C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::LogDetailID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70FBCEBD-5DB5-4563-A0A7-66204056E86F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NavSqlPrefix">
+      <DTS:VariableValue
+        DTS:DataType="8">CRONUS 2009</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BAF91AE4-3663-4D48-9E51-3F03677B6693}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C52D2581-2547-45F3-B393-E13D29AF5E63}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC6779AA-8CD9-4297-BDF6-E0DEC0884703}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=localhost;Initial Catalog=Demo Database NAV (7-1);Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C94F3261-559F-45B3-83F3-D865E3905017}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA;&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'setup_DynamicsNavCompany'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA;&#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.2.44'&#xA;&#x9;,@DestinationTableSchema = 'setup'&#xA;&#x9;,@DestinationTableName = 'DynamicsNavCompany'&#xA;&#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop companies to get currency"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7DF44A67-C89F-4C5F-B2CD-C2DE1D7C3CC5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop companies to get currency">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{1E85B627-E0DC-4497-9D16-CA422522F3D2}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="CompaniesToLoop">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop companies to get currency\Foreach company"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{D2ABD988-9FAC-42F0-A201-83960AB6CFDF}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach company">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{8BACEEEE-590F-4B35-955F-6E78462AECE8}"
+            DTS:ObjectName="{8BACEEEE-590F-4B35-955F-6E78462AECE8}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CompaniesToLoop" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{7DC93FCD-C6C6-4926-B2CB-C1C334C26E16}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="CompanyID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{5473B07C-1EC9-472F-9046-2FFB395C279B}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;SELECT [LCY Code] FROM [dbo].[&quot; + @[User::NavSqlPrefix]  + &quot;$General Ledger Setup] with (NOLOCK)&quot;"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="SourceSqlSelect">
+              <DTS:VariableValue
+                DTS:DataType="8">SELECT [LCY Code] FROM [dbo].[CRONUS 2009$General Ledger Setup] with (NOLOCK)</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{2F16EE87-474C-4589-B1EF-757166546014}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Currency from General Ledger Setup"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="CompanyID"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]"
+                              name="CompanyID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::CompanyID]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::CompanyID]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="General Ledger Setup"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [LCY Code] FROM [dbo].[CRONUS BASIS Regnskab med data$General Ledger Setup] with (NOLOCK)</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SourceSqlSelect</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Source_Navision]"
+                          connectionManagerRefId="Package.ConnectionManagers[Source_Navision]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].Columns[LCY Code]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].ExternalColumns[LCY Code]"
+                              length="10"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].Columns[LCY Code]"
+                              name="LCY Code"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].ExternalColumns[LCY Code]"
+                              dataType="wstr"
+                              length="10"
+                              name="LCY Code" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[LCY Code]"
+                              dataType="wstr"
+                              length="10"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Error Output].Columns[LCY Code]"
+                              name="LCY Code" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="Unicode"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Inputs[Data Conversion Input].Columns[LCY Code]"
+                              cachedDataType="wstr"
+                              cachedLength="10"
+                              cachedName="LCY Code"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].Columns[LCY Code]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Output].Columns[LCY Code]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              length="10"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Output].Columns[LCY Code]"
+                              name="LCY Code"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the input column used as the source of data for the conversion."
+                                  name="SourceInputColumnLineageID">#{Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].Columns[LCY Code]}</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Executes an SQL command for each row in a dataset."
+                      name="UPDATE DynamicsNavCompany"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [setup].[DynamicsNavCompany]
+SET CurrencyCode = ? WHERE DynamicsNavCompanyID = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].Columns[CompanyID]"
+                              cachedDataType="i4"
+                              cachedName="CompanyID"
+                              externalMetadataColumnId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Output].Columns[CompanyID]" />
+                            <inputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].Columns[LCY Code]"
+                              cachedDataType="wstr"
+                              cachedLength="10"
+                              cachedName="LCY Code"
+                              externalMetadataColumnId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output].Columns[LCY Code]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="wstr"
+                              length="10"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="i4"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">17</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[Data Conversion Output]"
+                      endId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany.Inputs[OLE DB Command Input]"
+                      name="Data Conversion Output"
+                      startId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[Derived Column Output]"
+                      endId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode.Inputs[Data Conversion Input]"
+                      name="Derived Column Output"
+                      startId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[OLE DB Source Output]"
+                      endId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID.Inputs[Derived Column Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{737A20FB-2F4D-4610-8180-110704902F09}"
+              DTS:ObjectName="{737A20FB-2F4D-4610-8180-110704902F09}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::SourceConnectionString" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{655050A1-2872-4FC2-955A-7FC8560DDC5F}"
+              DTS:ObjectName="{655050A1-2872-4FC2-955A-7FC8560DDC5F}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::NavSqlPrefix" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{55E1CE4D-75A4-494D-B4EF-AE68B7D05803}"
+              DTS:ObjectName="{55E1CE4D-75A4-494D-B4EF-AE68B7D05803}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CompanyID" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop companies to get currency\Utility - Get companies to loop"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C6E2AE76-BAA6-4965-A3C9-E4BC37375929}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Utility - Get companies to loop"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="EXEC setup.GetDynamicsNavCompanies"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CompaniesToLoop" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop companies to get currency.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FD5D07D7-E7FB-433B-A4F2-FD924E120F65}"
+          DTS:From="Package\Loop companies to get currency\Utility - Get companies to loop"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loop companies to get currency\Foreach company" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop databases to get companies"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0E03517B-2F9E-4BEF-85DB-A10665034E2A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop databases to get companies">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{3A40FA65-55EE-493E-B56C-3643F84364D2}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="SourceDatabases">
+          <DTS:VariableValue
+            DTS:DataSubType="ManagedSerializable"
+            DTS:DataType="13">
+            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <SOAP-ENV:Body>
+                <xsd:anyType
+                  id="ref-1"></xsd:anyType>
+              </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+          </DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop databases to get companies\Loop Dynamics NAV databases"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{C111AE39-63D7-4EF2-8CF3-8FEFEFAD0647}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Dynamics NAV databases">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{C8C48D12-F88C-4E75-BCEC-4B028115E2BC}"
+            DTS:ObjectName="{C8C48D12-F88C-4E75-BCEC-4B028115E2BC}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::SourceDatabases" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{98BB3E3B-5D2C-41BF-A92A-EA8874DA13E9}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="RowCountFetch">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{6BF335ED-9B25-42E5-AC2D-2F7D70A3E8CF}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="RowCountInsert">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{8DA4A715-A736-43ED-B0B2-9F54BCB81CE2}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="User"
+              DTS:ObjectName="SourceDatabaseID">
+              <DTS:VariableValue
+                DTS:DataType="3">0</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{1E07016F-045D-4B65-B0E9-8535FBFED977}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="SourceSqlSelect">
+              <DTS:VariableValue
+                DTS:DataType="8">SELECT XXX</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{DFE4052A-B3D8-4B91-B548-6491AEBF3D95}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Source to Utility"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="Active"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Output].Columns[Active]"
+                              dataType="bool"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Output].Columns[Active]"
+                              name="Active"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression"> TRUE </property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression"> TRUE </property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="CompanyPrefix"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Inputs[Derived Column Input].Columns[Name]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="Name"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output].Columns[CompanyPrefix]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="30"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output].Columns[CompanyPrefix]"
+                              name="CompanyPrefix"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[REPLACE]([REPLACE](#{Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]},"/","_"),".","_")</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">REPLACE(REPLACE(CompanyName,"/","_"),".","_")</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="DynamicsNavDatabaseID"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]"
+                              name="DynamicsNavDatabaseID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::SourceDatabaseID]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::SourceDatabaseID]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="Insert Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[setup].[DynamicsNavCompany]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].Columns[DynamicsNavDatabaseID]"
+                              cachedDataType="i4"
+                              cachedName="DynamicsNavDatabaseID"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DynamicsNavDatabaseID]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]" />
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="Name"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].Columns[CompanyPrefix]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="CompanyPrefix"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyPrefix]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output].Columns[CompanyPrefix]" />
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].Columns[Active]"
+                              cachedDataType="bool"
+                              cachedName="Active"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Output].Columns[Active]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DynamicsNavCompanyID]"
+                              dataType="i4"
+                              name="DynamicsNavCompanyID" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DynamicsNavDatabaseID]"
+                              dataType="i4"
+                              name="DynamicsNavDatabaseID" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                              dataType="wstr"
+                              length="128"
+                              name="CompanyName" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyPrefix]"
+                              dataType="wstr"
+                              length="128"
+                              name="CompanyPrefix" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyCode]"
+                              dataType="wstr"
+                              length="10"
+                              name="CurrencyCode" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                              dataType="bool"
+                              name="Active" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                              dataType="dbTimeStamp2"
+                              name="CreateDate"
+                              scale="7" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [setup].[DynamicsNavCompany]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [setup].[DynamicsNavCompany]) [refTable]
+where [refTable].[CompanyName] = ? and [refTable].[DynamicsNavDatabaseID] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DynamicsNavCompanyID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DynamicsNavDatabaseID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CompanyName" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CompanyPrefix" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyCode" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Active" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreateDate" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]};#{Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input].Columns[Name]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="Name"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CompanyName</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input].Columns[DynamicsNavDatabaseID]"
+                              cachedDataType="i4"
+                              cachedName="DynamicsNavDatabaseID"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">DynamicsNavDatabaseID</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command"
+                      componentClassID="Microsoft.OLEDBCommand"
+                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                      name="OLE DB Command"
+                      usesDispositions="true"
+                      version="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [setup].[DynamicsNavCompany] SET [CompanyPrefix] = ? WHERE [CompanyName] = ? AND [DynamicsNavDatabaseID] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input]"
+                          errorOrTruncationOperation="Command Execution"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Command Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].Columns[CompanyPrefix]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="CompanyPrefix"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output].Columns[CompanyPrefix]" />
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].Columns[Name]"
+                              cachedDataType="wstr"
+                              cachedLength="30"
+                              cachedName="Name"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                            <inputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].Columns[DynamicsNavDatabaseID]"
+                              cachedDataType="i4"
+                              cachedName="DynamicsNavDatabaseID"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output].Columns[DynamicsNavDatabaseID]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                              dataType="wstr"
+                              length="128"
+                              name="Param_0">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                              dataType="wstr"
+                              length="128"
+                              name="Param_1">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                              dataType="i4"
+                              name="Param_2">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                                  name="DBParamInfoFlags">65</property>
+                              </properties>
+                            </externalMetadataColumn>
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Output]"
+                          exclusionGroup="1"
+                          name="OLE DB Command Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Command Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts the rows in a dataset."
+                      name="Row Count Fetch">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::RowCountFetch</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert"
+                      componentClassID="Microsoft.RowCount"
+                      contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Counts the rows in a dataset."
+                      localeId="1033"
+                      name="Row Count Insert">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable to hold the row count."
+                          name="VariableName">User::RowCountInsert</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert.Inputs[Row Count Input 1]"
+                          hasSideEffects="true"
+                          name="Row Count Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert.Outputs[Row Count Output 1]"
+                          name="Row Count Output 1"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert.Inputs[Row Count Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="Source"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[Company]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Name AS CompanyName FROM Company</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Source_Navision]"
+                          connectionManagerRefId="Package.ConnectionManagers[Source_Navision]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                              dataType="bytes"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                              length="8"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                              name="timestamp"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                              length="30"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].Columns[Name]"
+                              name="Name"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                              dataType="bytes"
+                              length="8"
+                              name="timestamp" />
+                            <externalMetadataColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                              dataType="wstr"
+                              length="30"
+                              name="Name" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                              dataType="bytes"
+                              length="8"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                              name="timestamp" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                              dataType="wstr"
+                              length="30"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                              name="Name" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode"
+                      componentClassID="Microsoft.DataConvert"
+                      contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Data Conversion"
+                      name="Unicode"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Inputs[Data Conversion Input]"
+                          name="Data Conversion Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Output]"
+                          exclusionGroup="1"
+                          name="Data Conversion Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Inputs[Data Conversion Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Data Conversion Error Output"
+                          synchronousInputId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Inputs[Data Conversion Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Data Conversion Output]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert.Inputs[Row Count Input 1]"
+                      name="Data Conversion Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Outputs[Data Conversion Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode.Inputs[Data Conversion Input]"
+                      name="Derived Column Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output1]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Inputs[Derived Column Input]"
+                      name="Derived Column Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output2]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active.Inputs[Derived Column Input]"
+                      name="Derived Column Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Lookup Match Output]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command.Inputs[OLE DB Command Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Lookup No Match Output]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination.Inputs[OLE DB Destination Input]"
+                      name="Lookup No Match Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[OLE DB Source Output]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch.Inputs[Row Count Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Row Count Output 1]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID.Inputs[Derived Column Input]"
+                      name="Row Count Output 1"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch.Outputs[Row Count Output 1]" />
+                    <path
+                      refId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Row Count Output 11]"
+                      endId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup.Inputs[Lookup Input]"
+                      name="Row Count Output 1"
+                      startId="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert.Outputs[Row Count Output 1]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B81A8806-8567-4030-BB60-9EF6E0030AB7}"
+              DTS:ObjectName="{B81A8806-8567-4030-BB60-9EF6E0030AB7}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::SourceDatabaseID" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5399507D-0A65-49E9-A90D-3E8286A9D9E4}"
+              DTS:ObjectName="{5399507D-0A65-49E9-A90D-3E8286A9D9E4}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::SourceConnectionString" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop databases to get companies\SET DynamicsNavCompany false"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{839664BB-CE65-424A-AD93-91854D04C325}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SET DynamicsNavCompany false"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="UPDATE setup.DynamicsNavCompany SET Active = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop databases to get companies\Utility - Get companies to loop"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2E009891-D1EF-40F7-83BC-BC604E0BFE05}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Utility - Get companies to loop"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+              SQLTask:SqlStatementSource="SELECT&#xA;&#x9;[DynamicsNavDatabaseID]&#xA;&#x9;, 'Data Source=' + [DatabaseServer] + ';Initial Catalog=' + [DatabaseName] + ';Provider=SQLNCLI11.1;Integrated Security=SSPI;' AS ConnectionString&#xA;FROM&#xA;&#x9;[setup].[DynamicsNavDatabase]"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::SourceDatabases" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop databases to get companies.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0B3BEF67-5E66-4E33-8B34-6708D4934376}"
+          DTS:From="Package\Loop databases to get companies\Utility - Get companies to loop"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Loop databases to get companies\Loop Dynamics NAV databases" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop databases to get companies.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4D27B4A4-8D53-417D-8372-13584ECE1A49}"
+          DTS:From="Package\Loop databases to get companies\SET DynamicsNavCompany false"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Loop databases to get companies\Loop Dynamics NAV databases" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stage - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{65AA21F6-235F-498B-9BAB-C3F347D0D444}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stage - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [setup].[DynamicsNavCompany]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stage - Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{52ED0CD6-8D3F-4877-BBF2-2F4FE457988E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stage - Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [setup].[DynamicsNavCompany]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A3B66B89-63C9-4E9D-8E62-21275D73F939}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20)@[User::LogDetailID] + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] + ", NULL, NULL, " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, NULL, NULL, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2A0A252-89EF-4953-8E76-B2ACD981033B}"
+      DTS:From="Package\Stage - Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loop databases to get companies" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AFD00536-EAE9-4AE0-A1BD-6F2740C3D415}"
+      DTS:From="Package\Loop databases to get companies"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loop companies to get currency" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D72ABB34-7662-47CE-BDC0-E10027C81FDC}"
+      DTS:From="Package\Loop companies to get currency"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Stage - Row Count After" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B089536F-5E6E-4C74-8B96-81BBA5C2769C}"
+      DTS:From="Package\LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Stage - Row Count Before" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B6CF0B0C-82EE-4C91-9983-6746853133C0}"
+      DTS:From="Package\Stage - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Utility - Update LogDetail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="492,42"
+          Id="Package\LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="13.5,32.198113207547" />
+        <NodeLayout
+          Size="272,44"
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup"
+          TopLeft="7.54716981132074,8.47169811320748" />
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="287,59"
+          Size="287,103"
+          Id="Package\Loop companies to get currency\Foreach company"
+          TopLeft="7.58490566037736,90.1320754716982" />
+        <NodeLayout
+          Size="201,44"
+          Id="Package\Loop companies to get currency\Utility - Get companies to loop"
+          TopLeft="50.5660377358491,8.47169811320754" />
+        <EdgeLayout
+          Id="Package\Loop companies to get currency.PrecedenceConstraints[Constraint]"
+          TopLeft="150.905660377358,52.3962264150944">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="302,200"
+          Size="302,244"
+          Id="Package\Loop companies to get currency"
+          TopLeft="93.1981132075472,465.179245283019" />
+        <NodeLayout
+          Size="134,44"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility"
+          TopLeft="7.54716981132074,8.47169811320754" />
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="150,59"
+          Size="149,103"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases"
+          TopLeft="39.9622641509434,90.1320754716981" />
+        <NodeLayout
+          Size="214,44"
+          Id="Package\Loop databases to get companies\SET DynamicsNavCompany false"
+          TopLeft="7.54716981132074,8.47169811320754" />
+        <NodeLayout
+          Size="201,44"
+          Id="Package\Loop databases to get companies\Utility - Get companies to loop"
+          TopLeft="241.018867924528,8.47169811320754" />
+        <EdgeLayout
+          Id="Package\Loop databases to get companies.PrecedenceConstraints[Constraint 1]"
+          TopLeft="341.358490566038,52.3962264150944">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.22641509434,37.7358490566037"
+              Start="0,0"
+              End="-206.22641509434,30.2358490566037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-206.22641509434,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-206.22641509434,30.2358490566037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies.PrecedenceConstraints[Constraint 3]"
+          TopLeft="114.377358490566,52.3962264150944">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.7547169811321,37.7358490566037"
+              Start="0,0"
+              End="-20.7547169811321,30.2358490566037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-20.7547169811321,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="-20.7547169811321,30.2358490566037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="449,200"
+          Size="449,244"
+          Id="Package\Loop databases to get companies"
+          TopLeft="19.5,183.820754716981" />
+        <NodeLayout
+          Size="177,44"
+          Id="Package\Stage - Row Count After"
+          TopLeft="155.764150943396,746.537735849057" />
+        <NodeLayout
+          Size="184,44"
+          Id="Package\Stage - Row Count Before"
+          TopLeft="152.254716981132,102.160377358491" />
+        <NodeLayout
+          Size="177,44"
+          Id="Package\Utility - Update LogDetail"
+          TopLeft="155.764150943396,828.198113207547" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="244.127358490566,146.160377358491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.6603773584904"
+              Start="0,0"
+              End="0,30.1603773584904">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1603773584904" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="244.099056603774,427.820754716981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.358490566038"
+              Start="0,0"
+              End="0,29.858490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.858490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="244.066037735849,708.801886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.0377358490566024,37.7358490566038"
+              Start="0,0"
+              End="0.0377358490566024,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="0.0377358490566024,18.8679245283018" />
+                  <mssgle:LineSegment
+                    End="0.0377358490566024,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="259.5,74.198113207547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.245283018868,27.9622641509437"
+              Start="0,0"
+              End="-15.245283018868,20.4622641509437">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.98113207547183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.98113207547183"
+                    Point2="0,13.9811320754718"
+                    Point3="-4,13.9811320754718" />
+                  <mssgle:LineSegment
+                    End="-11.245283018868,13.9811320754718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.245283018868,13.9811320754718"
+                    Point2="-15.245283018868,13.9811320754718"
+                    Point3="-15.245283018868,17.9811320754718" />
+                  <mssgle:LineSegment
+                    End="-15.245283018868,20.4622641509437" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="244.103773584906,790.462264150943">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\UPDATE DynamicsNavCompany"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup"
+          TopLeft="29,5.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\CompanyID"
+          TopLeft="52.5,107.5" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\Unicode"
+          TopLeft="61,209.5" />
+        <EdgeLayout
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[Data Conversion Output]"
+          TopLeft="120,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[OLE DB Source Output]"
+          TopLeft="120,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup.Paths[Derived Column Output]"
+          TopLeft="120,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop companies to get currency\Foreach company\Update Currency from General Ledger Setup\General Ledger Setup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\OLE DB Command"
+          TopLeft="239,821.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination"
+          TopLeft="5.5,821.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\CompanyPrefix"
+          TopLeft="252,311.5" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source"
+          TopLeft="271,5.5" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup"
+          TopLeft="293.75,696.75" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Unicode"
+          TopLeft="268,515.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Insert"
+          TopLeft="246,617.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\DynamicsNavDatabaseID"
+          TopLeft="228,209.5" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Active"
+          TopLeft="273,413.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Row Count Fetch"
+          TopLeft="247,107.5" />
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Row Count Output 11]"
+          TopLeft="327,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.25,37.25"
+              Start="0,0"
+              End="23.25,29.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.625"
+                    Point2="0,18.625"
+                    Point3="4,18.625" />
+                  <mssgle:LineSegment
+                    End="19.25,18.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.25,18.625"
+                    Point2="23.25,18.625"
+                    Point3="23.25,22.625" />
+                  <mssgle:LineSegment
+                    End="23.25,29.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Row Count Output 1]"
+          TopLeft="327,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[OLE DB Source Output]"
+          TopLeft="327,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Lookup No Match Output]"
+          TopLeft="308.75,738.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-221.25,82.75"
+              Start="0,0"
+              End="-221.25,75.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.375"
+                    Point2="0,41.375"
+                    Point3="-4,41.375" />
+                  <mssgle:LineSegment
+                    End="-217.25,41.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-217.25,41.375"
+                    Point2="-221.25,41.375"
+                    Point3="-221.25,45.375" />
+                  <mssgle:LineSegment
+                    End="-221.25,75.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-166.43138671875,46.375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Lookup Match Output]"
+          TopLeft="367.75,738.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.25,82.75"
+              Start="0,0"
+              End="-45.25,75.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7931937172775" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.7931937172775"
+                    Point2="0,33.7931937172775"
+                    Point3="-4,33.7931937172775" />
+                  <mssgle:LineSegment
+                    End="-41.25,33.7931937172775" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.25,33.7931937172775"
+                    Point2="-45.25,33.7931937172775"
+                    Point3="-45.25,37.7931937172775" />
+                  <mssgle:LineSegment
+                    End="-45.25,75.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.81638671875,38.7931937172775,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output2]"
+          TopLeft="327,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output1]"
+          TopLeft="327,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Derived Column Output]"
+          TopLeft="327,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility.Paths[Data Conversion Output]"
+          TopLeft="327,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop databases to get companies\Loop Dynamics NAV databases\Source to Utility\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[setup].[DynamicsNavCompany]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

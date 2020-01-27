@@ -1,0 +1,100 @@
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="stageTable" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="String" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+
+<!--Navision template begin-->
+<Container ConstraintMode="Linear" Name="Pre Stage">
+	<Tasks>
+	    <#=CallBimlScript("../90 BIML Templates/Snippet_TruncateTable.biml", DestinationConnectionName)#>
+		<ExecuteSQL Name="Utility - Get companies to loop" ResultSet="Full" ConnectionName="<#=UtilityConnectionName#>">
+			<DirectInput>EXEC setup.GetDynamicsNavCompanies</DirectInput>
+			<Results>
+				<Result Name="0" VariableName="User.CompaniesToLoop"></Result>
+			</Results>
+		</ExecuteSQL>
+	</Tasks>
+</Container>
+
+
+			<ForEachAdoLoop Name="Loop Companies" EnumerationMode="EnumerateRowsInFirstTable" ConstraintMode="Linear" SourceVariableName="User.CompaniesToLoop">
+
+					<VariableMappings>
+						<VariableMapping Name="1" VariableName="User.SourceConnectionString"></VariableMapping>
+            <VariableMapping Name="2" VariableName="User.NavSqlPrefix"></VariableMapping>
+						<VariableMapping Name="0" VariableName="User.CompanyID"></VariableMapping>
+					</VariableMappings>
+					<Tasks>
+            <ExecuteSQL Name="LogDetailCompany Start" ResultSet="SingleRow" ConnectionName="<#=UtilityConnectionName#>">
+              <DirectInput>EXEC [log].[LogDetailCompany_Begin] 0, 0</DirectInput>
+              <Results>
+                <Result Name="0" VariableName="User.LogDetailCompanyID"></Result>
+              </Results>
+              <Expressions>
+                <Expression ExternalProperty="SqlStatementSource">"EXEC [log].[LogDetailCompany_Begin] " + (DT_WSTR, 20)@[User::LogDetailID] + ", " +  (DT_WSTR, 20)@[User::CompanyID]</Expression>
+              </Expressions>
+            </ExecuteSQL>
+
+            <Dataflow Name="Source to Stage">
+							<Transformations>
+								<OleDbSource ConnectionName="<#=stageTable["SourceConnectionName"].ToString()#>" Name="<#=stageTable["DataFLowSourceName"].ToString()#>" ValidateExternalMetadata="false">
+									<VariableInput VariableName="User.SourceSqlSelect"></VariableInput>
+								</OleDbSource>
+								<#@ include file="../90 BIML Templates/Snippet_RowCountFetch.biml" #>
+
+                                <#
+                                if(Convert.ToBoolean(stageTable["TrimChars"].ToString()))
+                                {
+                                    string SourceConnectionString = BIMLExtensions.GetMetaDataConnectionString(stageTable["SourceConnectionNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO);
+                                    string NavisionTableName = stageTable["NavisionCompanyPrefix"].ToString() + "$" + stageTable["SourceTableNameUnsafe"].ToString();
+                                    //DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), NavisionTableName, SourceConnectionString, stageTable["ConnectionId"].ToString());
+                                    // Todo Make connectionstring dynamic
+                                    DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), stageTable["SourceTableNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                                    DataTable DataTypeConversions = BIMLExtensions.GetDataTypeConversions(ConnectionString_EDW_Utility_ADO, stageTable["DataConversionType"].ToString());
+                                    #>
+    								<DerivedColumns Name="TrimChars">
+    									<Columns>
+                                    
+                                    <#
+                                    foreach(DataRow charColumn in CharColumns.Rows)
+                                    {
+                                        string CharLength = charColumn["CHARACTER_MAXIMUM_LENGTH"].ToString();
+                                         //  ValidationReporter.Report(Severity.Error, charColumn["DATA_TYPE"].ToString());
+                                    #> 
+    										<Column Name="<#=charColumn["COLUMN_NAME"].ToString()#>" ReplaceExisting="true" Length="<#=CharLength#>" DataType="<#=BIMLExtensions.GetDataType(DataTypeConversions, charColumn, "BIMLDataType")#>">TRIM([<#=charColumn["COLUMN_NAME"].ToString()#>])</Column>
+                                    <#
+                                    }
+                                    #>
+    									</Columns>
+    								</DerivedColumns>
+                                    <#
+                                }
+                                #>
+				                
+
+								<DerivedColumns Name="CompanyID">
+									<Columns>
+										<Column Name="CompanyID" DataType="Int32" >@[User::CompanyID]</Column>
+									</Columns>
+								</DerivedColumns>
+								<#@ include file="../90 BIML Templates/Snippet_RowCountInsert.biml" #>
+
+								<OleDbDestination Name="Stage" ConnectionName="<#=DestinationConnectionName#>" KeepIdentity="false" KeepNulls="false" UseFastLoadIfAvailable="true">
+									<ExternalTableOutput Table="<#=stageTable["DestinationSchema"].ToString()#>.<#=stageTable["DestinationTableName"].ToString()#>"></ExternalTableOutput>
+								</OleDbDestination>
+							</Transformations>
+						</Dataflow>
+            <ExecuteSQL Name="LogDetailCompany End" ResultSet="None" ConnectionName="<#=UtilityConnectionName#>">
+              <DirectInput>EXEC [log].[LogDetailCompany_End] 0, 0, 0</DirectInput>
+              <Expressions>
+                <Expression ExternalProperty="SqlStatementSource">"EXEC [log].[LogDetailCompany_End] " + (DT_WSTR, 20)@[User::LogDetailCompanyID] + ", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert]</Expression>
+              </Expressions>
+            </ExecuteSQL>
+
+          </Tasks>
+		</ForEachAdoLoop>
+
+<!--Navision template end-->

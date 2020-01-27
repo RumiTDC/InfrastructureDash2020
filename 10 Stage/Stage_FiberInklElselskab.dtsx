@@ -1,0 +1,3123 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{C8794274-E305-4979-8F39-9E4175DE139F}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_FiberInklElselskab"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{333E4002-73EE-490F-AB17-E7B2F3B30568}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Eniig Postnumre]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{800C7054-557C-4900-B2EE-29D2249E46DE}"
+      DTS:ObjectName="Eniig Postnumre">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1030"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="F:\Eksempeldata\Eniig Postnumre.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Postnummer"
+              DTS:DTSID="{BFDD080E-C0C0-4DF1-8E1D-2F8BE3226753}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Elselskab"
+              DTS:DTSID="{01A5822F-DC39-4E27-B8F1-31C2F7C4C273}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Fiber_Elselskab]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B36F573C-87E6-4F33-9DCB-907E57E92AE2}"
+      DTS:ObjectName="Fiber_Elselskab">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1030"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\file01\NetCo_BI\Import\BI\Fiber_inkl_elselskab_top10000_test.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="El_selskab_Utility_data"
+              DTS:DTSID="{D1015979-2227-4AFE-9BF6-2FC2FD123744}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KVHX"
+              DTS:DTSID="{8B725C92-6984-4B4A-9E3B-AB792C7FC7FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Altibox"
+              DTS:DTSID="{4B72FD38-6294-4B71-84F1-8E0B94066A6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Andels_net"
+              DTS:DTSID="{DA8E272B-9913-428C-A8AB-EBB6F9EE9538}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Antenneforeningen_Vejen"
+              DTS:DTSID="{3398907D-05E8-4469-B771-EB95A82273E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Bolig_net"
+              DTS:DTSID="{C6E441F3-2B8D-4B79-8497-8B826A0315D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Bolignet_Aarhus"
+              DTS:DTSID="{715FE10C-5872-4584-BD32-42C1439BC617}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Cirque"
+              DTS:DTSID="{0DC537B3-F075-4BFF-88C0-A0D06B1827A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Colt_Technology_Services"
+              DTS:DTSID="{E1555FC6-C03D-4918-88D3-26FAB8125A28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_ComX_Networks"
+              DTS:DTSID="{B04B870A-2EE9-4AA2-A2A9-5DEC6C866AF1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Connect_me"
+              DTS:DTSID="{17A79C9A-D01A-4066-A7C0-6AF2425A6CF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Dansk_Kabel_TV"
+              DTS:DTSID="{D1FED4A2-7219-48F9-9DC8-8CD03A0BC953}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Dansk_Net"
+              DTS:DTSID="{F79764E9-B9B1-4970-A81C-EC5B888E195E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Fiberby"
+              DTS:DTSID="{CDA3AABB-898E-4C03-9910-E55A40A37DDD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Flexfone"
+              DTS:DTSID="{0988A180-DD13-429E-8A26-652F16C60521}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Gigabit"
+              DTS:DTSID="{EBEBBD66-970E-4C9F-9115-AB678BC42BEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_GlobalConnect"
+              DTS:DTSID="{54F7A619-E4DD-44A1-9F49-2911C4A29F31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Info_Connect"
+              DTS:DTSID="{623310D9-2370-416F-A09C-B8F5EA0E4E06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_IP_Group"
+              DTS:DTSID="{545296E6-30C8-40FA-9C03-AE8BA5F02A67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_ipvision"
+              DTS:DTSID="{8FA30AC6-E21E-452E-B71F-F25CEFAC3EDE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_It_Lauget_Parknet"
+              DTS:DTSID="{DBDA4C00-3B5E-4FAB-843A-0B1A274809C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Jaynet"
+              DTS:DTSID="{1770AE0D-D507-40C0-B19F-152D67BE8D8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Netgroup"
+              DTS:DTSID="{C655AA43-2C85-406E-8AA4-7900A15D8967}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Nianet"
+              DTS:DTSID="{47E00FB3-8C1E-4531-91A2-CCBF23C424F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Perspektiv_Bredband"
+              DTS:DTSID="{925A4CC9-6EA4-40EC-A6C0-F97A17E6EC7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Sagitta"
+              DTS:DTSID="{F2E15C1A-610C-49F7-A4E7-092BA00BB2E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Stofa_fiber"
+              DTS:DTSID="{05D204A9-9E0D-48A8-8FA7-D6833187A175}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_TDC"
+              DTS:DTSID="{5A67A3D5-3CA1-4328-87A5-902A475A864F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Telenor"
+              DTS:DTSID="{C15E01B4-A6F3-48F3-88B2-34156AD0E7EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Telia"
+              DTS:DTSID="{B7665735-B534-42B8-941E-34074C810DD2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Waoo_"
+              DTS:DTSID="{35753EF2-E375-4E0C-A1C2-596AE828D4F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_ZebNET"
+              DTS:DTSID="{CB428B37-21D5-4FD3-A112-0183CF65153F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TDN_Zen_Systems"
+              DTS:DTSID="{2AAFBA53-0E96-4707-8B26-07740A54B7E4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TestCsv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{53912C0E-C2DA-44A7-88B2-84AC20EDC236}"
+      DTS:ObjectName="TestCsv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1030"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="F:\Eksempeldata\Testdata.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{20124084-A3FF-4913-B3D5-7E9A497B69C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dato"
+              DTS:DTSID="{D238752F-166D-4E52-9069-0DE14D98B770}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{96E478B3-F27F-4C15-9C5E-6E9F8AA12700}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Køb"
+              DTS:DTSID="{2043D1A2-E00B-43F8-A97A-4944AC152C16}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{5381A06D-4994-4660-B30F-D49FD199D22E}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6F524339-B06B-4B4C-B722-FC0E9BDDFCD3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">FiberElselskab</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7CC06A1B-94E1-48CF-95C4-F0F3BDCDE1AB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE922780-59B6-42B4-A6DA-E03CEAEEFDF2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="HistoryDatabase">
+      <DTS:VariableValue
+        DTS:DataType="8">EDW_Stage_History</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12FF9603-E15A-4CC0-91D8-742D0356C058}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="HistoryPrefix_Enabled">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A9B81D0-AA1F-46D6-AB88-54B6514110F8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CD8198B2-32CF-447F-A158-D761E9CC8698}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0BB129ED-4EE7-4C92-89E2-256BF0879731}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{64FCBF1F-7E64-4BDA-AF48-A42ABE0B9C64}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1FDE31F5-75F7-4470-A5C9-AC2369DCB97E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountFetch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F570E2B6-5591-442B-AC6B-283438F7B35A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Stage - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8D4E5082-7E8B-4A22-971C-68F7AED8D941}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Stage - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [csv].[FiberElselskab]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Stage - Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{252D4A68-5BA7-416F-83E9-81E72AFC26A3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Stage - Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [csv].[FiberElselskab]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ABA7D98D-3F56-4EA8-8749-8B852D335BAA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Stage_FiberInklElselskab'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.87'&#xA;&#x9;,@DestinationTableSchema = 'csv'&#xA;&#x9;,@DestinationTableName = 'FiberElselskab'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogIDPackage"
+            SQLTask:DtsVariableName="User::LogID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2ADCCBA9-3AF5-4EBA-8A54-B5521908DCFD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20) @[User::LogDetailID]  + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] +", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert] + ", " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, 0, 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\staging"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8637FE51-CF6F-400D-ABA8-D4948FD4D659}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="staging">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\staging\EDW_Stage - Truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CF026BD7-CA96-4E8D-9B79-DA0201E3A24B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW_Stage - Truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName]  + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [csv].[FiberElselskab]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\staging\Merge to History"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="OBS: SQL Statement er sat i Expression som benytter Variablerne DestinationTableName, DestinationTableSchema, HistroyDatabase og HistoryPrefix_Enabled"
+          DTS:Disabled="True"
+          DTS:DTSID="{30C74A28-24A6-4E10-B8B6-6C76AE7D96C0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge to History"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::LogID] == 0 ?
+"
+DECLARE @LogID varchar(20) = (SELECT LogID FROM EDW_Utility.log.LogDetail WHERE LogDetailID = "+ (DT_WSTR,20)@[User::LogDetailID] +")
+EXECUTE [dbo].[Merge_StageToHistory] 
+   @TableName = '"+ @[User::DestinationTableName] +"'
+  ,@Schema = '"+ @[User::DestinationTableSchema] +"'
+  ,@LogID = @LogID ,@DestinationDatabase = '"+ @[User::HistoryDatabase] +"' 
+,@HistoryPrefix_Enabled = "+(DT_WSTR,20) @[User::HistoryPrefix_Enabled]
+:
+"EXECUTE [dbo].[Merge_StageToHistory] 
+   @TableName = '"+ @[User::DestinationTableName] +"'
+  ,@Schema = '"+ @[User::DestinationTableSchema] +"'
+  ,@LogID = '"+ (DT_WSTR,20)@[User::LogID] +"'
+  ,@DestinationDatabase = '"+ @[User::HistoryDatabase] +"' 
+,@HistoryPrefix_Enabled = "+(DT_WSTR,20) @[User::HistoryPrefix_Enabled]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @LogID varchar(20) = (SELECT LogID FROM EDW_Utility.log.LogDetail WHERE LogDetailID = 0)&#xA;EXECUTE [dbo].[Merge_StageToHistory] &#xA;   @TableName = 'FiberElselskab'&#xA;  ,@Schema = 'csv'&#xA;  ,@LogID = @LogID ,@DestinationDatabase = 'EDW_Stage_History' &#xA;,@HistoryPrefix_Enabled = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\staging\Source to Stage"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CA162FFB-6597-42CC-B76E-297BC1EF73BF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Source to Stage"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Convert date 01-01-1753 to null"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\csv FiberElselskab"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="csv FiberElselskab"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[csv].[FiberElselskab]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\staging\Source to Stage\csv FiberElselskab.Connections[OleDbConnection]"
+                      connectionManagerID="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[El_selskab_Utility_data]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="El_selskab_Utility_data"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[El_selskab_Utility_data]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[El_selskab_Utility_data]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[KVHX]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="KVHX"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[KVHX]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[KVHX]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Altibox]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Altibox"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Altibox]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Altibox]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Andels_net]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Andels_net"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Andels_net]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Andels_net]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Antenneforeningen_Vejen]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Antenneforeningen_Vejen"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Antenneforeningen_Vejen]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Antenneforeningen_Vejen]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Bolig_net]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Bolig_net"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Bolig_net]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolig_net]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Bolignet_Aarhus]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Bolignet_Aarhus"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Bolignet_Aarhus]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolignet_Aarhus]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Cirque]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Cirque"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Cirque]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Cirque]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Colt_Technology_Services]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Colt_Technology_Services"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Colt_Technology_Services]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Colt_Technology_Services]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_ComX_Networks]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_ComX_Networks"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ComX_Networks]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ComX_Networks]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Connect_me]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Connect_me"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Connect_me]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Connect_me]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Dansk_Kabel_TV]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Dansk_Kabel_TV"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Dansk_Kabel_TV]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Kabel_TV]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Dansk_Net]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Dansk_Net"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Dansk_Net]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Net]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Fiberby]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Fiberby"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Fiberby]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Fiberby]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Flexfone]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Flexfone"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Flexfone]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Flexfone]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Gigabit]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Gigabit"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Gigabit]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Gigabit]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_GlobalConnect]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_GlobalConnect"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_GlobalConnect]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_GlobalConnect]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Info_Connect]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Info_Connect"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Info_Connect]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Info_Connect]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_IP_Group]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_IP_Group"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_IP_Group]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_IP_Group]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_ipvision]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_ipvision"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ipvision]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ipvision]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_It_Lauget_Parknet]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_It_Lauget_Parknet"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_It_Lauget_Parknet]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_It_Lauget_Parknet]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Jaynet]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Jaynet"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Jaynet]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Jaynet]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Netgroup]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Netgroup"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Netgroup]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Netgroup]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Nianet]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Nianet"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Nianet]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Nianet]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Perspektiv_Bredband]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Perspektiv_Bredband"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Perspektiv_Bredband]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Perspektiv_Bredband]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Sagitta]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Sagitta"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Sagitta]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Sagitta]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Stofa_fiber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Stofa_fiber"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Stofa_fiber]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Stofa_fiber]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_TDC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_TDC"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_TDC]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_TDC]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Telenor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Telenor"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Telenor]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telenor]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Telia]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Telia"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Telia]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telia]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Waoo_]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Waoo_"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Waoo_]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Waoo_]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_ZebNET]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_ZebNET"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ZebNET]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ZebNET]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].Columns[TDN_Zen_Systems]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TDN_Zen_Systems"
+                          externalMetadataColumnId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Zen_Systems]"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Zen_Systems]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[El_selskab_Utility_data]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="El_selskab_Utility_data" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[KVHX]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="KVHX" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Altibox]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Altibox" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Andels_net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Andels_net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Antenneforeningen_Vejen]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Antenneforeningen_Vejen" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Bolig_net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Bolig_net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Bolignet_Aarhus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Bolignet_Aarhus" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Cirque]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Cirque" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Colt_Technology_Services]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Colt_Technology_Services" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ComX_Networks]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ComX_Networks" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Connect_me]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Connect_me" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Dansk_Kabel_TV]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Dansk_Kabel_TV" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Dansk_Net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Dansk_Net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Fiberby]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Fiberby" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Flexfone]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Flexfone" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Gigabit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Gigabit" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_GlobalConnect]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_GlobalConnect" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Info_Connect]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Info_Connect" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_IP_Group]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_IP_Group" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ipvision]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ipvision" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_It_Lauget_Parknet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_It_Lauget_Parknet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Jaynet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Jaynet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Netgroup]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Netgroup" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Nianet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Nianet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Perspektiv_Bredband]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Perspektiv_Bredband" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Sagitta]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Sagitta" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Stofa_fiber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Stofa_fiber" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_TDC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_TDC" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Telenor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Telenor" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Telia]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Telia" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Waoo_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Waoo_" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_ZebNET]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ZebNET" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input].ExternalColumns[TDN_Zen_Systems]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Zen_Systems" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\csv FiberElselskab.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\csv FiberElselskab.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\csv FiberElselskab.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\csv FiberElselskab.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\Default values"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Default values"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\Default values.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\staging\Source to Stage\Default values.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\staging\Source to Stage\Default values.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1030"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\staging\Source to Stage\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Fiber_Elselskab]"
+                      connectionManagerRefId="Package.ConnectionManagers[Fiber_Elselskab]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[El_selskab_Utility_data]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[El_selskab_Utility_data]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[El_selskab_Utility_data]"
+                          name="El_selskab_Utility_data"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[KVHX]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[KVHX]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[KVHX]"
+                          name="KVHX"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Altibox]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Altibox]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Altibox]"
+                          name="TDN_Altibox"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Andels_net]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Andels_net]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Andels_net]"
+                          name="TDN_Andels_net"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Antenneforeningen_Vejen]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Antenneforeningen_Vejen]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Antenneforeningen_Vejen]"
+                          name="TDN_Antenneforeningen_Vejen"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolig_net]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Bolig_net]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolig_net]"
+                          name="TDN_Bolig_net"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolignet_Aarhus]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Bolignet_Aarhus]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Bolignet_Aarhus]"
+                          name="TDN_Bolignet_Aarhus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Cirque]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Cirque]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Cirque]"
+                          name="TDN_Cirque"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Colt_Technology_Services]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Colt_Technology_Services]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Colt_Technology_Services]"
+                          name="TDN_Colt_Technology_Services"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ComX_Networks]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ComX_Networks]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ComX_Networks]"
+                          name="TDN_ComX_Networks"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Connect_me]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Connect_me]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Connect_me]"
+                          name="TDN_Connect_me"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Kabel_TV]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Dansk_Kabel_TV]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Kabel_TV]"
+                          name="TDN_Dansk_Kabel_TV"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Net]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Dansk_Net]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Dansk_Net]"
+                          name="TDN_Dansk_Net"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Fiberby]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Fiberby]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Fiberby]"
+                          name="TDN_Fiberby"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Flexfone]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Flexfone]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Flexfone]"
+                          name="TDN_Flexfone"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Gigabit]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Gigabit]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Gigabit]"
+                          name="TDN_Gigabit"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_GlobalConnect]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_GlobalConnect]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_GlobalConnect]"
+                          name="TDN_GlobalConnect"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Info_Connect]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Info_Connect]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Info_Connect]"
+                          name="TDN_Info_Connect"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_IP_Group]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_IP_Group]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_IP_Group]"
+                          name="TDN_IP_Group"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ipvision]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ipvision]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ipvision]"
+                          name="TDN_ipvision"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_It_Lauget_Parknet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_It_Lauget_Parknet]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_It_Lauget_Parknet]"
+                          name="TDN_It_Lauget_Parknet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Jaynet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Jaynet]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Jaynet]"
+                          name="TDN_Jaynet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Netgroup]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Netgroup]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Netgroup]"
+                          name="TDN_Netgroup"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Nianet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Nianet]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Nianet]"
+                          name="TDN_Nianet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Perspektiv_Bredband]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Perspektiv_Bredband]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Perspektiv_Bredband]"
+                          name="TDN_Perspektiv_Bredband"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Sagitta]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Sagitta]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Sagitta]"
+                          name="TDN_Sagitta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Stofa_fiber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Stofa_fiber]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Stofa_fiber]"
+                          name="TDN_Stofa_fiber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_TDC]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_TDC]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_TDC]"
+                          name="TDN_TDC"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telenor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Telenor]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telenor]"
+                          name="TDN_Telenor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telia]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Telia]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Telia]"
+                          name="TDN_Telia"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Waoo_]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Waoo_]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Waoo_]"
+                          name="TDN_Waoo_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ZebNET]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ZebNET]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_ZebNET]"
+                          name="TDN_ZebNET"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Zen_Systems]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Zen_Systems]"
+                          length="50"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].Columns[TDN_Zen_Systems]"
+                          name="TDN_Zen_Systems"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[El_selskab_Utility_data]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="El_selskab_Utility_data" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[KVHX]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="KVHX" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Altibox]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Altibox" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Andels_net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Andels_net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Antenneforeningen_Vejen]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Antenneforeningen_Vejen" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Bolig_net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Bolig_net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Bolignet_Aarhus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Bolignet_Aarhus" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Cirque]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Cirque" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Colt_Technology_Services]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Colt_Technology_Services" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ComX_Networks]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ComX_Networks" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Connect_me]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Connect_me" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Dansk_Kabel_TV]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Dansk_Kabel_TV" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Dansk_Net]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Dansk_Net" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Fiberby]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Fiberby" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Flexfone]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Flexfone" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Gigabit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Gigabit" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_GlobalConnect]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_GlobalConnect" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Info_Connect]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Info_Connect" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_IP_Group]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_IP_Group" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ipvision]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ipvision" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_It_Lauget_Parknet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_It_Lauget_Parknet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Jaynet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Jaynet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Netgroup]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Netgroup" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Nianet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Nianet" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Perspektiv_Bredband]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Perspektiv_Bredband" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Sagitta]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Sagitta" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Stofa_fiber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Stofa_fiber" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_TDC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_TDC" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Telenor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Telenor" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Telia]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Telia" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Waoo_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Waoo_" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_ZebNET]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_ZebNET" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TDN_Zen_Systems]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TDN_Zen_Systems" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\Row Count Fetch"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Fetch">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountFetch</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Row Count Fetch.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\staging\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\Row Count Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  localeId="1033"
+                  name="Row Count Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountInsert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Row Count Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\staging\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\TRIM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="TRIM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\TRIM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\staging\Source to Stage\TRIM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\staging\Source to Stage\TRIM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\staging\Source to Stage\Unicode"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Unicode"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\staging\Source to Stage\Unicode.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\staging\Source to Stage\Unicode.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\staging\Source to Stage\Unicode.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Data Conversion Output]"
+                  endId="Package\staging\Source to Stage\Row Count Insert.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\staging\Source to Stage\Unicode.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Derived Column Output]"
+                  endId="Package\staging\Source to Stage\Unicode.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\staging\Source to Stage\Default values.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Derived Column Output1]"
+                  endId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\staging\Source to Stage\TRIM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Derived Column Output2]"
+                  endId="Package\staging\Source to Stage\Default values.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\staging\Source to Stage\Convert date 01-01-1753 to null.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Flat File Source Output]"
+                  endId="Package\staging\Source to Stage\Row Count Fetch.Inputs[Row Count Input 1]"
+                  name="Flat File Source Output"
+                  startId="Package\staging\Source to Stage\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Row Count Output 1]"
+                  endId="Package\staging\Source to Stage\TRIM.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\staging\Source to Stage\Row Count Fetch.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\staging\Source to Stage.Paths[Row Count Output 11]"
+                  endId="Package\staging\Source to Stage\csv FiberElselskab.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\staging\Source to Stage\Row Count Insert.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\staging.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA6F42F9-A6B4-4488-987F-8FFB3940021E}"
+          DTS:From="Package\staging\EDW_Stage - Truncate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\staging\Source to Stage" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\staging.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{177C4E1D-6CB6-4BD7-85DD-E10A51CC58DC}"
+          DTS:From="Package\staging\Source to Stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\staging\Merge to History" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\staging.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{7D3180B0-CA2F-487A-80AE-26BEC911449D}"
+          DTS:EventID="395814164"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{54F465AD-0A25-4108-B322-8F1086D29C01}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\staging.EventHandlers[OnError]\Utility - Update Error"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{C0C224D5-20A8-4EB6-B1F4-1B4970620765}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Utility - Update Error"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="4000" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF140873-F55E-41E0-93AC-B5587F2A03A6}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EDW_Stage - Row Count Before" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF279DEA-CF43-45E0-B1F1-9DBD4F2197D1}"
+      DTS:From="Package\EDW_Stage - Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D15DA99-0254-48B0-BAD7-A294BEAB044A}"
+      DTS:From="Package\staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\EDW_Stage - Row Count After" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{CB6272BD-02F9-4151-BF30-CEC9E1A76DFF}"
+      DTS:From="Package\EDW_Stage - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EDW_Utility - Update LogDetail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{70E07654-B691-40E4-A242-50CE93C3247A}"
+      DTS:EventID="-1795161708"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D9572327-AA4F-4574-8082-7DD4E86004E7}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\EDW_Stage - Row Count After"
+          TopLeft="173.5,621.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\EDW_Stage - Row Count Before"
+          TopLeft="169.5,107.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\EDW_Utility - Update LogDetail"
+          TopLeft="171.5,723.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\staging\EDW_Stage - Truncate"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\staging\Merge to History"
+          TopLeft="20,210.5" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\staging\Source to Stage"
+          TopLeft="21,107.5" />
+        <EdgeLayout
+          Id="Package\staging.PrecedenceConstraints[Constraint]"
+          TopLeft="98.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging.PrecedenceConstraints[Constraint 1]"
+          TopLeft="98.5,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="197,308"
+          Size="197,352"
+          Id="Package\staging"
+          TopLeft="186,209.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="284.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="284.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="284.5,561.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="284.5,663.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\staging.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\staging.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\staging\Source to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\staging\Source to Stage\Unicode"
+          TopLeft="52.0000000000001,521.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\staging\Source to Stage\Default values"
+          TopLeft="47.5000000000001,419.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\staging\Source to Stage\TRIM"
+          TopLeft="52,213.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\staging\Source to Stage\csv FiberElselskab"
+          TopLeft="47.3095238272634,727.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\staging\Source to Stage\Row Count Fetch"
+          TopLeft="52,109.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\staging\Source to Stage\Row Count Insert"
+          TopLeft="40.0000000000001,625.5" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\staging\Source to Stage\Convert date 01-01-1753 to null"
+          TopLeft="5.50000000000004,317.5" />
+        <NodeLayout
+          Size="152,43"
+          Id="Package\staging\Source to Stage\Flat File Source"
+          TopLeft="51.785713514047,16.0952378074328" />
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Row Count Output 11]"
+          TopLeft="120,667.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.80952382726331,60"
+              Start="0,0"
+              End="8.80952382726331,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="4.80952382726331,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.80952382726331,30"
+                    Point2="8.80952382726331,30"
+                    Point3="8.80952382726331,34" />
+                  <mssgle:LineSegment
+                    End="8.80952382726331,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Row Count Output 1]"
+          TopLeft="120,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Flat File Source Output]"
+          TopLeft="123.892856757024,58.7619044740995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.7380955259005"
+              Start="0,0"
+              End="0,43.2380955259005">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2380955259005" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Derived Column Output2]"
+          TopLeft="120,359.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Derived Column Output1]"
+          TopLeft="120,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Derived Column Output]"
+          TopLeft="120,461.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Data Conversion Output]"
+          TopLeft="120,565.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\staging\Source to Stage\csv FiberElselskab">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,8 @@
+<#@ property name="DestinationConnectionName" type="String" #>
+
+<ExecuteSQL Name="Truncate" ForcedExecutionValueDataType="Empty" ConnectionName="<#=DestinationConnectionName#>">
+	<Expressions>
+		<Expression PropertyName="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName] + "]"</Expression>
+	</Expressions>
+	<DirectInput>TRUNCATE TABLE [nav].[Customer]</DirectInput>
+</ExecuteSQL>

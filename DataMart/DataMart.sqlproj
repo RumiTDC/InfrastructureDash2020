@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataMart</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b304fc1b-96d4-4e65-9ca0-c47a65f5bb2f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DataMart</RootNamespace>
+    <AssemblyName>DataMart</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Database Triggers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\WhitelistFtthDetail_tbl.sql" />
+    <Build Include="dbo\Tables\whitelist_trefor_tbl.sql" />
+    <Build Include="dbo\Tables\whitelist_ftth_raa_adr_tbl.sql" />
+    <Build Include="dbo\Tables\whitelist_ftth_announ_tbl.sql" />
+    <Build Include="dbo\Tables\TDN_Fiber_tbl.sql" />
+    <Build Include="dbo\Tables\TDN_Coax_tbl.sql" />
+    <Build Include="dbo\Tables\Raa_Kobber_og_Delt_RK_Wholesale_tbl.sql" />
+    <Build Include="dbo\Tables\Region_Landsdel_Kommune_tbl.sql" />
+    <Build Include="dbo\Tables\PostNumreBy_Tbl.sql" />
+    <Build Include="dbo\Tables\KundeSegmenterFiberUdrulning_tbl.sql" />
+    <Build Include="dbo\Tables\KommuneKoder_tbl.sql" />
+    <Build Include="dbo\Tables\InfrastructureBaseData_tbl.sql" />
+    <Build Include="dbo\Tables\Infrastructure_NuudayData_tbl.sql" />
+    <Build Include="dbo\Tables\FiberUdrulningForKeyAccount_tbl.sql" />
+    <Build Include="dbo\Tables\Fiber_Wholesale_tbl.sql" />
+    <Build Include="dbo\Tables\FAS_v_subcontracter_used_tbl.sql" />
+    <Build Include="dbo\Tables\eBSA_VULA_BB_Gensalg_Wholesale_tbl.sql" />
+    <Build Include="dbo\Tables\Competitors_PDS_Infrastructure_tbl.sql" />
+    <Build Include="dbo\Tables\ColumbusFiberOrders_tbl.sql" />
+    <Build Include="dbo\Tables\COLUMBUS_CU_BI_view_factCUBooking_tbl.sql" />
+    <Build Include="dbo\Tables\Cognito_tbl.sql" />
+    <Build Include="dbo\Tables\BSACoax_Wholesale_tbl.sql" />
+    <Build Include="dbo\Tables\BSACoax_White_tbl.sql" />
+    <Build Include="dbo\Tables\BSACoax_Black_tbl.sql" />
+    <Build Include="dbo\Tables\BSACoax_Anlaeg_tbl.sql" />
+    <Build Include="dbo\Tables\BBR_Daekning_tbl.sql" />
+    <Build Include="dbo\Views\WhitelistFtthDetail_v.sql" />
+    <Build Include="dbo\Views\WhitelistFtthDetail.sql" />
+    <Build Include="dbo\Views\whitelist_trefor.sql" />
+    <Build Include="dbo\Views\whitelist_ftth_raa_adr.sql" />
+    <Build Include="dbo\Views\whitelist_ftth_announ.sql" />
+    <Build Include="dbo\Views\TDN_Fiber.sql" />
+    <Build Include="dbo\Views\TDN_Coax.sql" />
+    <Build Include="dbo\Views\Raa_Kobber_og_Delt_RK_Wholesale.sql" />
+    <Build Include="dbo\Views\Region_Landsdel_Kommune.sql" />
+    <Build Include="dbo\Views\PostNumreBy.sql" />
+    <Build Include="dbo\Views\KundeSegmenterFiberUdrulning.sql" />
+    <Build Include="dbo\Views\InfrastructureBaseData_LastLoadedMonth.sql" />
+    <Build Include="dbo\Views\InfrastructureBaseData.sql" />
+    <Build Include="dbo\Views\Infrastructure_NuudayData.sql" />
+    <Build Include="dbo\Views\FtthHouseStatus.sql" />
+    <Build Include="dbo\Views\FiberUdrulningForKeyAccount.sql" />
+    <Build Include="dbo\Views\Fiber_Wholesale.sql" />
+    <Build Include="dbo\Views\eBSA_VULA_BB_Gensalg_Wholesale.sql" />
+    <Build Include="dbo\Views\Competitors_PDS_Infrastructure.sql" />
+    <Build Include="dbo\Views\ColumbusFiberOrders.sql" />
+    <Build Include="dbo\Views\COLUMBUS_CU_BI_view_factCUBooking.sql" />
+    <Build Include="dbo\Views\CognitoSegment.sql" />
+    <Build Include="dbo\Views\Cognito.sql" />
+    <Build Include="dbo\Views\BSACoax_Wholesale.sql" />
+    <Build Include="dbo\Views\BSACoax_White.sql" />
+    <Build Include="dbo\Views\BSACoax_Black.sql" />
+    <Build Include="dbo\Views\BSACoax_Anlaeg.sql" />
+    <Build Include="dbo\Views\BBR_Daekning.sql" />
+    <Build Include="Storage\INDEX.sql" />
+    <Build Include="Storage\DATA.sql" />
+    <Build Include="Security\KeyAccount_FiberUdrulning.sql" />
+    <Build Include="Security\GeneralReportReader.sql" />
+    <Build Include="Security\FiberFactoryReader.sql" />
+    <Build Include="Security\FiberDashBoradDataReader.sql" />
+    <Build Include="Security\ColumbusTechnologyInfoReader.sql" />
+    <Build Include="Security\CognitoDataReader.sql" />
+    <Build Include="Security\BaseDataReader.sql" />
+    <Build Include="Security\ACCDOM01_r37938.sql" />
+    <Build Include="Security\ACCDOM01_r20679.sql" />
+    <Build Include="Security\ACCDOM01_m90242.sql" />
+    <Build Include="Security\ACCDOM01_m89746.sql" />
+    <Build Include="Security\ACCDOM01_m89741.sql" />
+    <Build Include="Security\ACCDOM01_M89740.sql" />
+    <Build Include="Security\ACCDOM01_m89739.sql" />
+    <Build Include="Security\ACCDOM01_m89575.sql" />
+    <Build Include="Security\ACCDOM01_m89246.sql" />
+    <Build Include="Security\ACCDOM01_m89185.sql" />
+    <Build Include="Security\ACCDOM01_m89179.sql" />
+    <Build Include="Security\ACCDOM01_m89020.sql" />
+    <Build Include="Security\ACCDOM01_m88954.sql" />
+    <Build Include="Security\ACCDOM01_M88946_ADM.sql" />
+    <Build Include="Security\ACCDOM01_m88938.sql" />
+    <Build Include="Security\ACCDOM01_m88552.sql" />
+    <Build Include="Security\ACCDOM01_m88430.sql" />
+    <Build Include="Security\ACCDOM01_m88187.sql" />
+    <Build Include="Security\ACCDOM01_M88136.sql" />
+    <Build Include="Security\ACCDOM01_M88108.sql" />
+    <Build Include="Security\ACCDOM01_m88089.sql" />
+    <Build Include="Security\ACCDOM01_m88015.sql" />
+    <Build Include="Security\ACCDOM01_m87986.sql" />
+    <Build Include="Security\ACCDOM01_M87960.sql" />
+    <Build Include="Security\ACCDOM01_m87724.sql" />
+    <Build Include="Security\ACCDOM01_m87388.sql" />
+    <Build Include="Security\ACCDOM01_M87316_ADM.sql" />
+    <Build Include="Security\ACCDOM01_M87316.sql" />
+    <Build Include="Security\ACCDOM01_M85685.sql" />
+    <Build Include="Security\ACCDOM01_M85438.sql" />
+    <Build Include="Security\ACCDOM01_M85408.sql" />
+    <Build Include="Security\ACCDOM01_m85067.sql" />
+    <Build Include="Security\ACCDOM01_M83012.sql" />
+    <Build Include="Security\ACCDOM01_M82782.sql" />
+    <Build Include="Security\ACCDOM01_M80426.sql" />
+    <Build Include="Security\ACCDOM01_m79931.sql" />
+    <Build Include="Security\ACCDOM01_m66065.sql" />
+    <Build Include="Security\ACCDOM01_m64535.sql" />
+    <Build Include="Security\ACCDOM01_M59335.sql" />
+    <Build Include="Security\ACCDOM01_M44658.sql" />
+    <Build Include="Security\ACCDOM01_m32412.sql" />
+    <Build Include="Security\ACCDOM01_M28435.sql" />
+    <Build Include="Security\ACCDOM01_M06701.sql" />
+    <Build Include="Security\ACCDOM01_a62325.sql" />
+    <Build Include="Security\ACCDOM01_A56831.sql" />
+    <Build Include="Security\ACCDOM01_A54069.sql" />
+    <Build Include="Security\ACCDOM01_A53539.sql" />
+    <Build Include="Security\ACCDOM01_A30337_ADM.sql" />
+    <Build Include="Security\ACCDOM01_A30337.sql" />
+    <Build Include="Security\ACCDOM01_A15559.sql" />
+    <Build Include="Security\ACCDOM01_A14538_ADM.sql" />
+    <Build Include="Security\ACCDOM01_a12702.sql" />
+    <Build Include="dbo\Stored Procedures\GrantReadAccesOnAllViewTo_GeneralReportReader.sql" />
+    <Build Include="Database Triggers\7000 DBA Object ddl trigger.sql" />
+    <Build Include="Security\TechnologyDashBoard.sql" />
+    <Build Include="Security\Nuuday.sql" />
+  </ItemGroup>
+</Project>

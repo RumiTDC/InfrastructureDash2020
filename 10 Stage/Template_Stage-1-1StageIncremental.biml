@@ -1,0 +1,86 @@
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ property name="DestinationConnectionName" type="String" #>
+<#@ property name="UtilityConnectionName" type="String" #>
+<#@ property name="stageTable" type="DataRow" #>
+<#@ property name="ConnectionString_EDW_Utility_ADO" type="String" #>
+<#@ code file="../90 BIML Templates/BIMLExtensions.cs"#>
+
+<#
+    string SourceSelect = BIMLExtensions.GetStageSourceSelectScript(stageTable, ConnectionString_EDW_Utility_ADO, ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+#>
+
+<!-- 1-1 Stage Incremental template begin -->
+<Container ConstraintMode="Parallel" Name="Pre Stage">
+	<Tasks>
+	    <Container ConstraintMode="Parallel" Name="Condition container">
+        	<Tasks></Tasks>
+        </Container>
+	    <Container ConstraintMode="Parallel" Name="Truncate container">
+        	<Tasks>
+                <#=CallBimlScript("../90 BIML Templates/Snippet_TruncateTable.biml", DestinationConnectionName)#>
+        	</Tasks>
+	        <PrecedenceConstraints>
+	            <Inputs>
+	                <Input OutputPathName="Condition container.Output" EvaluationOperation="ExpressionAndConstraint" Expression="@FullLoad"/>
+	            </Inputs>
+	        </PrecedenceConstraints>
+        </Container>
+	</Tasks>
+</Container>
+<Container ConstraintMode="Linear" Name="Staging">
+    <Tasks>
+        <ExecuteSQL Name="Get Max Incremental value" ForcedExecutionValueDataType="Empty" ConnectionName="<#=DestinationConnectionName#>" ResultSet="SingleRow">
+            <Results>
+                <Result Name="MaxIncrementalValue" VariableName="User.MaxIncrementalValue" />
+            </Results>
+            <DirectInput>SELECT MaxIncrementalValue = MAX(<#=stageTable["IncrementalColumnName"].ToString().Trim()#>) FROM <#=stageTable["DestinationSchema"].ToString().Trim()#>.<#=stageTable["DestinationTableName"].ToString().Trim()#>
+            </DirectInput>
+        </ExecuteSQL>
+
+        <Dataflow Name="Source to Stage">
+            <Transformations>
+                <OleDbSource Name="<#=stageTable["DataFLowSourceName"].ToString()#>" ConnectionName="<#=stageTable["SourceConnectionName"].ToString()#>">
+                    <VariableInput VariableName="User.SourceSqlSelect"></VariableInput>
+                </OleDbSource>
+				<#@ include file="../90 BIML Templates/Snippet_RowCountFetch.biml" #>
+				
+				                                <#
+                                if(Convert.ToBoolean(stageTable["TrimChars"].ToString()))
+                                {
+                                    string SourceConnectionString = BIMLExtensions.GetMetaDataConnectionString(stageTable["SourceConnectionNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO);
+                                    string NavisionTableName = stageTable["NavisionCompanyPrefix"].ToString() + "$" + stageTable["SourceTableNameUnsafe"].ToString();
+                                    //DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), NavisionTableName, SourceConnectionString, stageTable["ConnectionId"].ToString());
+                                    // Todo Make connectionstring dynamic
+                                    DataTable CharColumns = BIMLExtensions.GetCharColumnsForTableOrView(stageTable["SourceSchemaUnsafe"].ToString(), stageTable["SourceTableNameUnsafe"].ToString(), ConnectionString_EDW_Utility_ADO, stageTable["ConnectionId"].ToString());
+                                    DataTable DataTypeConversions = BIMLExtensions.GetDataTypeConversions(ConnectionString_EDW_Utility_ADO, stageTable["DataConversionType"].ToString());
+                                    #>
+    								<DerivedColumns Name="TrimChars">
+    									<Columns>
+                                    
+                                    <#
+                                    foreach(DataRow charColumn in CharColumns.Rows)
+                                    {
+                                        string CharLength = charColumn["CHARACTER_MAXIMUM_LENGTH"].ToString();
+                                         //  ValidationReporter.Report(Severity.Error, charColumn["DATA_TYPE"].ToString());
+                                    #> 
+    										<Column Name="<#=charColumn["COLUMN_NAME"].ToString()#>" ReplaceExisting="true" Length="<#=CharLength#>" DataType="<#=BIMLExtensions.GetDataType(DataTypeConversions, charColumn, "BIMLDataType")#>">TRIM([<#=charColumn["COLUMN_NAME"].ToString()#>])</Column>
+                                    <#
+                                    }
+                                    #>
+    									</Columns>
+    								</DerivedColumns>
+                                    <#
+                                }
+                                #>
+				
+				<#@ include file="../90 BIML Templates/Snippet_RowCountInsert.biml" #>
+                <OleDbDestination Name="Stage" ConnectionName="<#=DestinationConnectionName#>" KeepIdentity="false" KeepNulls="false" UseFastLoadIfAvailable="true">
+                    <ExternalTableOutput Table="<#=stageTable["DestinationSchema"].ToString()#>.<#=stageTable["DestinationTableName"].ToString()#>" />
+                </OleDbDestination>
+            </Transformations>
+        </Dataflow>
+    </Tasks>
+</Container>
+
+<!-- 1-1 Stage Incremental template end -->

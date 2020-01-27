@@ -1,0 +1,27 @@
+﻿CREATE TABLE [edw].[Dim_TDNCoax] (
+    [TDNCoax_Key]                      BIGINT        NOT NULL,
+    [TDN_Antenneforeningen_Vejen]      INT           NULL,
+    [TDN_Bolignet_Aarhus]              INT           NULL,
+    [TDN_ComX_Networks]                INT           NULL,
+    [TDN_It_Lauget_Parknet]            INT           NULL,
+    [BK_TDNCoax]                       NVARCHAR (50) NULL,
+    [TDN_Comflex]                      INT           NULL,
+    [TDN_Faaborg_Vest_Antenneforening] INT           NULL,
+    [TDN_Glentevejs_Antennelaug]       INT           NULL,
+    [TDN_GVD_Antenneforening]          INT           NULL,
+    [TDN_Kj_rgaard_Nettet]             INT           NULL,
+    [TDN_Klarup_Antenneforening]       INT           NULL,
+    [TDN_Korup_Antenneforening]        INT           NULL,
+    [TDN_NAL_Medienet]                 INT           NULL,
+    [TDN_Nordby_Antenneforening]       INT           NULL,
+    [TDN_Skagen_Antennelaug]           INT           NULL,
+    [TDN_Stofa_bredb_nd]               INT           NULL,
+    [TDN_YouSee]                       INT           NULL,
+    [KonkCoax]                         INT           NULL,
+    [dw_DateCreated]                   DATETIME      CONSTRAINT [DF__Dim_TDNCo__dw_Da__373B3228] DEFAULT (getdate()) NULL,
+    [dw_DateModified]                  DATETIME      NULL,
+    [dw_LogID]                         BIGINT        NULL,
+    [dw_LogDetailID]                   BIGINT        NULL,
+    CONSTRAINT [PK_edw_Dim_TDNCoax] PRIMARY KEY CLUSTERED ([TDNCoax_Key] ASC) WITH (FILLFACTOR = 90)
+);
+

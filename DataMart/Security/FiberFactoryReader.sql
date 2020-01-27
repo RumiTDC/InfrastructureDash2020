@@ -1,0 +1,51 @@
+﻿CREATE ROLE [FiberFactoryReader]
+    AUTHORIZATION [dbo];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m89246];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m88938];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m89020];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\M85438];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\a12702];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m88015];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m87724];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m64535];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m88187];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m88430];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\m88552];
+
+
+GO
+ALTER ROLE [FiberFactoryReader] ADD MEMBER [ACCDOM01\M83012];
+

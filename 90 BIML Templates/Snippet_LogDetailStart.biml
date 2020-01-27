@@ -1,0 +1,54 @@
+<#/*To do - dynamic EDW_Utility connection name*/#>
+<ExecuteSQL Name="LogDetail Start (if not set by parent package) and Update package version on LogDetail" ForcedExecutionValueDataType="Empty" ConnectionName="EDW_Utility" ResultSet="SingleRow">
+                    <Expressions>
+                        <Expression PropertyName="SqlStatementSource">
+							   "DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] > 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+                                DECLARE @LogIDPackage INT = 0
+                                IF (@LogDetailID = 0)
+                                 BEGIN	EXEC [log].[Log_Begin]
+                                	@JobName = 'Manual Run'
+                                	,@LogID = @LogIDPackage OUTPUT
+                                	
+                                	EXEC [log].[LogDetail_Begin]
+                                	@LogID = @LogIDPackage
+                                	,@PackageName = '" + @[System::PackageName] + "'
+                                	,@PackageID = 0
+                                	,@LogDetailID = @LogDetailID OUTPUT
+                                 END 
+                                EXEC [log].[LogDetail_Update]
+                                	@LogDetailID
+                                	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+                                	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+                                	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+                                
+                                  
+                                SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"
+						</Expression>
+                    </Expressions>
+                    <Results>
+                        <Result Name="LogDetailID" VariableName="User.LogDetailID" />
+                        <Result Name="LogIDPackage" VariableName="User.LogID" />
+                    </Results>
+                    <DirectInput>DECLARE @LogDetailID INT = 0
+                                DECLARE @LogIDPackage INT = 0
+                                IF (@LogDetailID = 0)
+                                 BEGIN	EXEC [log].[Log_Begin]
+                                	@JobName = 'Manual Run'
+                                	,@LogID = @LogIDPackage OUTPUT
+                                	
+                                	EXEC [log].[LogDetail_Begin]
+                                	@LogID = @LogIDPackage
+                                	,@PackageName = 'template_stage_Table_Incl_MergeToHistory'
+                                	,@PackageID = 0
+                                	,@LogDetailID = @LogDetailID OUTPUT
+                                 END 
+                                EXEC [log].[LogDetail_Update]
+                                	@LogDetailID
+                                	,@PackageVersion = '1.1.57'
+                                	,@DestinationTableSchema = 'excel'
+                                	,@DestinationTableName = 'Customer'
+                                
+                                  
+                                SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage
+					</DirectInput>
+                </ExecuteSQL>

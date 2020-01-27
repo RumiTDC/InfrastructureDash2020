@@ -1,0 +1,15 @@
+CHANGE LOG
+------------------------------------
+Date:			
+Initials:		
+Package(s):		
+Description:	
+
+Date:			2013-01-01
+Initials:		[Your Intitials]
+Package(s):		PackageName1.dtsx, PackageName2.dtsx
+Description:	Description of changes
+
+
+
+

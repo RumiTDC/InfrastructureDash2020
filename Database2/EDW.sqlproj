@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>EDW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b4e7f615-3dfd-4ce1-80dd-8beef18ccb1f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database2</RootNamespace>
+    <AssemblyName>Database2</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="edw\" />
+    <Folder Include="edw\Tables\" />
+    <Folder Include="pbi\" />
+    <Folder Include="pbi\Views\" />
+    <Folder Include="bridge\" />
+    <Folder Include="bridge\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="setup\" />
+    <Folder Include="setup\Functions\" />
+    <Folder Include="setup\Stored Procedures\" />
+    <Folder Include="edw\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="edw\Tables\Dim_Operatør.sql" />
+    <Build Include="edw\Tables\Fact_Kundevandring.sql" />
+    <Build Include="edw\Tables\Dim_BBRType.sql" />
+    <Build Include="edw\Tables\Dim_Tredjepartsinfrastruktur.sql" />
+    <Build Include="edw\Tables\Dim_PDS.sql" />
+    <Build Include="edw\Tables\Dim_FromToDateMonth.sql" />
+    <Build Include="edw\Tables\Dim_Produkt.sql" />
+    <Build Include="edw\Tables\Dim_TDNCoax.sql" />
+    <Build Include="edw\Tables\Dim_Anlægsinformation.sql" />
+    <Build Include="edw\Tables\Dim_TDNFiber.sql" />
+    <Build Include="edw\Tables\Dim_Elselskab.sql" />
+    <Build Include="edw\Tables\Dim_Adresse.sql" />
+    <Build Include="edw\Tables\Calendar.sql" />
+    <Build Include="edw\Tables\Dim_Teknologi.sql" />
+    <Build Include="edw\Tables\Dim_MovementType.sql" />
+    <Build Include="edw\Tables\Fact_MeldteBoliger.sql" />
+    <Build Include="edw\Tables\Fact_Bredbånd.sql" />
+    <Build Include="pbi\Views\Dim_Operatør.sql" />
+    <Build Include="pbi\Views\Fact_Kundevandring.sql" />
+    <Build Include="pbi\Views\Dim_BBRType.sql" />
+    <Build Include="pbi\Views\Dim_Adresse.sql" />
+    <Build Include="pbi\Views\Dim_Tredjepartsinfrastruktur.sql" />
+    <Build Include="pbi\Views\Dim_PDS.sql" />
+    <Build Include="pbi\Views\Dim_FromToDateMonth.sql" />
+    <Build Include="pbi\Views\Dim_Month.sql" />
+    <Build Include="pbi\Views\LastUpdatedMonth.sql" />
+    <Build Include="pbi\Views\Dim_Date.sql" />
+    <Build Include="pbi\Views\Dim_TDNCoax.sql" />
+    <Build Include="pbi\Views\Dim_Anlægsinformation.sql" />
+    <Build Include="pbi\Views\Dim_TDNFiber.sql" />
+    <Build Include="pbi\Views\Dim_Elselskab.sql" />
+    <Build Include="pbi\Views\FromOperator.sql" />
+    <Build Include="pbi\Views\FromTechnology.sql" />
+    <Build Include="pbi\Views\ToOperator.sql" />
+    <Build Include="pbi\Views\ToTechnology.sql" />
+    <Build Include="pbi\Views\Dim_Teknologi.sql" />
+    <Build Include="pbi\Views\Dim_Movementtype.sql" />
+    <Build Include="pbi\Views\Fact_MeldteBoliger.sql" />
+    <Build Include="pbi\Views\Fact_Bredbånd.sql" />
+    <Build Include="pbi\Views\Dim_Produkt.sql" />
+    <Build Include="bridge\Views\FromToDate.sql" />
+    <Build Include="Storage\DATA.sql" />
+    <Build Include="Security\ACCDOM01_m88954.sql" />
+    <Build Include="Security\ACCDOM01_M87316.sql" />
+    <Build Include="Security\ACCDOM01_m41455.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="setup\Functions\GenerateColumnSQL.sql" />
+    <Build Include="setup\Functions\FetchDimensionAttributeColumns.sql" />
+    <Build Include="setup\Functions\FetchDimensionAuditColumns.sql" />
+    <Build Include="setup\Stored Procedures\DimensionTableValidate.sql" />
+    <Build Include="setup\Stored Procedures\DimensionTableIndex.sql" />
+    <Build Include="setup\Stored Procedures\DimensionTablePrepUniqueIndex.sql" />
+    <Build Include="setup\Stored Procedures\DimensionTableSynchronize.sql" />
+    <Build Include="setup\Stored Procedures\DimensionTableCreate.sql" />
+    <Build Include="setup\Stored Procedures\DimensionLoad.sql" />
+    <Build Include="edw\Stored Procedures\InsertUnknownMember.sql" />
+    <Build Include="Security\temp.sql" />
+    <Build Include="Security\setup.sql" />
+    <Build Include="Security\prep.sql" />
+    <Build Include="Security\pbi.sql" />
+    <Build Include="Security\edw.sql" />
+    <Build Include="Security\cube.sql" />
+    <Build Include="Security\bridge.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database3\EDW_Stage_History.sqlproj">
+      <Name>EDW_Stage_History</Name>
+      <Project>{d64ed1e3-d18b-4786-ad91-6f065b85bedc}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>EDW_Stage_History</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="EDW_Stage_History">
+      <DefaultValue>EDW_Stage_History</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>
