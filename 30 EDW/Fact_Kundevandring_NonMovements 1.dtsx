@@ -5,7 +5,7 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="BI Server"
   DTS:CreatorName="Inspari"
-  DTS:DTSID="{F4C26B5A-5CCC-427C-9F8B-0E1D10332561}"
+  DTS:DTSID="{946C9C45-131C-4339-A3EA-C3B537CEE975}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
@@ -13,8 +13,8 @@
   DTS:ObjectName="Fact_Kundevandring_NonMovements"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="70"
-  DTS:VersionGUID="{0B5306BB-354E-400A-AD02-483DFD8C926C}"
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{475B908D-516A-4249-B643-C0B7F86BE46B}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -22,7 +22,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{9BEF8908-640E-4263-A6A5-D8577EE520F9}"
+      DTS:DTSID="{88B8CBBB-DFDF-46E9-8904-9BE2F28B18A8}"
       DTS:ObjectName="LogDetailID">
       <DTS:Property
         DTS:DataType="3"
@@ -32,7 +32,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CABBD1C6-FFE2-455F-A8D0-F68FD66EBA76}"
+      DTS:DTSID="{19B73B72-9371-4598-9D03-7344E90B2C0A}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableName">
@@ -41,7 +41,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{690F635D-0ACB-478F-9BB1-2ED49ED18ABA}"
+      DTS:DTSID="{02D3F22A-6687-4EB2-8D90-A5A5D10DB7F9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableSchema">
@@ -50,7 +50,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3B795B68-D77F-4EAF-990A-FB5AEA3E9066}"
+      DTS:DTSID="{F7CC80CE-7918-406D-AA2B-9609916EFEC6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LogDetailID">
@@ -59,7 +59,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E81610B3-2B85-4E22-8A7C-53E709F6A9C3}"
+      DTS:DTSID="{47D82E03-5A32-4F2A-81ED-B7B24945F28C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountAfter">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D16BA4CE-3F21-486E-88F1-2BF4D9479A71}"
+      DTS:DTSID="{CF1C3E5D-8427-4A7E-9CFE-5B59D798C66C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountBefore">
@@ -77,7 +77,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CD811C94-1D49-48DF-85E6-7420A2955042}"
+      DTS:DTSID="{B97A5F5E-2E8A-4711-AED8-35C9E9300A20}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountFetch">
@@ -86,7 +86,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{97E1950B-21BD-4E6A-A98E-4188334C9A30}"
+      DTS:DTSID="{E399BF02-7E0C-46F1-8D8C-E3BA582A64B0}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountInsert">
@@ -99,7 +99,7 @@
       DTS:refId="Package\Build Fact"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{E5F8E37B-0387-44AB-9060-7879E72900B7}"
+      DTS:DTSID="{E6C00029-80B1-40C6-B8F9-277D860FD905}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Build Fact">
@@ -109,7 +109,7 @@
           DTS:refId="Package\Build Fact\EDW - Truncate"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9D9EA4A6-8EE2-4E52-8404-F20BA197F0DC}"
+          DTS:DTSID="{0B9D3AE8-65FE-4A38-8B50-3EA390A0925A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Truncate"
@@ -128,7 +128,7 @@
           DTS:refId="Package\Build Fact\Fill Stage Table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{43C4F14E-CCC0-4569-B374-DB24A9368F56}"
+          DTS:DTSID="{C913C510-CF10-4BCB-ADC5-448BEE9ADFA8}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Fill Stage Table"
@@ -145,7 +145,7 @@
           DTS:refId="Package\Build Fact\Load Fact"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Loader SalesInvoiced tabellen"
-          DTS:DTSID="{3ABE3297-B2EA-43B7-AFDB-C2C6162C5A07}"
+          DTS:DTSID="{5EFB4A38-CC97-4458-875A-661ED45E6C0E}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Fact"
@@ -227,8 +227,8 @@ where [refTable].[BK_Adresse] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\Adresse_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -386,8 +386,8 @@ where [refTable].[BK_BBRType] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\BBRType_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -534,8 +534,8 @@ where [refTable].[BK_BBRType] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\EDW Fact_Kundevandring.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -864,8 +864,8 @@ where [refTable].[Date] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\FromDate_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1022,8 +1022,8 @@ where [refTable].[BK_Operatør] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\FromOperatør_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1181,8 +1181,8 @@ where [refTable].[BK_Teknologi] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\FromTeknologi_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1340,8 +1340,8 @@ where [refTable].[Date] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\FromToDate_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1780,8 +1780,8 @@ where [refTable].[BK_Movementtype] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\Movementtype_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1979,8 +1979,8 @@ FROM         nav.ValueEntry</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\Stage v_Fact_Kundevandring.Connections[OleDbConnection]"
-                      connectionManagerID="{f3f1241d-8d72-46e0-8102-877932e56787}:invalid"
-                      connectionManagerRefId="{f3f1241d-8d72-46e0-8102-877932e56787}:invalid"
+                      connectionManagerID="{f3f1241d-8d72-46e0-8102-877932e56787}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_History]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2509,8 +2509,8 @@ where [refTable].[Date] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\ToDate_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -2667,8 +2667,8 @@ where [refTable].[BK_Operatør] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\ToOperatør_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -2826,8 +2826,8 @@ where [refTable].[BK_Teknologi] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build Fact\Load Fact\ToTeknologi_Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
-                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -2995,7 +2995,7 @@ where [refTable].[BK_Teknologi] = ?</property>
           DTS:refId="Package\Build Fact\Truncate stage table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{7CE9892C-54B8-4A40-9BB7-CA7651E3081F}"
+          DTS:DTSID="{6368FBFF-DAF8-4A79-8262-E5A05F2DED64}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate stage table"
@@ -3013,7 +3013,7 @@ where [refTable].[BK_Teknologi] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build Fact.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{B21EF168-CB2A-446D-B724-1FD3DF959802}"
+          DTS:DTSID="{3B38EE71-49D1-46AC-BCC8-C2BE85E81BDB}"
           DTS:From="Package\Build Fact\EDW - Truncate"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3021,7 +3021,7 @@ where [refTable].[BK_Teknologi] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build Fact.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{8EF039E9-65E0-40FA-82E3-FA9C35D1A2BC}"
+          DTS:DTSID="{3B6FB670-23F0-47F6-84EA-1B417040DC6B}"
           DTS:From="Package\Build Fact\Truncate stage table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -3029,7 +3029,7 @@ where [refTable].[BK_Teknologi] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build Fact.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{29E94CB3-13E3-4E41-B2E4-39F3D27FE21A}"
+          DTS:DTSID="{C009FCED-48C1-4DB1-96AE-DD306279AC47}"
           DTS:From="Package\Build Fact\Fill Stage Table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -3039,7 +3039,7 @@ where [refTable].[BK_Teknologi] = ?</property>
         <DTS:EventHandler
           DTS:refId="Package\Build Fact.EventHandlers[OnError]"
           DTS:CreationName="OnError"
-          DTS:DTSID="{8EE0CC70-C080-43BA-B5BA-FDAF33718253}"
+          DTS:DTSID="{211B5249-FAA3-425D-A34B-191ED3B0F57C}"
           DTS:EventID="2097262"
           DTS:EventName="OnError"
           DTS:LocaleID="-1">
@@ -3047,7 +3047,7 @@ where [refTable].[BK_Teknologi] = ?</property>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{0A54777F-1F2D-4CFD-9489-0AA25815C2E4}"
+              DTS:DTSID="{2503429A-6935-4127-9D50-576DB89D7856}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -3060,7 +3060,7 @@ where [refTable].[BK_Teknologi] = ?</property>
               DTS:refId="Package\Build Fact.EventHandlers[OnError]\Utility - Update Error"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{AD3F0ADA-764F-41B2-BED2-A82EB4EE9CE4}"
+              DTS:DTSID="{161DED47-48FD-45CC-841A-CF7266DD00F4}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Utility - Update Error"
@@ -3093,7 +3093,7 @@ where [refTable].[BK_Teknologi] = ?</property>
       DTS:refId="Package\EDW - Row Count After"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{AAAD1729-673A-404F-89F7-BA63AE47135A}"
+      DTS:DTSID="{5DA03E44-FBE8-4B4B-BB93-2D3121FE0EF0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count After"
@@ -3117,7 +3117,7 @@ where [refTable].[BK_Teknologi] = ?</property>
       DTS:refId="Package\EDW - Row Count Before"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{74D12947-CC56-44F5-AA05-9FFEC22908F0}"
+      DTS:DTSID="{2D5144CB-2258-43CF-89C7-22B2FED7E12E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count Before"
@@ -3141,7 +3141,7 @@ where [refTable].[BK_Teknologi] = ?</property>
       DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{F1654B35-6F31-40C0-91F1-C11D9DD198AE}"
+      DTS:DTSID="{F9C42787-FD0D-4667-8995-B8C7E9142305}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
@@ -3173,7 +3173,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Fact_Kundevandring_NonMovements'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.70'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Fact_Kundevandring'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Fact_Kundevandring_NonMovements'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.75'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Fact_Kundevandring'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -3185,7 +3185,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       DTS:refId="Package\EDW_Utility - Update LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{AB7A03A4-8463-438D-AC2C-8772471B3F8E}"
+      DTS:DTSID="{41778E81-F3CD-4187-B4A3-2B4381F680A5}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - Update LogDetail"
@@ -3205,7 +3205,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{25AE56B2-B8C8-4F94-BEC4-9AF235A6112D}"
+      DTS:DTSID="{3128B9F9-3369-4B13-81F8-C216C2DFD26F}"
       DTS:From="Package\Build Fact"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -3213,7 +3213,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{CEB76AEF-8165-4BC9-BFBD-452AD8C8578D}"
+      DTS:DTSID="{F3A5CB05-CAC7-4595-9869-7F5E8DDE8D5F}"
       DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -3221,7 +3221,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{3C9CFCD6-BC46-4A91-8E71-4E5AF8031177}"
+      DTS:DTSID="{8C3E2FD2-3177-48A6-88BF-C69AB1E43133}"
       DTS:From="Package\EDW - Row Count Before"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -3229,7 +3229,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{2FFBB24E-EA59-4266-B862-F59F3228A7EA}"
+      DTS:DTSID="{8F85BFD9-EF6C-4DA6-B1EE-FF015C7179E5}"
       DTS:From="Package\EDW - Row Count After"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -3465,22 +3465,6 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           Id="Package\Build Fact\Load Fact\ToDate_Key"
           TopLeft="45.5000000000001,925.5" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Build Fact\Load Fact\FromTeknologi_Key"
-          TopLeft="27.5,313.5" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Build Fact\Load Fact\FromToDate_Key"
-          TopLeft="33.5000000000001,1027.5" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Build Fact\Load Fact\FromDate_Key"
-          TopLeft="39.5000000000001,823.5" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Build Fact\Load Fact\ToOperatør_Key"
-          TopLeft="35.5000000000001,721.5" />
-        <NodeLayout
           Size="152,44"
           Id="Package\Build Fact\Load Fact\Handle NULL values"
           TopLeft="37.5000000000001,1231.5" />
@@ -3489,37 +3473,149 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           Id="Package\Build Fact\Load Fact\Movementtype_Key"
           TopLeft="28.0000000000001,1129.5" />
         <NodeLayout
-          Size="144,42"
-          Id="Package\Build Fact\Load Fact\BBRType_Key"
-          TopLeft="41.5000000000001,517.5" />
+          Size="139,42"
+          Id="Package\Build Fact\Load Fact\Adresse_Key"
+          TopLeft="44,211.5" />
         <NodeLayout
-          Size="201,42"
-          Id="Package\Build Fact\Load Fact\EDW Fact_Kundevandring"
-          TopLeft="13.0000000000002,1439.5" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Build Fact\Load Fact\FromOperatør_Key"
-          TopLeft="29.5000000000001,619.5" />
-        <NodeLayout
-          Size="141,44"
-          Id="Package\Build Fact\Load Fact\Row Count Fetch"
-          TopLeft="43,107.5" />
-        <NodeLayout
-          Size="216,42"
+          Size="224,42"
           Id="Package\Build Fact\Load Fact\Stage v_Fact_Kundevandring"
           TopLeft="5.5,5.5" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Build Fact\Load Fact\ToTeknologi_Key"
-          TopLeft="33.5,415.5" />
         <NodeLayout
           Size="143,44"
           Id="Package\Build Fact\Load Fact\Row Count Insert"
           TopLeft="42.0000000000001,1335.5" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Build Fact\Load Fact\Adresse_Key"
-          TopLeft="44,211.5" />
+          Size="156,42"
+          Id="Package\Build Fact\Load Fact\ToOperatør_Key"
+          TopLeft="35.5000000000001,721.5" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Build Fact\Load Fact\EDW Fact_Kundevandring"
+          TopLeft="13.0000000000002,1439.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Build Fact\Load Fact\FromTeknologi_Key"
+          TopLeft="27.5,313.5" />
+        <NodeLayout
+          Size="141,44"
+          Id="Package\Build Fact\Load Fact\Row Count Fetch"
+          TopLeft="43,107.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Build Fact\Load Fact\BBRType_Key"
+          TopLeft="41.5000000000001,517.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Build Fact\Load Fact\ToTeknologi_Key"
+          TopLeft="33.5,415.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Build Fact\Load Fact\FromOperatør_Key"
+          TopLeft="29.5000000000001,619.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Build Fact\Load Fact\FromToDate_Key"
+          TopLeft="33.5000000000001,1027.5" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Build Fact\Load Fact\FromDate_Key"
+          TopLeft="39.5000000000001,823.5" />
+        <EdgeLayout
+          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output5]"
+          TopLeft="113.5,763.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output4]"
+          TopLeft="113.5,661.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output3]"
+          TopLeft="113.5,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output2]"
+          TopLeft="113.5,457.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output1]"
           TopLeft="113.5,355.5">
@@ -3636,7 +3732,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Build Fact\Load Fact.Paths[OLE DB Source Output]"
-          TopLeft="113.5,47.5">
+          TopLeft="115.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3752,102 +3848,6 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output5]"
-          TopLeft="113.5,763.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output4]"
-          TopLeft="113.5,661.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output3]"
-          TopLeft="113.5,253.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build Fact\Load Fact.Paths[Lookup Match Output2]"
-          TopLeft="113.5,457.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <AnnotationLayout
           Text="l"
           ParentId="Package\Build Fact\Load Fact"
@@ -3860,75 +3860,6 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Build Fact\Load Fact\ToDate_Key">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\FromTeknologi_Key">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\FromDate_Key">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\ToOperatør_Key">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3974,43 +3905,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\BBRType_Key">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\EDW Fact_Kundevandring">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\FromOperatør_Key">
+    design-time-name="Package\Build Fact\Load Fact\Adresse_Key">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -4046,6 +3941,88 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Build Fact\Load Fact\ToOperatør_Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Fact\Load Fact\EDW Fact_Kundevandring">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Fact\Load Fact\FromTeknologi_Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Fact\Load Fact\BBRType_Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Build Fact\Load Fact\ToTeknologi_Key">
     <Properties>
       <Property>
@@ -4069,7 +4046,30 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Build Fact\Load Fact\Adresse_Key">
+    design-time-name="Package\Build Fact\Load Fact\FromOperatør_Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Fact\Load Fact\FromDate_Key">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>

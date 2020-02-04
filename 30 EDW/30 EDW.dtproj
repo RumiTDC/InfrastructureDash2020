@@ -55,9 +55,10 @@
           <SSIS:Package SSIS:Name="Fact_Kundevandring_NonMovements.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Dim_Movementtype.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Fact_Kundevandring 1 (1).dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Fact_Kundevandring_NonMovements (1).dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Dim_Adresse_Churn.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Dim_Elselskab_Mathias.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Fact_Kundevandring_NonMovements 1.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Fact_Kundevandring_Churn.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="EDW_Stage.conmgr" />
@@ -1416,38 +1417,6 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Fact_Kundevandring_NonMovements (1).dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{F4C26B5A-5CCC-427C-9F8B-0E1D10332561}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Fact_Kundevandring_NonMovements</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">70</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0B5306BB-354E-400A-AD02-483DFD8C926C}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="LogDetailID">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{9BEF8908-640E-4263-A6A5-D8577EE520F9}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Dim_Adresse_Churn.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{F106D281-0528-4DC2-8861-EC7A8BA664A6}</SSIS:Property>
@@ -1499,6 +1468,70 @@
                 <SSIS:Parameter SSIS:Name="LogDetailID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{2AE2EA1C-F772-41E9-B525-067C4CE6AC1E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Fact_Kundevandring_NonMovements 1.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{946C9C45-131C-4339-A3EA-C3B537CEE975}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Fact_Kundevandring_NonMovements</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">75</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{475B908D-516A-4249-B643-C0B7F86BE46B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="LogDetailID">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{88B8CBBB-DFDF-46E9-8904-9BE2F28B18A8}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Fact_Kundevandring_Churn.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{C990B3D6-7E25-4EFE-9F8D-3A998C66B7B9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Fact_Kundevandring_Churn</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">71</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CA2FA3A9-4296-464E-8541-73B9F2677126}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="LogDetailID">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{9BEF8908-640E-4263-A6A5-D8577EE520F9}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
