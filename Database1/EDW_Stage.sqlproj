@@ -121,7 +121,6 @@
     <Build Include="stage\Views\v_Fact_Bredbånd.sql" />
     <Build Include="stage\Views\v_dim_FromToDateMonth.sql" />
     <Build Include="stage\Views\v_Dim_Anlægsinformation.sql" />
-    <Build Include="Outputs\Views\TelenorDSLOversigt.sql" />
     <Build Include="csv\Views\KMDDataView.sql" />
     <Build Include="csv\Views\KonkFiber.sql" />
     <Build Include="csv\Views\SegmentData.sql" />

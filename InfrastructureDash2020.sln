@@ -19,6 +19,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EDW_Stage_History", "Databa
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataMart", "DataMart\DataMart.sqlproj", "{B304FC1B-96D4-4E65-9CA0-C47A65F5BB2F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NETSTAGE", "Database4\NETSTAGE.sqlproj", "{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,15 @@ Global
 		{B304FC1B-96D4-4E65-9CA0-C47A65F5BB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B304FC1B-96D4-4E65-9CA0-C47A65F5BB2F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B304FC1B-96D4-4E65-9CA0-C47A65F5BB2F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82FF0C4B-3DC5-4F66-AB15-636D24FAACDA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

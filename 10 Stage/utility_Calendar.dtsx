@@ -8,13 +8,13 @@
   DTS:DTSID="{102A087D-13AC-4FD6-B244-B4A58B2D8E50}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="utility_Calendar"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{E27A6020-E126-47AD-B804-45CA63AF7CB2}"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{477287C3-FFC5-4A66-80FA-069AA0CD743B}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -131,7 +131,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'utility_Calendar'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.29'&#xA;&#x9;,@DestinationTableSchema = 'utility'&#xA;&#x9;,@DestinationTableName = 'Calendar'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'utility_Calendar'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.30'&#xA;&#x9;,@DestinationTableSchema = 'utility'&#xA;&#x9;,@DestinationTableName = 'Calendar'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -3652,7 +3652,7 @@ FROM [input].[CalendarOffsets]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="490.666666666667,42"
+          Size="491,42"
           Id="Package\LogDetail Start (if not set by parent package) and Update package version on LogDetail"
           TopLeft="5.5,5.5" />
         <NodeLayout
@@ -3660,15 +3660,15 @@ FROM [input].[CalendarOffsets]</property>
           Id="Package\Stage - Row Count After"
           TopLeft="156.5,519.5" />
         <NodeLayout
-          Size="201.333333333334,42"
+          Size="201,42"
           Id="Package\Stage - Row Count Before"
           TopLeft="152.5,107.5" />
         <NodeLayout
-          Size="154.666666666667,44"
+          Size="155,44"
           Id="Package\staging\Source to Stage"
           TopLeft="6.50000000000001,107.5" />
         <NodeLayout
-          Size="157.333333333334,42"
+          Size="157,42"
           Id="Package\staging\Stage - Truncate"
           TopLeft="5.50000000000001,5.5" />
         <EdgeLayout
@@ -3813,7 +3813,7 @@ FROM [input].[CalendarOffsets]</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="161.333333333334,42"
+          Size="161,42"
           Id="Package\staging\Source to Stage\Row Count Insert"
           TopLeft="53.0000000000001,230.5" />
         <NodeLayout
@@ -3825,7 +3825,7 @@ FROM [input].[CalendarOffsets]</property>
           Id="Package\staging\Source to Stage\Row Count Fetch"
           TopLeft="68,117.5" />
         <NodeLayout
-          Size="149.333333333334,42"
+          Size="149,42"
           Id="Package\staging\Source to Stage\utility Calendar"
           TopLeft="60.5000000000001,335.5" />
         <EdgeLayout

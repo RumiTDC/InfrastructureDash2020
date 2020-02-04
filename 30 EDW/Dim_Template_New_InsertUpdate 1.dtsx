@@ -1,0 +1,2971 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{FBE39D66-2129-42E8-B1FB-0C21DB420B24}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Template_New_InsertUpdate"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="306"
+  DTS:VersionGUID="{A65F9053-EBFF-47CC-A371-A8717C82607D}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{135F38D8-ACEC-4F4B-AAF6-B7261DCDF803}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FD65748-1760-47F5-B360-BAE76DB4F470}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationAndStagePrepTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">prep</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{769E5E0C-1BEA-457E-B48B-21640298AA15}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Customer</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D613BD28-0CB9-4E42-BC1D-F59B1321F7E1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">edw</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ADC9B28C-40C2-429C-B9AB-3A9C7EB28ED2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C5B5BD5-67A3-42EC-9ABA-421094CDD040}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D342321-5869-4C05-8219-FCD8C2593056}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97E68733-FEF5-41BE-B822-81E6503343CF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountFetch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E88FD1DB-FE7A-43C0-8F89-9A319D2B03AE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{57680DEF-5B74-4021-8BF2-D3E70F3F802A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT &#xA;&#x9;(NEXT VALUE FOR dimkey.DimensionKeySequence) AS SurrogateKey&#xA;&#x9;, DW_BK&#xA;FROM &quot; +  @[User::SurrogateKeyTempTableName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_EK_SelectGenerateSurrogateKeysFromTempTable">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT 
+	(NEXT VALUE FOR dimkey.DimensionKeySequence) AS SurrogateKey
+	, DW_BK
+FROM [temp].[SurrogateKeyCustomer]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F9D94D3-5514-4D48-9552-2A751CDCF8A7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT &#xA;&#x9;[DW_BK_&quot; + @[User::DestinationTableName] + &quot;] AS DW_BK&#xA;FROM [&quot; + @[User::DestinationAndStagePrepTableSchema] + &quot;].[&quot; + @[User::DestinationTableName] + &quot;]&#xA;WHERE &#xA;&#x9;[&quot; + @[User::DestinationTableName] + &quot;_Key] IS NULL&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_EK_SelectNewMembersFromStageTable">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT 
+	[DW_BK_Customer] AS DW_BK
+FROM [prep].[Customer]
+WHERE 
+	[Customer_Key] IS NULL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E8EDCEC-3B80-437B-9FBC-4026DABE5993}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;[&quot; + @[User::DestinationAndStagePrepTableSchema] + &quot;].[&quot; + @[User::DestinationTableName] + &quot;]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StagePrepViewName">
+      <DTS:VariableValue
+        DTS:DataType="8">[prep].[Customer]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A8DF7B8-23B8-4D32-B997-A3CE55484DC4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;[temp].[SurrogateKey&quot; + @[User::DestinationTableName] + &quot;]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SurrogateKeyTempTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">[temp].[SurrogateKeyCustomer]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6076EB79-9DDB-4160-A336-9657BB2E082E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UseCase">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Build Dimension Members"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9EF97DC8-8EF9-45D1-AA8F-CD39A4F679F5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build Dimension Members"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Build Dimension Members\EDW - Insert Unknown"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5B9E0FF5-96FE-4185-8DBC-37FDB7F6002D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW - Insert Unknown"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [edw].[InsertUnknownMember] @SchemaName = N'"+ @[User::DestinationTableSchema] + "', @TableName = N'"+ @[User::DestinationTableName] +"'"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Customer'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build Dimension Members\Load Dimension Prep Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Be aware that an expression has been set on this task in order to change the WHERE part of the surrogate_key lookup flow"
+          DTS:DTSID="{AC19FEB6-8BCE-4BBA-87D2-10ECD05C1A37}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Dimension Prep Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[Surrogate_Key from key store].[SqlCommand]">"SELECT     SurrogateKey, DW_BK
+FROM         dimkey.DimensionKey
+WHERE     (DimensionTableName = UPPER('"+ @[User::DestinationTableName] +"'))"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Consider NULL and Blanks"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="EDW_Stage_History prep Customer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::StagePrepViewName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">/*Temp Solution to Customers / Accounts From CRM*/
+
+SELECT 
+co.DynamicsNavCompanyID AS CompanyId
+, f.name AS CustomerName
+, ISNULL(CAST(f.accountnumber AS nvarchar(50)), f.accountid) CustomerNumber
+, f.nrq_responsibilitycentername CustomerResponsibilityCenter
+, f.nrq_industrygroupname CustomerIndustryCode
+, f.industrycodename   CustomerIndustry
+, f.nrq_departmentcodename CustomerDepartment
+, CustomerSalesResponsibleCode = N'Unknown' 
+, CustomerSalesResponsibleName = N'Unknown'
+, f.paymenttermscodename CustomerPaymentTermsCode
+, f.address1_addressid CustomerAddress
+, f.address1_city CustomerCity
+, f.address1_postalcode CustomerPostalCode
+, f.address1_country CustomerCountry
+, f.nrq_discountgroupname CustomerDiscountGroup
+FROM crm.FilteredAccount f
+INNER JOIN utility.DynamicsNavCompany co on co.CompanyName=f.nrq_navcompanyname
+WHERE f.HistoryCurrentRec = 1
+AND co.HistoryCurrentRec=1
+AND CONCAT(co.DynamicsNavCompanyID, '-', ISNULL(f.accountnumber, f.accountid)) NOT IN (
+SELECT	CONCAT(c.[CompanyId] ,'-' , c.[No_])
+FROM nav.[Customer] c
+LEFT OUTER JOIN nav.[Default Dimension] dd on C.No_=dd.No_ AND c.[CompanyId] = dd.[CompanyId] AND [Table ID] = 18 AND [Dimension Code]='INDUSTRY GROUP' AND dd.HistoryCurrentRec = 1
+LEFT OUTER JOIN nav.[Dimension Value] dv on dd.[Dimension Value Code]=dv.[Code] AND dv.CompanyId=dd.CompanyId AND dv.[Dimension Code]='INDUSTRY GROUP' AND dv.HistoryCurrentRec=1
+LEFT OUTER JOIN nav.Salesperson_Purchaser sp on c.[Salesperson Code] = sp.Code AND c.CompanyId=sp.CompanyId AND sp.HistoryCurrentRec=1
+LEFT OUTER JOIN nav.[Customer Discount Group] dc on c.[Customer Disc_ Group] = dc.Code AND c.CompanyId=dc.CompanyId AND dc.HistoryCurrentRec=1
+WHERE c.HistoryCurrentRec = 1
+)
+--AND 1&gt;2 -- Filter Error to 1 april 2016
+ORDER BY 3</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{f3f1241d-8d72-46e0-8102-877932e56787}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_History]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                          length="20"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                          name="CustomerName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                          name="CustomerNo"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                          dataType="wstr"
+                          length="20"
+                          name="CustomerName" />
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                          dataType="i4"
+                          name="CustomerNo" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                          name="CustomerNo" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                          name="CustomerName" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert EDW prep Customer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[prep].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CustomerName"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerName]" />
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="400"
+                          cachedName="DW_BK"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK_Customer]"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]" />
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
+                          cachedDataType="i8"
+                          cachedName="SurrogateKey"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Key]"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]" />
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].Columns[CustomerNo]"
+                          cachedDataType="i4"
+                          cachedName="CustomerNo"
+                          externalMetadataColumnId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerNo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                          dataType="wstr"
+                          length="20"
+                          name="CustomerName" />
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK_Customer]"
+                          dataType="wstr"
+                          length="400"
+                          name="DW_BK_Customer" />
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Key]"
+                          dataType="i8"
+                          name="Customer_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                          dataType="i4"
+                          name="CustomerNo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input].Columns[CustomerNo]"
+                          cachedDataType="i4"
+                          cachedName="CustomerNo"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerNo]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="400"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]"
+                          name="DW_BK"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,400)#{Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output].Columns[CustomerNo]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,400)CustomerNo</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]"
+                          name="DimensionTable"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[User::DestinationTableName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[User::DestinationTableName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Looks up values in a reference dataset by using exact matching."
+                  name="Surrogate_Key from key store"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     SurrogateKey, DW_BK
+FROM         dimkey.DimensionKey
+WHERE     (DimensionTableName = UPPER('Customer'))</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT     SurrogateKey, DW_BK
+FROM         dimkey.DimensionKey
+WHERE     (DimensionTableName = UPPER('Customer'))) [refTable]
+where [refTable].[DW_BK] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SurrogateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DW_BK" dataType="DT_WSTR" length="400" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Connections[OleDbConnection]"
+                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="400"
+                          cachedName="DW_BK"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DW_BK</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]"
+                          name="SurrogateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SurrogateKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Derived Column Output]"
+                  endId="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Derived Column Output1]"
+                  endId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Lookup Match Output]"
+                  endId="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Build Dimension Members\Load Dimension Prep Table.Paths[OLE DB Source Output]"
+                  endId="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build Dimension Members.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C4C60575-A811-461B-8A43-0212B5D8C545}"
+          DTS:From="Package\Build Dimension Members\EDW - Insert Unknown"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Build Dimension Members\Load Dimension Prep Table" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A402688A-ECFF-4829-A5F2-0535993AB8FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [edw].[Customer]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0BC188B7-9F4A-46C9-94E8-81FCB729C758}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Template_New_InsertUpdate'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.306'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Customer'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9C8FA00E-C021-468D-B68B-AD7D64188415}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20) @[User::LogDetailID]  + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] +", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert] + ", " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, 0, 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Generate Surrogate Keys and Load Dimension"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4DCBC50A-8D80-440B-93AC-F660D225ECB4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generate Surrogate Keys and Load Dimension">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{34E9717F-9501-4F51-9CB5-EBF500311628}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CREATE temp Tables"
+          DTS:TransactionOption="0">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables\Create Temporary Table on edw"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{5680C508-124A-4832-8B5A-3996BC7FFA40}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Create Temporary Table on edw"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+IF OBJECT_ID(N'" + @[User::SurrogateKeyTempTableName] + "', N'U') IS NOT NULL
+DROP TABLE " + @[User::SurrogateKeyTempTableName] + "
+GO
+
+CREATE TABLE " + @[User::SurrogateKeyTempTableName] + " (
+ SurrogateKey BIGINT NULL
+ , DW_BK NVARCHAR(400) NULL
+)"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+                  SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID(N'[temp].[SurrogateKeyCustomer]', N'U') IS NOT NULL&#xA;DROP TABLE [temp].[SurrogateKeyCustomer]&#xA;GO&#xA;&#xA;CREATE TABLE [temp].[SurrogateKeyCustomer] (&#xA; SurrogateKey BIGINT NULL&#xA; , DW_BK NVARCHAR(400) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables\Create Temporary Table on Utilty"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{BF676C6F-5B83-4DBA-84F5-E13E5EC80334}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Create Temporary Table on Utilty"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+IF OBJECT_ID(N'" + @[User::SurrogateKeyTempTableName] + "', N'U') IS NOT NULL
+DROP TABLE " + @[User::SurrogateKeyTempTableName] + "
+GO
+
+CREATE TABLE " + @[User::SurrogateKeyTempTableName] + " (
+ DW_BK NVARCHAR(400) NULL
+)"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID(N'[temp].[SurrogateKeyCustomer]', N'U') IS NOT NULL&#xA;DROP TABLE [temp].[SurrogateKeyCustomer]&#xA;GO&#xA;&#xA;CREATE TABLE [temp].[SurrogateKeyCustomer] (&#xA; DW_BK NVARCHAR(400) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{450B8860-27E2-4000-BE5E-BADAF9A17964}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DROP temp Tables">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables\Drop Temporary Table on edw"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{830BCAF8-4DCC-414A-A8D5-8365DF6113E3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Drop Temporary Table on edw"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"IF OBJECT_ID(N'" + @[User::SurrogateKeyTempTableName] + "', N'U') IS NOT NULL
+DROP TABLE " + @[User::SurrogateKeyTempTableName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+                  SQLTask:SqlStatementSource="IF OBJECT_ID(N'[temp].[SurrogateKeyCustomer]', N'U') IS NOT NULL&#xA;DROP TABLE [temp].[SurrogateKeyCustomer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables\Drop Temporary Table on Utilty"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{ED6D88A5-AD09-4923-A9CE-FC5071CED7B1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Drop Temporary Table on Utilty"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"IF OBJECT_ID(N'" + @[User::SurrogateKeyTempTableName] + "', N'U') IS NOT NULL
+DROP TABLE " + @[User::SurrogateKeyTempTableName]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="IF OBJECT_ID(N'[temp].[SurrogateKeyCustomer]', N'U') IS NOT NULL&#xA;DROP TABLE [temp].[SurrogateKeyCustomer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{B995AB98-024A-4D37-8C92-D02288AF933D}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Generate Surrogate Keys"
+          DTS:TransactionOption="2">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{27ACE331-1E95-4B4E-B922-F2999167BAF7}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Generate Surrogate Keys"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="DEST edw Temp Surrogate Key Table"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[temp].[SurrogateKeyProductDNA]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::SurrogateKeyTempTableName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">4</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Connections[OleDbConnection]"
+                          connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
+                              cachedDataType="i8"
+                              cachedName="SurrogateKey"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[SurrogateKey]" />
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].Columns[DW_BK]"
+                              cachedDataType="wstr"
+                              cachedLength="400"
+                              cachedName="DW_BK"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[DW_BK]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                              dataType="i8"
+                              name="SurrogateKey" />
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              name="DW_BK" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="DEST Utility Dimension Key"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dimkey].[DimensionKey]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].Columns[DimensionTableName]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="DimensionTableName"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[DimensionTableName]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Output].Columns[DimensionTableName]" />
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
+                              cachedDataType="i8"
+                              cachedName="SurrogateKey"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[SurrogateKey]" />
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].Columns[DW_BK]"
+                              cachedDataType="wstr"
+                              cachedLength="400"
+                              cachedName="DW_BK"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[DW_BK]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[DimensionTableName]"
+                              dataType="wstr"
+                              length="50"
+                              name="DimensionTableName" />
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                              dataType="dbTimeStamp2"
+                              name="CreateDate"
+                              scale="7" />
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                              dataType="i8"
+                              name="SurrogateKey" />
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              name="DW_BK" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DRV DimensionTableName"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Output].Columns[DimensionTableName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Output].Columns[DimensionTableName]"
+                              name="DimensionTableName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,50)[UPPER](@[User::DestinationTableName])</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,50)UPPER(@[User::DestinationTableName])</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast"
+                      componentClassID="Microsoft.Multicast"
+                      contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                      name="Multicast">
+                      <inputs>
+                        <input
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Inputs[Multicast Input 1]"
+                          name="Multicast Input 1">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Outputs[Multicast Output 2]"
+                          deleteOutputOnPathDetached="true"
+                          name="Multicast Output 2"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Inputs[Multicast Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Outputs[Multicast Output 1]"
+                          deleteOutputOnPathDetached="true"
+                          name="Multicast Output 1"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Inputs[Multicast Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Outputs[Multicast Output 3]"
+                          dangling="true"
+                          deleteOutputOnPathDetached="true"
+                          name="Multicast Output 3"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Inputs[Multicast Input 1]">
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="SRC Utility temp Surrogate Key Table"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	(NEXT VALUE FOR dimkey.DimensionKeySequence) AS SurrogateKey
+	, DW_BK
+FROM temp.SurrogateKeyCustomer</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SQL_EK_SelectGenerateSurrogateKeysFromTempTable</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[SurrogateKey]"
+                              dataType="i8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].ExternalColumns[SurrogateKey]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[SurrogateKey]"
+                              name="SurrogateKey"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[DW_BK]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].ExternalColumns[DW_BK]"
+                              length="400"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].Columns[DW_BK]"
+                              name="DW_BK"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].ExternalColumns[SurrogateKey]"
+                              dataType="i8"
+                              name="SurrogateKey" />
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output].ExternalColumns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              name="DW_BK" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[SurrogateKey]"
+                              dataType="i8"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[SurrogateKey]"
+                              name="SurrogateKey" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[DW_BK]"
+                              name="DW_BK" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Derived Column Output]"
+                      endId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Multicast Output 1]"
+                      endId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table.Inputs[OLE DB Destination Input]"
+                      name="Multicast Output 1"
+                      startId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Outputs[Multicast Output 1]" />
+                    <path
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Multicast Output 2]"
+                      endId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName.Inputs[Derived Column Input]"
+                      name="Multicast Output 2"
+                      startId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Outputs[Multicast Output 2]" />
+                    <path
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[OLE DB Source Output]"
+                      endId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast.Inputs[Multicast Input 1]"
+                      name="OLE DB Source Output"
+                      startId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{6AE4A60E-6DD3-48AB-9E00-58195A20F7F1}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load New Members to Temp Table on Utility"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="DEST Utility Temp Surrogate Key Table"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[temp].[SurrogateKeyCustomer]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::SurrogateKeyTempTableName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">4</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Connections[OleDbConnection]"
+                          connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input].Columns[DW_BK]"
+                              cachedDataType="wstr"
+                              cachedLength="400"
+                              cachedName="DW_BK"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output].Columns[DW_BK]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input].ExternalColumns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              name="DW_BK" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="SRC EDW Stage Dimension"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	DW_BK_Customer AS DW_BK
+FROM stage.Customer
+WHERE 
+	SurrogateKey_Customer IS NULL</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SQL_EK_SelectNewMembersFromStageTable</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Connections[OleDbConnection]"
+                          connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output].Columns[DW_BK]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output].ExternalColumns[DW_BK]"
+                              length="400"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output].Columns[DW_BK]"
+                              name="DW_BK"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output].ExternalColumns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              name="DW_BK" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[DW_BK]"
+                              dataType="wstr"
+                              length="400"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[DW_BK]"
+                              name="DW_BK" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility.Paths[OLE DB Source Output]"
+                      endId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table.Inputs[OLE DB Destination Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Merge stage to edw"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{B3C34D2E-69EE-49E3-9A1C-31AC34C6351E}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Merge stage to edw"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"EXEC setup.DimensionLoad '" + @[User::DestinationAndStagePrepTableSchema] + "', '" + @[User::DestinationTableSchema] + "', '" + @[User::DestinationTableName] + "', " +  (DT_WSTR,50)@[User::LogDetailID] + ", " +  (DT_WSTR, 10)@[User::UseCase]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+                  SQLTask:SqlStatementSource="EXEC setup.DimensionLoad 'prep', 'edw', 'Customer', 0, 2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Update SurrogateKey In Stage Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{B20B32AF-5299-4902-A572-463E7DA4C47C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update SurrogateKey In Stage Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE TGT
+ SET TGT.[" + @[User::DestinationTableName] + "_Key] = EK.SurrogateKey
+FROM [" + @[User::DestinationAndStagePrepTableSchema] + "].[" + @[User::DestinationTableName] + "] TGT
+ INNER JOIN " + @[User::SurrogateKeyTempTableName] + " EK
+  ON EK.DW_BK = TGT.[DW_BK_" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+                  SQLTask:SqlStatementSource="UPDATE TGT&#xA; SET TGT.[Customer_Key] = EK.SurrogateKey&#xA;FROM [prep].[Customer] TGT&#xA; INNER JOIN [temp].[SurrogateKeyCustomer] EK&#xA;  ON EK.DW_BK = TGT.[DW_BK_Customer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{F4DC209B-5047-4532-BC60-302DAC87570B}"
+              DTS:From="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Update SurrogateKey In Stage Table"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Merge stage to edw" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{814AEDA0-1C59-432E-83F9-FDA4C70A6D0D}"
+              DTS:From="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{95CAD495-8A9F-473A-A90B-6CA78F879089}"
+              DTS:From="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Update SurrogateKey In Stage Table" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Generate Surrogate Keys and Load Dimension.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{F40CCB27-E888-48FE-AF81-708D2B9BF8AB}"
+          DTS:From="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Generate Surrogate Keys and Load Dimension.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{EA44A6C1-06BD-4A1C-93D5-B2AE54E406AF}"
+          DTS:From="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pre Execute"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{DFC9F30E-C22F-4209-BFD4-EC165E97EB93}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pre Execute"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Pre Execute\EDW - Row Count Before"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C6F002E3-9518-4B04-9A41-7652323527F4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EDW - Row Count Before"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Customer]"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="RowCountBefore"
+                SQLTask:DtsVariableName="User::RowCountBefore" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Pre Execute\Truncate Dimension Prep Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E45F615B-934D-4CB2-B3DB-72609C69FB7F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Dimension Prep Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationAndStagePrepTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [prep].[Customer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Pre Execute\Validate Dimension Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7C83884F-CB7C-4E74-AD63-54AFE06D8ED1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Validate Dimension Table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC setup.DimensionTableValidate '" + @[User::DestinationAndStagePrepTableSchema] + "', '" + @[User::DestinationTableSchema] + "', '" +  @[User::DestinationTableName] + "'" + ", " + (DT_WSTR, 10) @[User::UseCase]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+              SQLTask:SqlStatementSource="EXEC setup.DimensionTableValidate 'prep', 'edw', 'Customer', 2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Pre Execute.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4E100527-D3D8-45BA-A4B6-32E3F57F883D}"
+          DTS:From="Package\Pre Execute\EDW - Row Count Before"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Pre Execute\Truncate Dimension Prep Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Pre Execute.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{0080DE99-E3DE-4303-9AB7-C93FA2AB3FDA}"
+          DTS:From="Package\Pre Execute\Validate Dimension Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Pre Execute\EDW - Row Count Before" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{26D299F6-40D1-41D4-8E4D-5CAA1E67C6D7}"
+      DTS:From="Package\Build Dimension Members"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Generate Surrogate Keys and Load Dimension" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2A9D03E-3070-45D0-889C-0D10894C5C30}"
+      DTS:From="Package\Pre Execute"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Build Dimension Members" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0FDED066-E1A6-44A7-A5A5-DA02DBB1ADD1}"
+      DTS:From="Package\EDW - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\EDW_Utility - Update LogDetail" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{818A6D9C-D83E-409B-AA9E-9986BF78E97F}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Pre Execute" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{8106FC50-314A-45A6-9AEF-8743434FBD26}"
+      DTS:From="Package\Generate Surrogate Keys and Load Dimension"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EDW - Row Count After" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Build Dimension Members\EDW - Insert Unknown"
+          TopLeft="28.5,5.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table"
+          TopLeft="5.50000000000001,109.5" />
+        <EdgeLayout
+          Id="Package\Build Dimension Members.PrecedenceConstraints[Constraint]"
+          TopLeft="110.75,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="224,207"
+          Size="224,250"
+          Id="Package\Build Dimension Members"
+          TopLeft="264.5,707.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\EDW - Row Count After"
+          TopLeft="282,1120.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="97.5,195.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\EDW_Utility - Update LogDetail"
+          TopLeft="268.5,1232" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables\Create Temporary Table on edw"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables\Create Temporary Table on Utilty"
+          TopLeft="297,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="538,103"
+          Size="538,146"
+          Id="Package\Generate Surrogate Keys and Load Dimension\CREATE temp Tables"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables\Drop Temporary Table on edw"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables\Drop Temporary Table on Utilty"
+          TopLeft="289,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="522,103"
+          Size="522,146"
+          Id="Package\Generate Surrogate Keys and Load Dimension\DROP temp Tables"
+          TopLeft="13.5000000000001,723.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys"
+          TopLeft="51.5,107.5" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Merge stage to edw"
+          TopLeft="64.0000000000001,311.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Update SurrogateKey In Stage Table"
+          TopLeft="38.5,209.5" />
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint]"
+          TopLeft="150,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint 2]"
+          TopLeft="150,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys.PrecedenceConstraints[Constraint 3]"
+          TopLeft="150,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,409"
+          Size="300,452"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys"
+          TopLeft="124.5,211.5" />
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension.PrecedenceConstraints[Constraint 3]"
+          TopLeft="274.5,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension.PrecedenceConstraints[Constraint 4]"
+          TopLeft="274.5,663.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,20.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="549,925"
+          Size="345,43"
+          Id="Package\Generate Surrogate Keys and Load Dimension"
+          TopLeft="204,1015.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Pre Execute\EDW - Row Count Before"
+          TopLeft="22.5,107.5" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Pre Execute\Truncate Dimension Prep Table"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Pre Execute\Validate Dimension Table"
+          TopLeft="22.5,5.5" />
+        <EdgeLayout
+          Id="Package\Pre Execute.PrecedenceConstraints[Constraint]"
+          TopLeft="120.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pre Execute.PrecedenceConstraints[Constraint 5]"
+          TopLeft="121.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="243,307"
+          Size="243,350"
+          Id="Package\Pre Execute"
+          TopLeft="255,297.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="376.5,957.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="376.5,647.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="379,1162.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.5"
+              Start="0,0"
+              End="0,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="376.5,237.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="376.5,1058.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Use of template:&#xA;&#xA;1. Change global package variables&#xA;     - DimensionTableSchema&#xA;     - DimensionTableName&#xA;     - DestinationAndStagePrepTableSchema&#xA;2. Define dimension business key in data flow&#xA;     - Set business key in derived column &quot;SET BusinessKey and DimensionTable for Surrogat Key Lookup&quot;&#xA;     - Concatinated business keys must be seperated by double pipes: &quot;||&quot;&#xA;&#xA;Table requirements:&#xA;&#xA;Dimension prep table&#xA;     - [DimensionName]_Key BIGINT &#xA;     - DW_BK_[DimensionName] NVARCHAR(400)&#xA;&#xA;Note:&#xA;Dimension table is created automatically.&#xA;&#xA;Non-clustered unique index on DW_BK_[DimensionName] naming convention: IX_DW_BK_Prep_[DimensionName]&#xA;is created automatically."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="631,359"
+          Id="a5d18b7e-cff3-4551-ad76-88c14fe5aba6"
+          TopLeft="546,274.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Build Dimension Members\Load Dimension Prep Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store"
+          TopLeft="83,311.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer"
+          TopLeft="94.5000000000001,515.5" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer"
+          TopLeft="65,97.5" />
+        <NodeLayout
+          Size="375,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+          TopLeft="5.5,209.5" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Build Dimension Members\Load Dimension Prep Table\Consider NULL and Blanks"
+          TopLeft="96.0000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\Build Dimension Members\Load Dimension Prep Table.Paths[OLE DB Source Output]"
+          TopLeft="190.5,139.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Lookup Match Output]"
+          TopLeft="195,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Derived Column Output1]"
+          TopLeft="193,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build Dimension Members\Load Dimension Prep Table.Paths[Derived Column Output]"
+          TopLeft="197.25,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Note: Change business key here"
+          ParentId="Package\Build Dimension Members\Load Dimension Prep Table"
+          FontInfo="{assembly:Null}"
+          Size="198,NaN"
+          Id="d2c391cd-eee6-4169-bde2-9a87ec6e5ef5"
+          TopLeft="415,211.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Dimension Members\Load Dimension Prep Table\Surrogate_Key from key store">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Dimension Members\Load Dimension Prep Table\Insert EDW prep Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build Dimension Members\Load Dimension Prep Table\EDW_Stage_History prep Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DRV DimensionTableName"
+          TopLeft="164.5,210.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table"
+          TopLeft="273,5.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key"
+          TopLeft="163.5,312.5" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\Multicast"
+          TopLeft="340,107.5" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table"
+          TopLeft="430,210.5" />
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Multicast Output 1]"
+          TopLeft="418.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.333333333333,61"
+              Start="0,0"
+              End="139.333333333333,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8815789473684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8815789473684"
+                    Point2="0,24.8815789473684"
+                    Point3="4,24.8815789473684" />
+                  <mssgle:LineSegment
+                    End="135.333333333333,24.8815789473684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.333333333333,24.8815789473684"
+                    Point2="139.333333333333,24.8815789473684"
+                    Point3="139.333333333333,28.8815789473684" />
+                  <mssgle:LineSegment
+                    End="139.333333333333,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Derived Column Output]"
+          TopLeft="267,252.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[OLE DB Source Output]"
+          TopLeft="400,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys.Paths[Multicast Output 2]"
+          TopLeft="381.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-114.333333333333,61"
+              Start="0,0"
+              End="-114.333333333333,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8815789473684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8815789473684"
+                    Point2="0,24.8815789473684"
+                    Point3="-4,24.8815789473684" />
+                  <mssgle:LineSegment
+                    End="-110.333333333333,24.8815789473684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-110.333333333333,24.8815789473684"
+                    Point2="-114.333333333333,24.8815789473684"
+                    Point3="-114.333333333333,28.8815789473684" />
+                  <mssgle:LineSegment
+                    End="-114.333333333333,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\SRC Utility temp Surrogate Key Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST Utility Dimension Key">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Generate Surrogate Keys\DEST edw Temp Surrogate Key Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension"
+          TopLeft="34,5.5" />
+        <EdgeLayout
+          Id="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility.Paths[OLE DB Source Output]"
+          TopLeft="137.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\DEST Utility Temp Surrogate Key Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generate Surrogate Keys and Load Dimension\Generate Surrogate Keys\Load New Members to Temp Table on Utility\SRC EDW Stage Dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
