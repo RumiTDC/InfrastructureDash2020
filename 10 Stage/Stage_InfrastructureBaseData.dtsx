@@ -13,8 +13,8 @@
   DTS:ObjectName="Stage_InfrastructureBaseData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="148"
-  DTS:VersionGUID="{FEF14E38-F63B-44DF-B0C2-898B06243FE9}"
+  DTS:VersionBuild="160"
+  DTS:VersionGUID="{C6222DA4-BB9A-49E9-A4D5-0A3E10EBBD87}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -697,16 +697,6 @@
           DTS:ConnectionString="Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETSTAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{344B1772-51B6-408C-87BE-7A0ACF4C18C8}"
-      DTS:ObjectName="PSRVWDB1663\PSQLPBI0002.NETSTAGE 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETSTAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
@@ -736,7 +726,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableSchema">
       <DTS:VariableValue
-        DTS:DataType="8">inf</DTS:VariableValue>
+        DTS:DataType="8">dm</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -826,6 +816,7 @@
       DTS:refId="Package\EDW_Stage - Row Count After"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{AFAAAD51-89E9-4945-96EA-713A8575D827}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -838,7 +829,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [inf].[InfrastructureBaseData]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [dm].[InfrastructureBaseData]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountAfter"
@@ -850,6 +841,7 @@
       DTS:refId="Package\EDW_Stage - Row Count Before"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{10DDA615-6B02-4EA7-9B88-D7EB6F56E36E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -862,7 +854,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [inf].[InfrastructureBaseData]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [dm].[InfrastructureBaseData]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountBefore"
@@ -874,6 +866,7 @@
       DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{2D710020-7C17-409E-A9C3-37C2BCB4DF19}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -906,7 +899,7 @@ SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"</DTS:PropertyE
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Stage_InfrastructureBaseData'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.148'&#xA;&#x9;,@DestinationTableSchema = 'inf'&#xA;&#x9;,@DestinationTableName = 'InfrastructureBaseData'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Stage_InfrastructureBaseData'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.160'&#xA;&#x9;,@DestinationTableSchema = 'dm'&#xA;&#x9;,@DestinationTableName = 'InfrastructureBaseData'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -921,6 +914,7 @@ SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"</DTS:PropertyE
       DTS:refId="Package\EDW_Utility - Update LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{647C654E-CA1A-48C8-8C9E-48CFC4303FED}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -962,7 +956,7 @@ SELECT LogDetailID = @LogDetailID , LogIDPackage = @LogIDPackage"</DTS:PropertyE
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{0AA3ABC2-5199-4947-80C8-CC02C5F9079C}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [inf].[InfrastructureBaseData]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dm].[InfrastructureBaseData]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -996,7 +990,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}"
-              SQLTask:SqlStatementSource="&#xA;DECLARE @LogID varchar(20) = (SELECT LogID FROM EDW_Utility.log.LogDetail WHERE LogDetailID = 0)&#xA;EXECUTE [dbo].[Merge_StageToHistory] &#xA;   @TableName = 'InfrastructureBaseData'&#xA;  ,@Schema = 'inf'&#xA;  ,@LogID = @LogID ,@DestinationDatabase = 'NETSTAGE' &#xA;,@HistoryPrefix_Enabled = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="&#xA;DECLARE @LogID varchar(20) = (SELECT LogID FROM EDW_Utility.log.LogDetail WHERE LogDetailID = 0)&#xA;EXECUTE [dbo].[Merge_StageToHistory] &#xA;   @TableName = 'InfrastructureBaseData'&#xA;  ,@Schema = 'dm'&#xA;  ,@LogID = @LogID ,@DestinationDatabase = 'NETSTAGE' &#xA;,@HistoryPrefix_Enabled = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -1081,7 +1075,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[InfrastructureBaseData_LastLoadedMonth]</property>
+                      name="OpenRowset">[dbo].[InfrastructureBaseDataV2]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1126,26 +1120,6 @@ EXECUTE [dbo].[Merge_StageToHistory]
                       refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[Filename]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[Filename]"
-                          length="50"
-                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[Filename]"
-                          name="Filename"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[Month]"
-                          dataType="dbDate"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[Month]"
-                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[Month]"
-                          name="Month"
-                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[Adresse_By]"
                           codePage="1252"
@@ -1842,19 +1816,64 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[YS_BB_technology]"
                           name="YS_BB_technology"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[CreateLogDatetime]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[CreateLogDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[CreateLogDatetime]"
+                          name="CreateLogDatetime"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ChangedDatetime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ChangedDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ChangedDatetime]"
+                          name="ChangedDatetime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidFromDatetime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ValidFromDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidFromDatetime]"
+                          name="ValidFromDatetime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidToDatetime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ValidToDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidToDatetime]"
+                          name="ValidToDatetime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                          name="IsCurrent"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsDeleted]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[IsDeleted]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsDeleted]"
+                          name="IsDeleted"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[Filename]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="Filename" />
-                        <externalMetadataColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[Month]"
-                          dataType="dbDate"
-                          name="Month" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[Adresse_By]"
                           codePage="1252"
@@ -2119,9 +2138,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WLEWII_ejer" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_Coax_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           name="WS_Coax_Antal_pr_KVHX" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_Coax_HASTIGHED]"
@@ -2137,9 +2154,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WS_Coax_OPERATOER" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_Fiber_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           name="WS_Fiber_Antal_pr_KVHX" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_Fiber_HASTIGHED]"
@@ -2179,9 +2194,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WS_RAA_KOBBER_OPERATOER" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_XDSL_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           name="WS_XDSL_Antal_pr_KVHX" />
                         <externalMetadataColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[WS_XDSL_HASTIGHED]"
@@ -2217,6 +2230,31 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           dataType="str"
                           length="10"
                           name="YS_BB_technology" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[CreateLogDatetime]"
+                          dataType="dbTimeStamp2"
+                          name="CreateLogDatetime"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ChangedDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ChangedDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ValidFromDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ValidFromDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[ValidToDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ValidToDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                          dataType="bool"
+                          name="IsCurrent" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].ExternalColumns[IsDeleted]"
+                          dataType="bool"
+                          name="IsDeleted" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2224,18 +2262,6 @@ EXECUTE [dbo].[Merge_StageToHistory]
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[Filename]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[Filename]"
-                          name="Filename" />
-                        <outputColumn
-                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[Month]"
-                          dataType="dbDate"
-                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[Month]"
-                          name="Month" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[Adresse_By]"
                           codePage="1252"
@@ -2551,9 +2577,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WLEWII_ejer" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_Coax_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_Coax_Antal_pr_KVHX]"
                           name="WS_Coax_Antal_pr_KVHX" />
                         <outputColumn
@@ -2572,9 +2596,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WS_Coax_OPERATOER" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_Fiber_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_Fiber_Antal_pr_KVHX]"
                           name="WS_Fiber_Antal_pr_KVHX" />
                         <outputColumn
@@ -2621,9 +2643,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           name="WS_RAA_KOBBER_OPERATOER" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_XDSL_Antal_pr_KVHX]"
-                          codePage="1252"
-                          dataType="str"
-                          length="6"
+                          dataType="i2"
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[WS_XDSL_Antal_pr_KVHX]"
                           name="WS_XDSL_Antal_pr_KVHX" />
                         <outputColumn
@@ -2666,6 +2686,37 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           length="10"
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[YS_BB_technology]"
                           name="YS_BB_technology" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[CreateLogDatetime]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[CreateLogDatetime]"
+                          name="CreateLogDatetime"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ChangedDatetime]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ChangedDatetime]"
+                          name="ChangedDatetime" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ValidFromDatetime]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ValidFromDatetime]"
+                          name="ValidFromDatetime" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ValidToDatetime]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ValidToDatetime]"
+                          name="ValidToDatetime" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                          dataType="bool"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                          name="IsCurrent" />
+                        <outputColumn
+                          refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[IsDeleted]"
+                          dataType="bool"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[IsDeleted]"
+                          name="IsDeleted" />
                         <outputColumn
                           refId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -2748,7 +2799,7 @@ EXECUTE [dbo].[Merge_StageToHistory]
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[inf].[InfrastructureBaseData]</property>
+                      name="OpenRowset">[dm].[InfrastructureBaseData]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2791,8 +2842,8 @@ EXECUTE [dbo].[Merge_StageToHistory]
                   <connections>
                     <connection
                       refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE 1]"
-                      connectionManagerRefId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE 1]"
+                      connectionManagerID="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3296,6 +3347,43 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           cachedName="YS_BB_technology"
                           externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[YS_BB_technology]"
                           lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[YS_BB_technology]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[CreateLogDatetime]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="CreateLogDatetime"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreateLogDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[CreateLogDatetime]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[ChangedDatetime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ChangedDatetime"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ChangedDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ChangedDatetime]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[ValidFromDatetime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ValidFromDatetime"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ValidFromDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidFromDatetime]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[ValidToDatetime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ValidToDatetime"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ValidToDatetime]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[ValidToDatetime]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
+                          cachedDataType="bool"
+                          cachedName="IsCurrent"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsCurrent]" />
+                        <inputColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].Columns[IsDeleted]"
+                          cachedDataType="bool"
+                          cachedName="IsDeleted"
+                          externalMetadataColumnId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                          lineageId="Package\staging\Source to Stage\DataMart.Outputs[OLE DB Source Output].Columns[IsDeleted]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3656,9 +3744,30 @@ EXECUTE [dbo].[Merge_StageToHistory]
                           length="10"
                           name="WL_Coax_sloejfe" />
                         <externalMetadataColumn
-                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[YS_Antal_BB_CHB]"
-                          dataType="i2"
-                          name="YS_Antal_BB_CHB" />
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreateLogDatetime]"
+                          dataType="dbTimeStamp2"
+                          name="CreateLogDatetime"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ChangedDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ChangedDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ValidFromDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ValidFromDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[ValidToDatetime]"
+                          dataType="dbTimeStamp"
+                          name="ValidToDatetime" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                          dataType="bool"
+                          name="IsCurrent" />
+                        <externalMetadataColumn
+                          refId="Package\staging\Source to Stage\InfrasructureBaseLoad.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                          dataType="bool"
+                          name="IsDeleted" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -4079,21 +4188,21 @@ EXECUTE [dbo].[Merge_StageToHistory]
         <NodeLayout
           Size="155,44"
           Id="Package\staging\Source to Stage"
-          TopLeft="38,147.5" />
+          TopLeft="39,140.5" />
         <EdgeLayout
           Id="Package\staging.PrecedenceConstraints[Constraint]"
-          TopLeft="115.5,87.5">
+          TopLeft="116,87.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,53"
               Start="0,0"
-              End="0,52.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4104,18 +4213,18 @@ EXECUTE [dbo].[Merge_StageToHistory]
         </EdgeLayout>
         <EdgeLayout
           Id="Package\staging.PrecedenceConstraints[Constraint 1]"
-          TopLeft="115.5,191.5">
+          TopLeft="116,184.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,67"
               Start="0,0"
-              End="0,52.5">
+              End="0,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4127,8 +4236,8 @@ EXECUTE [dbo].[Merge_StageToHistory]
         <ContainerLayout
           HeaderHeight="43.924528301886795"
           IsExpanded="True"
-          PanelSize="225,412"
-          Size="225,456"
+          PanelSize="236,412"
+          Size="236,456"
           Id="Package\staging"
           TopLeft="180.5,209.5" />
         <EdgeLayout
@@ -4159,9 +4268,9 @@ EXECUTE [dbo].[Merge_StageToHistory]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.5,60"
+              EndConnector="14,60"
               Start="0,0"
-              End="8.5,52.5">
+              End="14,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4172,13 +4281,13 @@ EXECUTE [dbo].[Merge_StageToHistory]
                     Point2="0,30"
                     Point3="4,30" />
                   <mssgle:LineSegment
-                    End="4.5,30" />
+                    End="10,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="4.5,30"
-                    Point2="8.5,30"
-                    Point3="8.5,34" />
+                    Point1="10,30"
+                    Point2="14,30"
+                    Point3="14,34" />
                   <mssgle:LineSegment
-                    End="8.5,52.5" />
+                    End="14,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4189,13 +4298,13 @@ EXECUTE [dbo].[Merge_StageToHistory]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="293,665.5">
+          TopLeft="298.5,665.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.5,60"
+              EndConnector="-14,60"
               Start="0,0"
-              End="-8.5,52.5">
+              End="-14,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4206,13 +4315,13 @@ EXECUTE [dbo].[Merge_StageToHistory]
                     Point2="0,30"
                     Point3="-4,30" />
                   <mssgle:LineSegment
-                    End="-4.5,30" />
+                    End="-10,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.5,30"
-                    Point2="-8.5,30"
-                    Point3="-8.5,34" />
+                    Point1="-10,30"
+                    Point2="-14,30"
+                    Point3="-14,34" />
                   <mssgle:LineSegment
-                    End="-8.5,52.5" />
+                    End="-14,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4265,36 +4374,102 @@ EXECUTE [dbo].[Merge_StageToHistory]
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,44"
-          Id="Package\staging\Source to Stage\Row Count Fetch"
-          TopLeft="52,109.5" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\staging\Source to Stage\Default values"
-          TopLeft="47.5000000000001,419.5" />
-        <NodeLayout
-          Size="136,44"
           Id="Package\staging\Source to Stage\TRIM"
           TopLeft="52,213.5" />
         <NodeLayout
-          Size="122,42"
-          Id="Package\staging\Source to Stage\DataMart"
-          TopLeft="59,19" />
+          Size="136,44"
+          Id="Package\staging\Source to Stage\Unicode"
+          TopLeft="52.0000000000001,521.5" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\staging\Source to Stage\InfrasructureBaseLoad"
+          TopLeft="20.3095238272634,727.5" />
         <NodeLayout
           Size="160,42"
           Id="Package\staging\Source to Stage\Row Count Insert"
           TopLeft="40.0000000000001,625.5" />
         <NodeLayout
           Size="136,44"
-          Id="Package\staging\Source to Stage\Unicode"
-          TopLeft="52.0000000000001,521.5" />
+          Id="Package\staging\Source to Stage\Row Count Fetch"
+          TopLeft="52,109.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\staging\Source to Stage\DataMart"
+          TopLeft="59,19" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\staging\Source to Stage\Default values"
+          TopLeft="47.5000000000001,419.5" />
         <NodeLayout
           Size="229,42"
           Id="Package\staging\Source to Stage\Convert date 01-01-1753 to null"
           TopLeft="5.50000000000004,317.5" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\staging\Source to Stage\InfrasructureBaseLoad"
-          TopLeft="20.3095238272634,727.5" />
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Derived Column Output1]"
+          TopLeft="120,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Derived Column Output]"
+          TopLeft="120,461.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\staging\Source to Stage.Paths[Data Conversion Output]"
+          TopLeft="120,565.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\staging\Source to Stage.Paths[Row Count Output 11]"
           TopLeft="116.404761913632,667.5">
@@ -4383,88 +4558,9 @@ EXECUTE [dbo].[Merge_StageToHistory]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\staging\Source to Stage.Paths[Derived Column Output1]"
-          TopLeft="120,257.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\staging\Source to Stage.Paths[Derived Column Output]"
-          TopLeft="120,461.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\staging\Source to Stage.Paths[Data Conversion Output]"
-          TopLeft="120,565.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\staging\Source to Stage\DataMart">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\staging\Source to Stage\InfrasructureBaseLoad">
     <Properties>
@@ -4475,6 +4571,19 @@ EXECUTE [dbo].[Merge_StageToHistory]
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\staging\Source to Stage\DataMart">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

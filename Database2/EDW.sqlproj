@@ -69,6 +69,8 @@
     <Folder Include="setup\Functions\" />
     <Folder Include="setup\Stored Procedures\" />
     <Folder Include="edw\Stored Procedures\" />
+    <Folder Include="inf\" />
+    <Folder Include="inf\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="edw\Tables\Dim_Operatør.sql" />
@@ -134,6 +136,12 @@
     <Build Include="Security\edw.sql" />
     <Build Include="Security\cube.sql" />
     <Build Include="Security\bridge.sql" />
+    <Build Include="inf\Tables\Fact_KundevandringChurn.sql" />
+    <Build Include="Security\inf.sql" />
+    <Build Include="inf\Tables\Fact_Kundevandring.sql" />
+    <Build Include="inf\Tables\Ens_PDS.sql" />
+    <Build Include="edw\Tables\Dim_ChurnCategory.sql" />
+    <Build Include="edw\Tables\Dim_Adresse_Churn.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database3\EDW_Stage_History.sqlproj">

@@ -5,16 +5,16 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="BI Server"
   DTS:CreatorName="Inspari"
-  DTS:DTSID="{62B712A3-F5EC-4613-B0B7-F9F2755460A4}"
+  DTS:DTSID="{27DC4266-1FF7-46EF-A1A2-1BFF81EB9E55}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Dim_Anlægsinformation"
+  DTS:ObjectName="Outdated Dim_Tredjepartsinfrastruktur"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{D042E4AC-30B2-470B-B157-385FAD5B5695}"
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{31CD9A13-C3E1-45C9-BDE4-6B7A93F3F4A8}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -22,7 +22,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{AA9FD598-AD1F-49BC-9CFF-8848AF1C2AE9}"
+      DTS:DTSID="{20563941-DF1E-47E5-9FC6-F2C38819E9CC}"
       DTS:ObjectName="LogDetailID">
       <DTS:Property
         DTS:DataType="3"
@@ -32,16 +32,16 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F3D34AFA-0B7A-48DA-847B-EC11F2156E38}"
+      DTS:DTSID="{4BFF3036-0424-40CA-B610-8865563006F0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableName">
       <DTS:VariableValue
-        DTS:DataType="8">Dim_Anlægsinformation</DTS:VariableValue>
+        DTS:DataType="8">Dim_Tredjepartsinfrastruktur</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4BABFDE7-2CD6-4E53-A923-0E9A4705F5A6}"
+      DTS:DTSID="{B4A4ACAD-2828-4EB4-BFBA-59ABD18AD098}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableSchema">
@@ -50,7 +50,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{09D7B071-EBDA-497D-A113-E7256B1B064A}"
+      DTS:DTSID="{E79482BA-BA12-420E-967F-372B9B49EBF9}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LogDetailID">
@@ -59,7 +59,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{145B4DCF-0B68-4B9B-835A-957C62C3C4DE}"
+      DTS:DTSID="{69F052A3-A5B2-4F9A-998F-07308DAEA2F8}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountAfter">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CF586D0C-8EE7-4BA1-A3BB-A33D61C0EB42}"
+      DTS:DTSID="{BB49700A-E119-4D78-BCB4-77FE2FFA2973}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountBefore">
@@ -77,7 +77,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0ED4EA46-3965-4A29-9A73-1C0026AD4F6C}"
+      DTS:DTSID="{CA684213-5431-45ED-93A2-98FBBF2CEC24}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountFetch">
@@ -86,7 +86,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{85A9CD54-F22F-4CA4-BC5F-91E41A5967A0}"
+      DTS:DTSID="{00AE129C-508E-4424-83FC-C5C16C814AB4}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountInsert">
@@ -99,7 +99,7 @@
       DTS:refId="Package\Build dimension values"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{13EFD60F-4E2D-4B2D-8077-F3A32E37C25A}"
+      DTS:DTSID="{0ECED3E1-C32B-42DC-8B55-044D9859195E}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Build dimension values">
@@ -109,7 +109,7 @@
           DTS:refId="Package\Build dimension values\EDW - Insert Unknown"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{B4F00FA9-1FA1-47D2-B9C2-8AC194FA07B5}"
+          DTS:DTSID="{443B14E9-C0F3-4C8A-A5E5-205672F1F3FC}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Insert Unknown"
@@ -121,14 +121,14 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Anlægsinformation'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Tredjepartsinfrastruktur'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Build dimension values\EDW - Truncate"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{5D14DC08-A13C-4940-87B0-53947B648132}"
+          DTS:DTSID="{D1A5582A-2C40-4470-AA5B-82BF92DEC9E3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Truncate"
@@ -140,7 +140,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Anlægsinformation]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Tredjepartsinfrastruktur]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -148,7 +148,7 @@
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:Disabled="True"
-          DTS:DTSID="{6E2D5CCE-77DD-4FC2-AA90-6DEC6EDAEA50}"
+          DTS:DTSID="{00EB44E1-27BB-4E74-B594-6E213113B2E5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Update Unknown values"
@@ -164,7 +164,7 @@
           DTS:refId="Package\Build dimension values\Load Dimension"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Be aware that an expression has been set on this task in order to change the WHERE part of the surrogate_key lookup flow"
-          DTS:DTSID="{0FD0124D-3C0F-42FA-8A9B-841FA49E4082}"
+          DTS:DTSID="{9024F135-2EC7-4CFA-B75C-40B102BC21EE}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Dimension"
@@ -177,11 +177,11 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation"
+                  refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="EDW Anlægsinformation"
+                  name="EDW Tredjepartsinfrastruktur"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -192,7 +192,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[edw].[Dim_Anlægsinformation]</property>
+                      name="OpenRowset">[edw].[dim_Tredjepartsinfrastruktur]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -234,7 +234,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Connections[OleDbConnection]"
+                      refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Connections[OleDbConnection]"
                       connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
                       connectionManagerRefId="Project.ConnectionManagers[EDW]"
                       description="The OLE DB runtime connection used to access the database."
@@ -242,134 +242,118 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input]"
+                      refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[Archetypes_3rd_party]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Archetypes_3rd_party"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Archetypes_3rd_party]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetypes_3rd_party]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[Archetype_Text]"
                           cachedDataType="wstr"
                           cachedLength="50"
-                          cachedName="BK_Anlægsinformation"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[BK_Anlægsinformation]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Anlægsinformation]" />
+                          cachedName="Archetype_Text"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Archetype_Text]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetype_Text]" />
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[BK_Tredjepartsinfrastruktur]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="BK_Tredjepartsinfrastruktur"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[BK_Tredjepartsinfrastruktur]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Tredjepartsinfrastruktur]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
                           cachedDataType="i8"
                           cachedName="SurrogateKey"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Anlægsinformation_Key]"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartsinfrastruktur_Key]"
                           lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]" />
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[Yousee Bredbånd]"
-                          cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="Yousee Bredbånd"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Yousee Bredbånd]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Yousee Bredbånd]" />
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[Tredjepartsfiber]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartsfiber"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartsfiber]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartsfiber]" />
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[Topgruppe]"
-                          cachedDataType="wstr"
-                          cachedLength="1"
-                          cachedName="Topgruppe"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Topgruppe]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppe]" />
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[SLOEJFE]"
-                          cachedDataType="wstr"
-                          cachedLength="2"
-                          cachedName="SLOEJFE"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Sloejfe]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SLOEJFE]" />
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[KAPGR Name]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="KAPGR Name"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Kapgruppe]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[KAPGR Name]" />
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].Columns[CMTS]"
-                          cachedDataType="wstr"
-                          cachedLength="20"
-                          cachedName="CMTS"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[CMTS]"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[CMTS]" />
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].Columns[Tredjepartscoax]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartscoax"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartscoax]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartscoax]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateCreated]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateCreated]"
                           dataType="dbTimeStamp"
                           name="dw_DateCreated" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateModified]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateModified]"
                           dataType="dbTimeStamp"
                           name="dw_DateModified" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[dw_LogID]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[dw_LogID]"
                           dataType="i8"
                           name="dw_LogID" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[dw_LogDetailID]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[dw_LogDetailID]"
                           dataType="i8"
                           name="dw_LogDetailID" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Anlægsinformation_Key]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartsinfrastruktur_Key]"
                           dataType="i4"
-                          name="Anlægsinformation_Key" />
+                          name="Tredjepartsinfrastruktur_Key" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[BK_Tredjepartsinfrastruktur]"
                           dataType="wstr"
                           length="50"
-                          name="BK_Anlægsinformation" />
+                          name="BK_Tredjepartsinfrastruktur" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Archetypes_3rd_party]"
                           dataType="wstr"
-                          length="10"
-                          name="Yousee Bredbånd" />
+                          length="5"
+                          name="Archetypes_3rd_party" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Topgruppe]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Archetype_Text]"
                           dataType="wstr"
-                          length="1"
-                          name="Topgruppe" />
+                          length="50"
+                          name="Archetype_Text" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Sloejfe]"
-                          dataType="wstr"
-                          length="2"
-                          name="Sloejfe" />
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartsfiber]"
+                          dataType="i4"
+                          name="Tredjepartsfiber" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[Kapgruppe]"
-                          dataType="wstr"
-                          length="100"
-                          name="Kapgruppe" />
-                        <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input].ExternalColumns[CMTS]"
-                          dataType="wstr"
-                          length="20"
-                          name="CMTS" />
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input].ExternalColumns[Tredjepartscoax]"
+                          dataType="i4"
+                          name="Tredjepartscoax" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -378,11 +362,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation"
+                  refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
                   description="OLE DB Source"
-                  name="EDW_Stage_v_Dim_Anlægsinformation"
+                  name="EDW_Stage_v_Dim_Tredjepartsinfrastruktur"
                   usesDispositions="true"
                   version="7">
                   <properties>
@@ -393,7 +377,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[stage].[v_Dim_Anlægsinformation]</property>
+                      name="OpenRowset">[stage].[v_Dim_Tredjepartsinfrastruktur]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -432,7 +416,7 @@ FROM
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Connections[OleDbConnection]"
+                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Connections[OleDbConnection]"
                       connectionManagerID="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:external"
                       connectionManagerRefId="Project.ConnectionManagers[EDW_Stage]"
                       description="The OLE DB runtime connection used to access the database."
@@ -440,176 +424,128 @@ FROM
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output]"
+                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetypes_3rd_party]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[BK_Anlægsinformation]"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Archetypes_3rd_party]"
+                          length="5"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetypes_3rd_party]"
+                          name="Archetypes_3rd_party"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetype_Text]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Archetype_Text]"
                           length="50"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]"
-                          name="BK_Anlægsinformation"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetype_Text]"
+                          name="Archetype_Text"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Yousee Bredbånd]"
-                          length="10"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Yousee Bredbånd]"
-                          name="Yousee Bredbånd"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[BK_Tredjepartsinfrastruktur]"
+                          length="50"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]"
+                          name="BK_Tredjepartsinfrastruktur"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppe]"
-                          dataType="wstr"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartsfiber]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Topgruppe]"
-                          length="1"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppe]"
-                          name="Topgruppe"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Tredjepartsfiber]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartsfiber]"
+                          name="Tredjepartsfiber"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppenavn]"
-                          dataType="wstr"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartscoax]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Topgruppenavn]"
-                          length="200"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppenavn]"
-                          name="Topgruppenavn"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[SLOEJFE]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[SLOEJFE]"
-                          length="2"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[SLOEJFE]"
-                          name="SLOEJFE"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[KAPGR Name]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[KAPGR Name]"
-                          length="100"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[KAPGR Name]"
-                          name="KAPGR Name"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[CMTS]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[CMTS]"
-                          length="20"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[CMTS]"
-                          name="CMTS"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Tredjepartscoax]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartscoax]"
+                          name="Tredjepartscoax"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Archetypes_3rd_party]"
+                          dataType="wstr"
+                          length="5"
+                          name="Archetypes_3rd_party" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Archetype_Text]"
                           dataType="wstr"
                           length="50"
-                          name="BK_Anlægsinformation" />
+                          name="Archetype_Text" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[BK_Tredjepartsinfrastruktur]"
                           dataType="wstr"
-                          length="10"
-                          name="Yousee Bredbånd" />
+                          length="50"
+                          name="BK_Tredjepartsinfrastruktur" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Topgruppe]"
-                          dataType="wstr"
-                          length="1"
-                          name="Topgruppe" />
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Tredjepartsfiber]"
+                          dataType="i4"
+                          name="Tredjepartsfiber" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[Topgruppenavn]"
-                          dataType="wstr"
-                          length="200"
-                          name="Topgruppenavn" />
-                        <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[SLOEJFE]"
-                          dataType="wstr"
-                          length="2"
-                          name="SLOEJFE" />
-                        <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[KAPGR Name]"
-                          dataType="wstr"
-                          length="100"
-                          name="KAPGR Name" />
-                        <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].ExternalColumns[CMTS]"
-                          dataType="wstr"
-                          length="20"
-                          name="CMTS" />
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].ExternalColumns[Tredjepartscoax]"
+                          dataType="i4"
+                          name="Tredjepartscoax" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output]"
+                      refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output]"
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[BK_Tredjepartsinfrastruktur]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[BK_Anlægsinformation]"
-                          name="BK_Anlægsinformation" />
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[BK_Tredjepartsinfrastruktur]"
+                          name="BK_Tredjepartsinfrastruktur" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Archetypes_3rd_party]"
                           dataType="wstr"
-                          length="10"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Yousee Bredbånd]"
-                          name="Yousee Bredbånd" />
+                          length="5"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Archetypes_3rd_party]"
+                          name="Archetypes_3rd_party" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Topgruppe]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Archetype_Text]"
                           dataType="wstr"
-                          length="1"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Topgruppe]"
-                          name="Topgruppe" />
+                          length="50"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Archetype_Text]"
+                          name="Archetype_Text" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Topgruppenavn]"
-                          dataType="wstr"
-                          length="200"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[Topgruppenavn]"
-                          name="Topgruppenavn" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[SLOEJFE]"
-                          dataType="wstr"
-                          length="2"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[SLOEJFE]"
-                          name="SLOEJFE" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[KAPGR Name]"
-                          dataType="wstr"
-                          length="100"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[KAPGR Name]"
-                          name="KAPGR Name" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[CMTS]"
-                          dataType="wstr"
-                          length="20"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[CMTS]"
-                          name="CMTS" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Tredjepartsfiber]"
                           dataType="i4"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Tredjepartsfiber]"
+                          name="Tredjepartsfiber" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Tredjepartscoax]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[Tredjepartscoax]"
+                          name="Tredjepartscoax" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -920,11 +856,11 @@ FROM
                       name="Derived Column Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input].Columns[BK_Tredjepartsinfrastruktur]"
                           cachedDataType="wstr"
                           cachedLength="50"
-                          cachedName="BK_Anlægsinformation"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]" />
+                          cachedName="BK_Tredjepartsinfrastruktur"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -951,13 +887,13 @@ FROM
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">#{Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]}</property>
+                              name="Expression">#{Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">[BK_Anlægsinformation]</property>
+                              name="FriendlyExpression">BK_Tredjepartsinfrastruktur</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1259,101 +1195,71 @@ where [refTable].[DW_BK] = ?</property>
                       name="Union All Input 1">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Archetypes_3rd_party]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Archetypes_3rd_party"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetypes_3rd_party]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetypes_3rd_party]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Archetype_Text]"
                           cachedDataType="wstr"
                           cachedLength="50"
-                          cachedName="BK_Anlægsinformation"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]">
+                          cachedName="Archetype_Text"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetype_Text]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Anlægsinformation]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetype_Text]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[BK_Tredjepartsinfrastruktur]"
                           cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="Yousee Bredbånd"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Yousee Bredbånd]">
+                          cachedLength="50"
+                          cachedName="BK_Tredjepartsinfrastruktur"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Yousee Bredbånd]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Tredjepartsinfrastruktur]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Topgruppe]"
-                          cachedDataType="wstr"
-                          cachedLength="1"
-                          cachedName="Topgruppe"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppe]">
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Tredjepartsfiber]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartsfiber"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartsfiber]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppe]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartsfiber]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Topgruppenavn]"
-                          cachedDataType="wstr"
-                          cachedLength="200"
-                          cachedName="Topgruppenavn"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppenavn]">
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Tredjepartscoax]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartscoax"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartscoax]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppenavn]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[SLOEJFE]"
-                          cachedDataType="wstr"
-                          cachedLength="2"
-                          cachedName="SLOEJFE"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[SLOEJFE]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SLOEJFE]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[KAPGR Name]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="KAPGR Name"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[KAPGR Name]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[KAPGR Name]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[CMTS]"
-                          cachedDataType="wstr"
-                          cachedLength="20"
-                          cachedName="CMTS"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[CMTS]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[CMTS]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartscoax]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -1406,101 +1312,71 @@ where [refTable].[DW_BK] = ?</property>
                       name="Union All Input 2">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Archetypes_3rd_party]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Archetypes_3rd_party"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetypes_3rd_party]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetypes_3rd_party]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Archetype_Text]"
                           cachedDataType="wstr"
                           cachedLength="50"
-                          cachedName="BK_Anlægsinformation"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[BK_Anlægsinformation]">
+                          cachedName="Archetype_Text"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Archetype_Text]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Anlægsinformation]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetype_Text]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[BK_Tredjepartsinfrastruktur]"
                           cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="Yousee Bredbånd"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Yousee Bredbånd]">
+                          cachedLength="50"
+                          cachedName="BK_Tredjepartsinfrastruktur"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[BK_Tredjepartsinfrastruktur]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Yousee Bredbånd]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Tredjepartsinfrastruktur]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Topgruppe]"
-                          cachedDataType="wstr"
-                          cachedLength="1"
-                          cachedName="Topgruppe"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppe]">
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Tredjepartsfiber]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartsfiber"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartsfiber]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppe]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartsfiber]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Topgruppenavn]"
-                          cachedDataType="wstr"
-                          cachedLength="200"
-                          cachedName="Topgruppenavn"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[Topgruppenavn]">
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Tredjepartscoax]"
+                          cachedDataType="i4"
+                          cachedName="Tredjepartscoax"
+                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output].Columns[Tredjepartscoax]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppenavn]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[SLOEJFE]"
-                          cachedDataType="wstr"
-                          cachedLength="2"
-                          cachedName="SLOEJFE"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[SLOEJFE]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SLOEJFE]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[KAPGR Name]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="KAPGR Name"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[KAPGR Name]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[KAPGR Name]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[CMTS]"
-                          cachedDataType="wstr"
-                          cachedLength="20"
-                          cachedName="CMTS"
-                          lineageId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output].Columns[CMTS]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[CMTS]}</property>
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartscoax]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -1561,47 +1437,33 @@ where [refTable].[DW_BK] = ?</property>
                       name="Union All Output 1">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Anlægsinformation]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetypes_3rd_party]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetypes_3rd_party]"
+                          name="Archetypes_3rd_party" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetype_Text]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Anlægsinformation]"
-                          name="BK_Anlægsinformation" />
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Archetype_Text]"
+                          name="Archetype_Text" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Yousee Bredbånd]"
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Tredjepartsinfrastruktur]"
                           dataType="wstr"
-                          length="10"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Yousee Bredbånd]"
-                          name="Yousee Bredbånd" />
+                          length="50"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Tredjepartsinfrastruktur]"
+                          name="BK_Tredjepartsinfrastruktur" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppe]"
-                          dataType="wstr"
-                          length="1"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppe]"
-                          name="Topgruppe" />
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartsfiber]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartsfiber]"
+                          name="Tredjepartsfiber" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppenavn]"
-                          dataType="wstr"
-                          length="200"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Topgruppenavn]"
-                          name="Topgruppenavn" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SLOEJFE]"
-                          dataType="wstr"
-                          length="2"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SLOEJFE]"
-                          name="SLOEJFE" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[KAPGR Name]"
-                          dataType="wstr"
-                          length="100"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[KAPGR Name]"
-                          name="KAPGR Name" />
-                        <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[CMTS]"
-                          dataType="wstr"
-                          length="20"
-                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[CMTS]"
-                          name="CMTS" />
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartscoax]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Tredjepartscoax]"
+                          name="Tredjepartscoax" />
                         <outputColumn
                           refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]"
                           dataType="wstr"
@@ -1665,7 +1527,7 @@ where [refTable].[DW_BK] = ?</property>
                   refId="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
                   endId="Package\Build dimension values\Load Dimension\Row Count Fetch.Inputs[Row Count Input 1]"
                   name="OLE DB Source Output"
-                  startId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Outputs[OLE DB Source Output]" />
+                  startId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\Build dimension values\Load Dimension.Paths[Row Count Output 1]"
                   endId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]"
@@ -1673,7 +1535,7 @@ where [refTable].[DW_BK] = ?</property>
                   startId="Package\Build dimension values\Load Dimension\Row Count Fetch.Outputs[Row Count Output 1]" />
                 <path
                   refId="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
-                  endId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Inputs[OLE DB Destination Input]"
+                  endId="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur.Inputs[OLE DB Destination Input]"
                   name="Row Count Output 1"
                   startId="Package\Build dimension values\Load Dimension\Row Count Insert.Outputs[Row Count Output 1]" />
                 <path
@@ -1690,7 +1552,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{6694C876-7A6D-47C9-BAC8-5E8DE170D9E3}"
+          DTS:DTSID="{C38A1119-966E-4279-940F-9C43099ED2D8}"
           DTS:From="Package\Build dimension values\EDW - Truncate"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -1698,7 +1560,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{B30369C3-07E3-4181-AED3-CCB12E42132D}"
+          DTS:DTSID="{0EFE48E7-60C0-469C-857C-6C0B0CE052FA}"
           DTS:From="Package\Build dimension values\EDW - Insert Unknown"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -1706,7 +1568,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{15F1B2B1-4175-495D-AE1A-C2AF7C841D78}"
+          DTS:DTSID="{3A288DD8-D526-4F67-A909-C3AA4C4B7ED3}"
           DTS:From="Package\Build dimension values\EDW - Update Unknown values"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -1716,7 +1578,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:EventHandler
           DTS:refId="Package\Build dimension values.EventHandlers[OnError]"
           DTS:CreationName="OnError"
-          DTS:DTSID="{8DE0B3CE-A75F-4FC7-97AE-743F01E21704}"
+          DTS:DTSID="{8C7B01EC-D7B4-4FA7-9C60-48738ED0B34E}"
           DTS:EventID="0"
           DTS:EventName="OnError"
           DTS:LocaleID="-1">
@@ -1724,7 +1586,7 @@ where [refTable].[DW_BK] = ?</property>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{BCFFCCED-B093-4CCA-9154-8B9E8B4296D9}"
+              DTS:DTSID="{77746CBE-5266-480B-ADA0-0C413969F697}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -1737,7 +1599,7 @@ where [refTable].[DW_BK] = ?</property>
               DTS:refId="Package\Build dimension values.EventHandlers[OnError]\Utility - Update Error"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{D0BCB515-C7BF-4932-A7B6-E4DF88D54D29}"
+              DTS:DTSID="{EFCEACF1-FAA5-415B-B611-9854DE2ADD54}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Utility - Update Error"
@@ -1770,7 +1632,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW - Row Count After"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{9F6EF12D-441F-4376-8E89-F4453DFD98B0}"
+      DTS:DTSID="{1B309AC4-C009-4F18-B038-0A81E20F9BCB}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count After"
@@ -1782,7 +1644,7 @@ where [refTable].[DW_BK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [edw].[Dim_Anlægsinformation]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [edw].[Dim_Tredjepartsinfrastruktur]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountAfter"
@@ -1794,7 +1656,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW - Row Count Before"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{94190486-6349-4ECE-B699-0CB0097338CD}"
+      DTS:DTSID="{D9D88D3B-9782-4D64-A4D5-925085C906A7}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count Before"
@@ -1806,7 +1668,7 @@ where [refTable].[DW_BK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Dim_Anlægsinformation]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Dim_Tredjepartsinfrastruktur]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountBefore"
@@ -1818,7 +1680,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8CEAFE58-24E8-4016-BF64-7C4B188133AB}"
+      DTS:DTSID="{58482618-9A32-4A2F-8FD3-5EC552A7ACD8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
@@ -1850,7 +1712,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Anlægsinformation'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.54'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Anlægsinformation'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Outdated Dim_Tredjepartsinfrastruktur'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.52'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Tredjepartsinfrastruktur'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -1862,7 +1724,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       DTS:refId="Package\EDW_Utility - Update LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8C84F89A-6147-4AC4-B854-233239FCFBEE}"
+      DTS:DTSID="{7CB9B613-9934-4A1C-B99A-F153358AE610}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - Update LogDetail"
@@ -1882,7 +1744,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DB24847E-9846-4605-A481-28776E247B4A}"
+      DTS:DTSID="{F437C2B3-E034-4790-8D51-8432D012DAA2}"
       DTS:From="Package\Build dimension values"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1890,7 +1752,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{8D0DC6DD-ABC3-403C-8A75-4A572CA0E500}"
+      DTS:DTSID="{2BD33614-8ECC-48C6-93C4-21BD52FD3C98}"
       DTS:From="Package\EDW - Row Count After"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -1898,7 +1760,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{D4910215-8349-4AEC-9885-C1CD32C92694}"
+      DTS:DTSID="{CAD43DB9-210C-4F6D-A255-8625EFEA893F}"
       DTS:From="Package\EDW - Row Count Before"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1906,7 +1768,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{FE63417F-12A6-4BC8-B315-BEC3C9FB2E09}"
+      DTS:DTSID="{4F23A9D0-AB44-40F4-9E66-FBFD9FA5F335}"
       DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -2150,54 +2012,58 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="220,42"
-          Id="Package\Build dimension values\Load Dimension\Surrogate_Key from key store"
-          TopLeft="147,311.5" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Build dimension values\Load Dimension\Handle unknown"
-          TopLeft="177.5,719.5" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Build dimension values\Load Dimension\Row Count Fetch"
-          TopLeft="177,107.5" />
-        <NodeLayout
-          Size="374,42"
-          Id="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
-          TopLeft="69,209.5" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1"
-          TopLeft="5.50000000000003,413.5" />
-        <NodeLayout
-          Size="144,42"
+          Size="144,41.6"
           Id="Package\Build dimension values\Load Dimension\Handle blanks"
           TopLeft="184,821.5" />
         <NodeLayout
-          Size="160,42"
+          Size="160,41.6"
           Id="Package\Build dimension values\Load Dimension\Row Count Insert"
           TopLeft="176,923.5" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\Build dimension values\Load Dimension\Get new SurrogateKey"
-          TopLeft="10.5000000000001,516.5" />
+          TopLeft="10.5000000000001,517.5" />
         <NodeLayout
-          Size="264,42"
-          Id="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation"
-          TopLeft="124,5.5" />
+          Size="158.4,41.6"
+          Id="Package\Build dimension values\Load Dimension\Row Count Fetch"
+          TopLeft="177,107.5" />
         <NodeLayout
-          Size="194,42"
-          Id="Package\Build dimension values\Load Dimension\EDW Anlægsinformation"
+          Size="188.8,41.6"
+          Id="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1"
+          TopLeft="5.50000000000003,413.5" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Build dimension values\Load Dimension\Surrogate_Key from key store"
+          TopLeft="148,319.5" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Build dimension values\Load Dimension\Union All"
+          TopLeft="232,627" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Build dimension values\Load Dimension\Handle unknown"
+          TopLeft="177.5,719.5" />
+        <NodeLayout
+          Size="374.4,41.6"
+          Id="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+          TopLeft="69,209.5" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur"
           TopLeft="159,1025.5" />
+        <NodeLayout
+          Size="288,41.6"
+          Id="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur"
+          TopLeft="124,5.5" />
         <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
-          TopLeft="257,353.5">
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
+          TopLeft="268,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-157,60"
+              EndConnector="-12,60"
               Start="0,0"
-              End="-157,52.5">
+              End="-12,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2208,37 +2074,141 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
                     Point2="0,30"
                     Point3="-4,30" />
                   <mssgle:LineSegment
-                    End="-153,30" />
+                    End="-8,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="-153,30"
-                    Point2="-157,30"
-                    Point3="-157,34" />
+                    Point1="-8,30"
+                    Point2="-12,30"
+                    Point3="-12,34" />
                   <mssgle:LineSegment
-                    End="-157,52.5" />
+                    End="-12,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
+          TopLeft="103,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.5,67.5"
+              Start="0,0"
+              End="189.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.75"
+                    Point2="0,33.75"
+                    Point3="4,33.75" />
+                  <mssgle:LineSegment
+                    End="185.5,33.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.5,33.75"
+                    Point2="189.5,33.75"
+                    Point3="189.5,37.75" />
+                  <mssgle:LineSegment
+                    End="189.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
+          TopLeft="258,361.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-158,52"
+              Start="0,0"
+              End="-158,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-154,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-154,26"
+                    Point2="-158,26"
+                    Point3="-158,30" />
+                  <mssgle:LineSegment
+                    End="-158,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.30638671875,35,111.6127734375,11.609375"
+              BoundingBox="-134.80638671875,31,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
+          TopLeft="293.333333333333,361.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,265.5"
+              Start="0,0"
+              End="18,258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.78726833199" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.78726833199"
+                    Point2="0,131.78726833199"
+                    Point3="4,131.78726833199" />
+                  <mssgle:LineSegment
+                    End="14,131.78726833199" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,131.78726833199"
+                    Point2="18,131.78726833199"
+                    Point3="18,135.78726833199" />
+                  <mssgle:LineSegment
+                    End="18,258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.19138671875,136.78726833199,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Derived Column Output3]"
-          TopLeft="256.5,251.5">
+          TopLeft="257,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,68"
               Start="0,0"
-              End="0,52.5">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2253,14 +2223,14 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="0,62"
               Start="0,0"
-              End="0,53.5">
+              End="0,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="0,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2314,19 +2284,65 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
+          TopLeft="292.5,669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.5,50.5"
+              Start="0,0"
+              End="-36.5,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.25"
+                    Point2="0,25.25"
+                    Point3="-4,25.25" />
+                  <mssgle:LineSegment
+                    End="-32.5,25.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.5,25.25"
+                    Point2="-36.5,25.25"
+                    Point3="-36.5,29.25" />
+                  <mssgle:LineSegment
+                    End="-36.5,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
           TopLeft="256,965.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="11.5,60"
               Start="0,0"
-              End="0,52.5">
+              End="11.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="7.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,30"
+                    Point2="11.5,30"
+                    Point3="11.5,34" />
+                  <mssgle:LineSegment
+                    End="11.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2349,136 +2365,6 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
-          TopLeft="256,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Build dimension values\Load Dimension\Union All"
-          TopLeft="230,608" />
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
-          TopLeft="103,558.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,49.5"
-              Start="0,0"
-              End="187.5,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.75"
-                    Point2="0,24.75"
-                    Point3="4,24.75" />
-                  <mssgle:LineSegment
-                    End="183.5,24.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,24.75"
-                    Point2="187.5,24.75"
-                    Point3="187.5,28.75" />
-                  <mssgle:LineSegment
-                    End="187.5,42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
-          TopLeft="292.333333333333,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17,254.5"
-              Start="0,0"
-              End="17,247">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,122.327155519742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,122.327155519742"
-                    Point2="0,126.327155519742"
-                    Point3="4,126.327155519742" />
-                  <mssgle:LineSegment
-                    End="13,126.327155519742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,126.327155519742"
-                    Point2="17,126.327155519742"
-                    Point3="17,130.327155519742" />
-                  <mssgle:LineSegment
-                    End="17,247" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-39.69138671875,131.327155519742,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
-          TopLeft="290.5,650">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.5,69.5"
-              Start="0,0"
-              End="-34.5,62">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.75"
-                    Point2="0,34.75"
-                    Point3="-4,34.75" />
-                  <mssgle:LineSegment
-                    End="-30.5,34.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,34.75"
-                    Point2="-34.5,34.75"
-                    Point3="-34.5,38.75" />
-                  <mssgle:LineSegment
-                    End="-34.5,62" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2514,20 +2400,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build dimension values\Load Dimension\EDW Anlægsinformation">
+    design-time-name="Package\Build dimension values\Load Dimension\EDW Tredjepartsinfrastruktur">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2536,6 +2409,19 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Tredjepartsinfrastruktur">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

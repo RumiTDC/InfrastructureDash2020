@@ -5,16 +5,16 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="BI Server"
   DTS:CreatorName="Inspari"
-  DTS:DTSID="{C24F5943-0666-48DC-866C-2E89C9916676}"
+  DTS:DTSID="{50B6C0A4-5864-4AE5-B0CD-1CE1BBF841F5}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Dim_Adresse_Churn"
+  DTS:ObjectName="Outdated Dim_Adresse"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{4FC2B23B-5927-42FF-9999-2C699F823B8D}"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{7B629661-584C-4611-BD11-93346E8B0879}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -22,7 +22,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{306F764F-6F2B-4BA4-AA78-73984A86CCC7}"
+      DTS:DTSID="{E63F4742-D5A5-42B5-A645-D7F332A026F6}"
       DTS:ObjectName="LogDetailID">
       <DTS:Property
         DTS:DataType="3"
@@ -32,7 +32,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{29C515B1-FFF6-4414-ABED-8C8063329E05}"
+      DTS:DTSID="{A72E961E-ED9E-4113-B237-6576C6375922}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableName">
@@ -41,7 +41,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5FFBAB26-7FC4-4C68-B7A3-B55E672F775B}"
+      DTS:DTSID="{3B338780-8EE0-4675-AC25-DF97CDF0894B}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableSchema">
@@ -50,7 +50,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EC58E7E9-5459-4645-A576-D01F72E40A3F}"
+      DTS:DTSID="{2E04A481-BA20-4DFC-82AA-DB1364FE7A9C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LogDetailID">
@@ -59,7 +59,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5C6B57B3-8F49-4AAF-960F-3B461BE79E82}"
+      DTS:DTSID="{9A4CD9B3-5628-4AED-A5DF-38447AF962F6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountAfter">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E74DBAF4-6071-4EE4-B63F-9817FF9E16EB}"
+      DTS:DTSID="{BC06F75A-3A38-4CB2-86ED-79234196820C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountBefore">
@@ -77,7 +77,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3BE96C4D-0460-4568-81D5-91E5D9191044}"
+      DTS:DTSID="{B5434D8C-0B95-4AF4-895F-A941CFDB2089}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountFetch">
@@ -86,7 +86,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DF73FA06-935A-40F7-8B63-2ED135350347}"
+      DTS:DTSID="{94F2FC21-8074-4865-B93B-25AFC9924D01}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountInsert">
@@ -99,7 +99,7 @@
       DTS:refId="Package\Build dimension values"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{3F27D0C8-B694-4139-88DF-34C3284F6B20}"
+      DTS:DTSID="{F6472473-C227-4777-B20B-72548B423238}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Build dimension values">
@@ -109,34 +109,38 @@
           DTS:refId="Package\Build dimension values\EDW - Insert Unknown"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{53869C68-AE72-4E18-AED5-3AA89A7530F9}"
+          DTS:DTSID="{2CC6257A-4339-460D-93B9-021E64357F39}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Insert Unknown"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [edw].[InsertUnknownMember] @SchemaName = N'"+ @[User::DestinationTableSchema] + "', @TableName = N'"+ @[User::DestinationTableName] +"'"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Adresse_Churn'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Adresse'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Build dimension values\EDW - Truncate"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{10C76FC6-464B-41C4-A17A-95176CB940C2}"
+          DTS:DTSID="{DA4BD0D8-F5A5-4555-98E0-D2D67AEE8800}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Truncate"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName]  + "]"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Adresse_Churn]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Adresse]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -144,7 +148,7 @@
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:Disabled="True"
-          DTS:DTSID="{137794D3-B0F6-4D45-BBF5-79F14785F37D}"
+          DTS:DTSID="{D8189443-8A07-4D17-8DD0-D8D19E4C06D3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Update Unknown values"
@@ -160,7 +164,7 @@
           DTS:refId="Package\Build dimension values\Load Dimension"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Be aware that an expression has been set on this task in order to change the WHERE part of the surrogate_key lookup flow"
-          DTS:DTSID="{B0EA44D9-D890-4D92-88C3-E06C0FD2DB16}"
+          DTS:DTSID="{BDD236AC-C6A2-4B5D-BCEC-13E2334E374C}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Dimension"
@@ -435,6 +439,12 @@
                           cachedName="DongKommuner"
                           externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Adresse.Inputs[OLE DB Destination Input].ExternalColumns[DongKommuner]"
                           lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DongKommuner]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW Adresse.Inputs[OLE DB Destination Input].Columns[FiberUdrulning]"
+                          cachedDataType="i4"
+                          cachedName="FiberUdrulning"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\EDW Adresse.Inputs[OLE DB Destination Input].ExternalColumns[FiberUdrulning]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[FiberUdrulning]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -591,6 +601,10 @@
                           refId="Package\Build dimension values\Load Dimension\EDW Adresse.Inputs[OLE DB Destination Input].ExternalColumns[DongKommuner]"
                           dataType="i4"
                           name="DongKommuner" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\EDW Adresse.Inputs[OLE DB Destination Input].ExternalColumns[FiberUdrulning]"
+                          dataType="i4"
+                          name="FiberUdrulning" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1102,7 +1116,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[stage].[v_Dim_Adresse_Churn]</property>
+                      name="OpenRowset">[stage].[v_Dim_Adresse]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1417,15 +1431,13 @@
                           name="PB_Mulig"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[El-selskab]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[FiberUdrulning]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].ExternalColumns[El-selskab]"
-                          length="100"
-                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[El-selskab]"
-                          name="El-selskab"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].ExternalColumns[FiberUdrulning]"
+                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[FiberUdrulning]"
+                          name="FiberUdrulning"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -1560,11 +1572,9 @@
                           dataType="i4"
                           name="PB_Mulig" />
                         <externalMetadataColumn
-                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].ExternalColumns[El-selskab]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="El-selskab" />
+                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].ExternalColumns[FiberUdrulning]"
+                          dataType="i4"
+                          name="FiberUdrulning" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1730,12 +1740,10 @@
                           lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[PB_Mulig]"
                           name="PB_Mulig" />
                         <outputColumn
-                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[El-selskab]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[El-selskab]"
-                          name="El-selskab" />
+                          refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[FiberUdrulning]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[FiberUdrulning]"
+                          name="FiberUdrulning" />
                         <outputColumn
                           refId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -2309,6 +2317,19 @@ where [refTable].[DW_BK] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[FiberUdrulning]"
+                          cachedDataType="i4"
+                          cachedName="FiberUdrulning"
+                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[FiberUdrulning]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[FiberUdrulning]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
                           refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[DW_BK]"
                           cachedDataType="wstr"
                           cachedLength="200"
@@ -2739,6 +2760,19 @@ where [refTable].[DW_BK] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[FiberUdrulning]"
+                          cachedDataType="i4"
+                          cachedName="FiberUdrulning"
+                          lineageId="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse.Outputs[OLE DB Source Output].Columns[FiberUdrulning]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[FiberUdrulning]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
                           refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[DW_BK]"
                           cachedDataType="wstr"
                           cachedLength="200"
@@ -2953,6 +2987,11 @@ where [refTable].[DW_BK] = ?</property>
                           lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[PB_Mulig]"
                           name="PB_Mulig" />
                         <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[FiberUdrulning]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[FiberUdrulning]"
+                          name="FiberUdrulning" />
+                        <outputColumn
                           refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]"
                           dataType="wstr"
                           length="200"
@@ -3040,7 +3079,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{749E722A-A926-4C1D-8C05-947E8F949634}"
+          DTS:DTSID="{8EA58725-78FB-42D7-97F2-ADB1B48079C6}"
           DTS:From="Package\Build dimension values\EDW - Truncate"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3048,7 +3087,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{057BBF83-97F1-464D-A55C-755D2CC8212C}"
+          DTS:DTSID="{EE61BDEE-837A-4817-9B4A-27EE46983AD5}"
           DTS:From="Package\Build dimension values\EDW - Insert Unknown"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -3056,7 +3095,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{F1EF9B29-C001-4E99-AEDE-0B21E8A2E822}"
+          DTS:DTSID="{19E20A9C-0436-4559-86E0-53CD3477479C}"
           DTS:From="Package\Build dimension values\EDW - Update Unknown values"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -3066,7 +3105,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:EventHandler
           DTS:refId="Package\Build dimension values.EventHandlers[OnError]"
           DTS:CreationName="OnError"
-          DTS:DTSID="{EDF85FC0-7F7F-47DE-9F35-62DA76C94123}"
+          DTS:DTSID="{4DD24A1C-F2D9-4C20-B513-1F09D1E7AFF6}"
           DTS:EventID="0"
           DTS:EventName="OnError"
           DTS:LocaleID="-1">
@@ -3074,7 +3113,7 @@ where [refTable].[DW_BK] = ?</property>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{8E1FC617-8CB1-4464-816D-ACF434B60F16}"
+              DTS:DTSID="{D9CCBF04-CDF2-4732-8E98-3413EF39FA6C}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -3087,7 +3126,7 @@ where [refTable].[DW_BK] = ?</property>
               DTS:refId="Package\Build dimension values.EventHandlers[OnError]\Utility - Update Error"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{78B8BC23-459C-4FF8-BCDD-3061CE719FD9}"
+              DTS:DTSID="{80C57FE4-E9A5-4519-BF4B-F23DC83F0081}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Utility - Update Error"
@@ -3120,7 +3159,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW - Row Count After"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{36A24F40-5438-4BD8-A09F-70CFCBA39110}"
+      DTS:DTSID="{47DE2888-CED4-4B7E-8957-14483E87B5A0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count After"
@@ -3141,10 +3180,78 @@ where [refTable].[DW_BK] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\EDW - Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BB18F353-8BD8-4C36-8452-6CC18D5FBED7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW - Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Dim_Adresse]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D65B540B-4C7B-45BE-9A5E-082868ABEF53}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Outdated Dim_Adresse'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.62'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Adresse'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\EDW_Utility - Update LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{EDF709C2-AE41-4EE1-AC86-A4C657678B77}"
+      DTS:DTSID="{C1D04506-00A7-4D61-95DE-696B9556DAD6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - Update LogDetail"
@@ -3164,7 +3271,7 @@ where [refTable].[DW_BK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{305D3456-75ED-4C38-A632-12B42D7AA683}"
+      DTS:DTSID="{E71C5BA1-C316-45AC-91AB-4907C4B959C1}"
       DTS:From="Package\Build dimension values"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -3172,11 +3279,27 @@ where [refTable].[DW_BK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{AB5F723C-2F33-477A-82BB-B2C7866223C2}"
+      DTS:DTSID="{334027E0-BD59-4ED7-B06F-561D050DB16C}"
       DTS:From="Package\EDW - Row Count After"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\EDW_Utility - Update LogDetail" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{023F0043-0AB3-4E5D-B1F1-44D2167AA17F}"
+      DTS:From="Package\EDW - Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Build dimension values" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{058BD7B2-7521-4588-94AE-CEE8858D43A6}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EDW - Row Count Before" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3290,29 +3413,37 @@ where [refTable].[DW_BK] = ?</property>
           PanelSize="236,414"
           Size="236,458"
           Id="Package\Build dimension values"
-          TopLeft="165.5,152.5" />
+          TopLeft="166.5,209.5" />
         <NodeLayout
           Size="189,42"
           Id="Package\EDW - Row Count After"
           TopLeft="190,727.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\EDW - Row Count Before"
+          TopLeft="186,107.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="5.5,5.5" />
         <NodeLayout
           Size="226,42"
           Id="Package\EDW_Utility - Update LogDetail"
           TopLeft="171.5,829.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="284,610.5">
+          TopLeft="284.5,667.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,117"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,109.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,109.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3324,6 +3455,50 @@ where [refTable].[DW_BK] = ?</property>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="284.5,769.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="284.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="284.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -3376,10 +3551,6 @@ where [refTable].[DW_BK] = ?</property>
           Id="Package\Build dimension values\Load Dimension\Get new SurrogateKey"
           TopLeft="8.5000000000001,521.5" />
         <NodeLayout
-          Size="120,42"
-          Id="Package\Build dimension values\Load Dimension\Union All"
-          TopLeft="275.238099925372,588.549023897728" />
-        <NodeLayout
           Size="158,42"
           Id="Package\Build dimension values\Load Dimension\Row Count Fetch"
           TopLeft="177,107.5" />
@@ -3390,7 +3561,7 @@ where [refTable].[DW_BK] = ?</property>
         <NodeLayout
           Size="181,42"
           Id="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse"
-          TopLeft="161,18" />
+          TopLeft="165,20" />
         <NodeLayout
           Size="157,42"
           Id="Package\Build dimension values\Load Dimension\Handle unknown"
@@ -3398,7 +3569,7 @@ where [refTable].[DW_BK] = ?</property>
         <NodeLayout
           Size="220,42"
           Id="Package\Build dimension values\Load Dimension\Surrogate_Key from key store"
-          TopLeft="147,322.86666653494" />
+          TopLeft="147,321.86666653494" />
         <NodeLayout
           Size="143,43"
           Id="Package\Build dimension values\Load Dimension\EDW Adresse"
@@ -3407,40 +3578,6 @@ where [refTable].[DW_BK] = ?</property>
           Size="374,42"
           Id="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
           TopLeft="69,209.5" />
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
-          TopLeft="335.238099925372,630.149023897728">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-79.3380999253722,89.3509761022723"
-              Start="0,0"
-              End="-79.3380999253722,81.8509761022723">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.6754880511361" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.6754880511361"
-                    Point2="0,44.6754880511361"
-                    Point3="-4,44.6754880511361" />
-                  <mssgle:LineSegment
-                    End="-75.3380999253722,44.6754880511361" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-75.3380999253722,44.6754880511361"
-                    Point2="-79.3380999253722,44.6754880511361"
-                    Point3="-79.3380999253722,48.6754880511361" />
-                  <mssgle:LineSegment
-                    End="-79.3380999253722,81.8509761022723" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
           TopLeft="254.416666666667,965.5">
@@ -3487,52 +3624,18 @@ where [refTable].[DW_BK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
-          TopLeft="253.75,60">
+          TopLeft="255.75,62">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.5"
+              EndConnector="0,45.5"
               Start="0,0"
-              End="0,40">
+              End="0,38">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
-          TopLeft="100.9,563.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="234.338099925372,25.4490238977277"
-              Start="0,0"
-              End="234.338099925372,17.9490238977277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.72451194886384" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.72451194886384"
-                    Point2="0,12.7245119488638"
-                    Point3="4,12.7245119488638" />
-                  <mssgle:LineSegment
-                    End="230.338099925372,12.7245119488638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="230.338099925372,12.7245119488638"
-                    Point2="234.338099925372,12.7245119488638"
-                    Point3="234.338099925372,16.7245119488638" />
-                  <mssgle:LineSegment
-                    End="234.338099925372,17.9490238977277" />
+                    End="0,38" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3543,73 +3646,37 @@ where [refTable].[DW_BK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
-          TopLeft="257,364.86666653494">
+          TopLeft="257,363.86666653494">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-157,48.63333346506"
+              EndConnector="-157,49.63333346506"
               Start="0,0"
-              End="-157,41.13333346506">
+              End="-157,42.13333346506">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.31666673253" />
+                    End="0,20.81666673253" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.31666673253"
-                    Point2="0,24.31666673253"
-                    Point3="-4,24.31666673253" />
+                    Point1="0,20.81666673253"
+                    Point2="0,24.81666673253"
+                    Point3="-4,24.81666673253" />
                   <mssgle:LineSegment
-                    End="-153,24.31666673253" />
+                    End="-153,24.81666673253" />
                   <mssgle:CubicBezierSegment
-                    Point1="-153,24.31666673253"
-                    Point2="-157,24.31666673253"
-                    Point3="-157,28.31666673253" />
+                    Point1="-153,24.81666673253"
+                    Point2="-157,24.81666673253"
+                    Point3="-157,28.81666673253" />
                   <mssgle:LineSegment
-                    End="-157,41.13333346506" />
+                    End="-157,42.13333346506" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.30638671875,29.31666673253,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
-          TopLeft="292.333333333333,364.46666653494">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="61.5714332587056,224.082357362788"
-              Start="0,0"
-              End="61.5714332587056,216.582357362788">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.213695825549" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,107.213695825549"
-                    Point2="0,111.213695825549"
-                    Point3="4,111.213695825549" />
-                  <mssgle:LineSegment
-                    End="57.5714332587056,111.213695825549" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.5714332587056,111.213695825549"
-                    Point2="61.5714332587056,111.213695825549"
-                    Point3="61.5714332587056,115.213695825549" />
-                  <mssgle:LineSegment
-                    End="61.5714332587056,216.582357362788" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-17.4056700893972,116.213695825549,96.3827734375,11.609375"
+              BoundingBox="-134.30638671875,29.81666673253,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3619,14 +3686,14 @@ where [refTable].[DW_BK] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,71.36666653494"
+              EndConnector="0,70.36666653494"
               Start="0,0"
-              End="0,63.86666653494">
+              End="0,62.86666653494">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.86666653494" />
+                    End="0,62.86666653494" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3701,9 +3768,118 @@ where [refTable].[DW_BK] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Build dimension values\Load Dimension\Union All"
+          TopLeft="192,632" />
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
+          TopLeft="101,563.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.5,68.5"
+              Start="0,0"
+              End="152.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.25"
+                    Point2="0,34.25"
+                    Point3="4,34.25" />
+                  <mssgle:LineSegment
+                    End="148.5,34.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="148.5,34.25"
+                    Point2="152.5,34.25"
+                    Point3="152.5,38.25" />
+                  <mssgle:LineSegment
+                    End="152.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
+          TopLeft="292.333333333333,363.86666653494">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.6666666666667,268.13333346506"
+              Start="0,0"
+              End="-19.6666666666667,260.63333346506">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,129.129272753358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,129.129272753358"
+                    Point2="0,133.129272753358"
+                    Point3="-4,133.129272753358" />
+                  <mssgle:LineSegment
+                    End="-15.6666666666667,133.129272753358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.6666666666667,133.129272753358"
+                    Point2="-19.6666666666667,133.129272753358"
+                    Point3="-19.6666666666667,137.129272753358" />
+                  <mssgle:LineSegment
+                    End="-19.6666666666667,260.63333346506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.0247200520833,138.129272753358,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
+          TopLeft="254.75,674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5"
+              Start="0,0"
+              End="0,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Build dimension values\Load Dimension\Surrogate_Key from key store">
     <Properties>
@@ -3724,19 +3900,6 @@ where [refTable].[DW_BK] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Build dimension values\Load Dimension\Stage v_Dim_Adresse">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

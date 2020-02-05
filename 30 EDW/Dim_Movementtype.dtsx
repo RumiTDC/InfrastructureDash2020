@@ -5,7 +5,7 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="BI Server"
   DTS:CreatorName="Inspari"
-  DTS:DTSID="{EC505534-E945-47DD-8E0C-553BF54A7E4A}"
+  DTS:DTSID="{F025C57B-0B04-4004-9DB3-72F41C45E09B}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
@@ -13,8 +13,8 @@
   DTS:ObjectName="Dim_Movementtype"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{9D349E05-07EA-4F9B-933C-33234F76B981}"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{3874FBA8-70B5-43EC-968C-B8E43CCE13A6}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -22,7 +22,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{4ADD6CA1-200B-4646-B9CF-DA8A2F63CD36}"
+      DTS:DTSID="{871D10B2-0961-4800-8FC2-D894D98BBC94}"
       DTS:ObjectName="LogDetailID">
       <DTS:Property
         DTS:DataType="3"
@@ -32,7 +32,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AB2F00CE-BCED-4A40-AC4F-AC02FE5D5F88}"
+      DTS:DTSID="{10AE5D36-8335-46B5-99A2-FF87F681F8C1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableName">
@@ -41,7 +41,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3C9B96A5-44EF-4661-87A7-4706EE88E3B2}"
+      DTS:DTSID="{B541C80E-B7E0-4C0E-8BCC-1BB03767D683}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableSchema">
@@ -50,7 +50,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{33D07DAE-E52A-4CFF-9ACA-0E6452DF7F92}"
+      DTS:DTSID="{2CC8E41C-89EE-48D9-9D0E-17ADC9F2D50D}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LogDetailID">
@@ -59,7 +59,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BEBE89A2-61AA-4853-8095-8BAEB9C33001}"
+      DTS:DTSID="{51431447-7B81-4A8D-A3DE-07F4651C49F3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountAfter">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A794C400-0203-4254-9E68-43CBA9EB62A1}"
+      DTS:DTSID="{FB5D5358-1212-4C78-AC1B-75057B988EDF}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountBefore">
@@ -77,7 +77,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3217D785-AF00-46E5-909D-A50A8A3B54F4}"
+      DTS:DTSID="{BD84252F-2F03-41A3-AF80-E60F7A4FD55A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountFetch">
@@ -86,7 +86,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{62D16AD2-A845-4271-8DD5-B3213269D9F2}"
+      DTS:DTSID="{7D9C7338-0408-4B7F-9BA7-1E1D5831AC86}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCountInsert">
@@ -99,7 +99,7 @@
       DTS:refId="Package\Build dimension values"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{6C485B11-E3CE-4FA9-8654-E051F9F13961}"
+      DTS:DTSID="{8B14F1B8-91BA-4389-909A-FBFE1AF7552D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Build dimension values">
@@ -109,7 +109,7 @@
           DTS:refId="Package\Build dimension values\EDW - Insert Unknown"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{843679E6-EE2B-42BA-883F-41422B106C02}"
+          DTS:DTSID="{40E0E1B2-EC1E-479B-A9D8-2F1308966A3F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Insert Unknown"
@@ -128,7 +128,7 @@
           DTS:refId="Package\Build dimension values\EDW - Truncate"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{10710355-8410-46D9-BB25-45EEFF2F0BBE}"
+          DTS:DTSID="{3F388186-C2C3-4675-8293-CD1780316A17}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Truncate"
@@ -148,7 +148,7 @@
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:Disabled="True"
-          DTS:DTSID="{FDE575EE-2E7C-46AE-83A6-C0CF6E227629}"
+          DTS:DTSID="{93364C66-E0A3-4CDD-AF94-F0EE08A40116}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EDW - Update Unknown values"
@@ -164,7 +164,7 @@
           DTS:refId="Package\Build dimension values\Load Dimension"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Be aware that an expression has been set on this task in order to change the WHERE part of the surrogate_key lookup flow"
-          DTS:DTSID="{653E4117-C3B1-4FD1-91B8-D4E08DA69733}"
+          DTS:DTSID="{2B5D17BE-E0F6-450C-AB9B-BE4908655D12}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Dimension"
@@ -1367,7 +1367,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{38792155-488B-4809-B667-9FDB198BEFAB}"
+          DTS:DTSID="{11B89775-5317-4E1F-B2F4-5B0E3FCE86BD}"
           DTS:From="Package\Build dimension values\EDW - Truncate"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -1375,7 +1375,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{35D6C23D-596D-464E-9F67-462CEE1B9907}"
+          DTS:DTSID="{BED9EE95-0B84-4159-8652-DC9416C92218}"
           DTS:From="Package\Build dimension values\EDW - Insert Unknown"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -1383,7 +1383,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{C240C6C6-F393-43EA-9F9E-0A204621C153}"
+          DTS:DTSID="{BBA6E7BE-904F-4D80-AE53-5B87D73613F9}"
           DTS:From="Package\Build dimension values\EDW - Update Unknown values"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -1393,7 +1393,7 @@ where [refTable].[DW_BK] = ?</property>
         <DTS:EventHandler
           DTS:refId="Package\Build dimension values.EventHandlers[OnError]"
           DTS:CreationName="OnError"
-          DTS:DTSID="{765BEA2B-2B88-4512-9726-58C42CC91DD9}"
+          DTS:DTSID="{340C4352-E429-460C-B58E-69668D791664}"
           DTS:EventID="0"
           DTS:EventName="OnError"
           DTS:LocaleID="-1">
@@ -1401,7 +1401,7 @@ where [refTable].[DW_BK] = ?</property>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{F4B1C11C-498E-492F-B75A-039B9A301C2B}"
+              DTS:DTSID="{AAE5B682-3CE5-4D25-9F63-2E8BE58EBCB8}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -1414,7 +1414,7 @@ where [refTable].[DW_BK] = ?</property>
               DTS:refId="Package\Build dimension values.EventHandlers[OnError]\Utility - Update Error"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{A3A9E8B9-6900-4223-8195-0D5E1AA76744}"
+              DTS:DTSID="{710D0FEC-788B-4173-B593-58217A807921}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Utility - Update Error"
@@ -1447,7 +1447,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW - Row Count After"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8E9C6AD5-667A-4BE2-89B9-914B04B630E0}"
+      DTS:DTSID="{E12232F3-AEF5-4908-85A0-7D03E15C1EF2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count After"
@@ -1471,7 +1471,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW - Row Count Before"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7FD74141-5B0F-4C18-AD30-87440E4F46F8}"
+      DTS:DTSID="{3F623AE1-5CA1-49D5-8B90-E92C68F69B80}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW - Row Count Before"
@@ -1495,7 +1495,7 @@ where [refTable].[DW_BK] = ?</property>
       DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2F6D5549-3D1B-4356-ABEB-5C3887467122}"
+      DTS:DTSID="{2A3C5E51-AA05-4EAC-B82C-27ABB4E67D04}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
@@ -1527,7 +1527,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Movementtype'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.46'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Movementtype'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Movementtype'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.47'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Movementtype'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -1539,7 +1539,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       DTS:refId="Package\EDW_Utility - Update LogDetail"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{64B38C97-C481-4B47-BC03-628B04F40056}"
+      DTS:DTSID="{4A02FA5C-31CB-49DA-B413-92C4CC64F4B8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_Utility - Update LogDetail"
@@ -1559,7 +1559,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{42C6504B-7034-46A7-886E-050392B02E11}"
+      DTS:DTSID="{92EE5517-F026-4866-AB78-64BD8093D381}"
       DTS:From="Package\Build dimension values"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1567,7 +1567,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{EC7BABE0-EF00-4A06-84C4-3F2457C1677C}"
+      DTS:DTSID="{E401B1E7-A2AE-46FF-8844-160D9159DDF2}"
       DTS:From="Package\EDW - Row Count After"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -1575,7 +1575,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{471C6F33-BF1C-440D-B81A-A0393F8679ED}"
+      DTS:DTSID="{CAAFF2D9-7CF0-4DFB-9171-6171991650EE}"
       DTS:From="Package\EDW - Row Count Before"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1583,7 +1583,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{AF189E68-285F-4782-B53F-B8C8D830FA78}"
+      DTS:DTSID="{5B3BE568-22D8-492F-8BD9-7E07C90DE35A}"
       DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -2198,7 +2198,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2208,7 +2208,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -1,9 +1,5 @@
-﻿CREATE SCHEMA [edw]
+﻿CREATE SCHEMA [stg]
     AUTHORIZATION [dbo];
-
-
-
-
 
 
 

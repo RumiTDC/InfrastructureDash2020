@@ -1,9 +1,0 @@
-
-
-<#
-string StageConnectionName = "EDW_Stage";
-string UtilityConnectionName = "EDW_Utility";
-string ConnectionString_EDW_Utility_ADO = @"Server=SQLTEST01;Initial Catalog=EDW_Utility;Integrated Security=SSPI;";
-string ConnectionString_EDW_Utility = @"Data Source=SQLTEST01;Initial Catalog=EDW_Utility;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;";
-#>
-
