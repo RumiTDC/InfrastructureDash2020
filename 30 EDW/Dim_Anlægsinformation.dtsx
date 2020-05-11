@@ -4,8 +4,8 @@
   DTS:CreationDate="1/1/1753"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="BI Server"
-  DTS:CreatorName="Inspari"
-  DTS:DTSID="{62B712A3-F5EC-4613-B0B7-F9F2755460A4}"
+  DTS:CreatorName="RUMI"
+  DTS:DTSID="{7EB5DBA7-89E3-43B4-A926-2C5B6F5E2B44}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
@@ -13,8 +13,8 @@
   DTS:ObjectName="Dim_Anlægsinformation"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{D042E4AC-30B2-470B-B157-385FAD5B5695}"
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{31118429-E23A-4CE1-8AE5-5E3E7167C2D0}"
   DTS:VersionMinor="1">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
@@ -37,7 +37,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestinationTableName">
       <DTS:VariableValue
-        DTS:DataType="8">Dim_Anlægsinformation</DTS:VariableValue>
+        DTS:DataType="8">Dim_Anlaegsinformation</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -121,7 +121,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Anlægsinformation'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="EXEC [edw].[InsertUnknownMember] @SchemaName = N'edw', @TableName = N'Dim_Anlaegsinformation'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -140,7 +140,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Anlægsinformation]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [edw].[Dim_Anlaegsinformation]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -235,8 +235,8 @@
                   <connections>
                     <connection
                       refId="Package\Build dimension values\Load Dimension\EDW Anlægsinformation.Connections[OleDbConnection]"
-                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                      connectionManagerID="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
+                      connectionManagerRefId="{9F80725F-98B4-4EB2-9370-E1501516F7BB}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -433,8 +433,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\Build dimension values\Load Dimension\EDW_Stage_v_Dim_Anlægsinformation.Connections[OleDbConnection]"
-                      connectionManagerID="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[EDW_Stage]"
+                      connectionManagerID="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:invalid"
+                      connectionManagerRefId="{2F16B204-D7BD-4046-824A-4FD7F7A3B881}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -644,8 +644,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Connections[OleDbConnection]"
-                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:invalid"
+                      connectionManagerRefId="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1158,8 +1158,8 @@ where [refTable].[DW_BK] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Connections[OleDbConnection]"
-                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:invalid"
+                      connectionManagerRefId="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -1782,7 +1782,7 @@ where [refTable].[DW_BK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [edw].[Dim_Anlægsinformation]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [edw].[Dim_Anlaegsinformation]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountAfter"
@@ -1806,7 +1806,7 @@ where [refTable].[DW_BK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9F80725F-98B4-4EB2-9370-E1501516F7BB}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Dim_Anlægsinformation]"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [edw].[Dim_Anlaegsinformation]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="RowCountBefore"
@@ -1850,7 +1850,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
-          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Anlægsinformation'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.54'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Anlægsinformation'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'Dim_Anlægsinformation'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.56'&#xA;&#x9;,@DestinationTableSchema = 'edw'&#xA;&#x9;,@DestinationTableName = 'Dim_Anlaegsinformation'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LogDetailID"
@@ -1939,7 +1939,7 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
         <NodeLayout
           Size="155,43"
           Id="Package\Build dimension values\Load Dimension"
-          TopLeft="52,315.5" />
+          TopLeft="40,314.5" />
         <EdgeLayout
           Id="Package\Build dimension values.PrecedenceConstraints[Constraint]"
           TopLeft="118,49.5">
@@ -1986,30 +1986,18 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values.PrecedenceConstraints[Constraint 2]"
-          TopLeft="118.166666666667,255.5">
+          TopLeft="117.75,255.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.1666666666666,60"
+              EndConnector="0,59"
               Start="0,0"
-              End="11.1666666666666,52.5">
+              End="0,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="7.16666666666661,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.16666666666661,30"
-                    Point2="11.1666666666666,30"
-                    Point3="11.1666666666666,34" />
-                  <mssgle:LineSegment
-                    End="11.1666666666666,52.5" />
+                    End="0,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2189,6 +2177,44 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           Size="194,42"
           Id="Package\Build dimension values\Load Dimension\EDW Anlægsinformation"
           TopLeft="159,1025.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Build dimension values\Load Dimension\Union All"
+          TopLeft="230,608" />
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
+          TopLeft="103,558.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.5,49.5"
+              Start="0,0"
+              End="187.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.75"
+                    Point2="0,24.75"
+                    Point3="4,24.75" />
+                  <mssgle:LineSegment
+                    End="183.5,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.5,24.75"
+                    Point2="187.5,24.75"
+                    Point3="187.5,28.75" />
+                  <mssgle:LineSegment
+                    End="187.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
           TopLeft="257,353.5">
@@ -2222,6 +2248,42 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-134.30638671875,35,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
+          TopLeft="292.333333333333,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,254.5"
+              Start="0,0"
+              End="17,247">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,122.327155519742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,122.327155519742"
+                    Point2="0,126.327155519742"
+                    Point3="4,126.327155519742" />
+                  <mssgle:LineSegment
+                    End="13,126.327155519742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,126.327155519742"
+                    Point2="17,126.327155519742"
+                    Point3="17,130.327155519742" />
+                  <mssgle:LineSegment
+                    End="17,247" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.69138671875,131.327155519742,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2314,6 +2376,40 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
+          TopLeft="290.5,650">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,69.5"
+              Start="0,0"
+              End="-34.5,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.75"
+                    Point2="0,34.75"
+                    Point3="-4,34.75" />
+                  <mssgle:LineSegment
+                    End="-30.5,34.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,34.75"
+                    Point2="-34.5,34.75"
+                    Point3="-34.5,38.75" />
+                  <mssgle:LineSegment
+                    End="-34.5,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
           TopLeft="256,965.5">
           <EdgeLayout.Curve>
@@ -2371,114 +2467,6 @@ SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Build dimension values\Load Dimension\Union All"
-          TopLeft="230,608" />
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
-          TopLeft="103,558.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,49.5"
-              Start="0,0"
-              End="187.5,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.75"
-                    Point2="0,24.75"
-                    Point3="4,24.75" />
-                  <mssgle:LineSegment
-                    End="183.5,24.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,24.75"
-                    Point2="187.5,24.75"
-                    Point3="187.5,28.75" />
-                  <mssgle:LineSegment
-                    End="187.5,42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
-          TopLeft="292.333333333333,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17,254.5"
-              Start="0,0"
-              End="17,247">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,122.327155519742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,122.327155519742"
-                    Point2="0,126.327155519742"
-                    Point3="4,126.327155519742" />
-                  <mssgle:LineSegment
-                    End="13,126.327155519742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,126.327155519742"
-                    Point2="17,126.327155519742"
-                    Point3="17,130.327155519742" />
-                  <mssgle:LineSegment
-                    End="17,247" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-39.69138671875,131.327155519742,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
-          TopLeft="290.5,650">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.5,69.5"
-              Start="0,0"
-              End="-34.5,62">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.75"
-                    Point2="0,34.75"
-                    Point3="-4,34.75" />
-                  <mssgle:LineSegment
-                    End="-30.5,34.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,34.75"
-                    Point2="-34.5,34.75"
-                    Point3="-34.5,38.75" />
-                  <mssgle:LineSegment
-                    End="-34.5,62" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

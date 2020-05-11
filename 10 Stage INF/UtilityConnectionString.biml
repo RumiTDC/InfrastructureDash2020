@@ -1,0 +1,11 @@
+
+<#
+string StageConnectionName = "EDW_Stage";
+string UtilityConnectionName = "EDW_Utility";
+string ConnectionString_EDW_Utility_ADO = @"Server=.\SANDBOX2014;Initial Catalog=EDW_Utility;Integrated Security=SSPI;";
+string ConnectionString_EDW_Utility = @"Data Source=.\SANDBOX2014;Initial Catalog=EDW_Utility;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;";
+
+#>
+
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+</Biml>

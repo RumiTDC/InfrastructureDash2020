@@ -1,0 +1,2378 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/1/1753"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI Server"
+  DTS:CreatorName="Inspari"
+  DTS:DTSID="{02101395-4B91-4F2E-A3C4-5FC83B7C4071}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.68"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="INF_Dim_Produkt"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{7178364B-6914-4FBF-9AC2-33812BA322FF}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6BA54EBA-2AA1-4F14-80F8-581D16C3B8FA}"
+      DTS:ObjectName="PSRVWDB1663\PSQLPBI0002.NETDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETDW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AEE26852-230F-4839-BA0E-E0F50D0B1976}"
+      DTS:ObjectName="PSRVWDB1663\PSQLPBI0002.NETDW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{82A422A5-F6E2-4052-B199-679CA223721A}"
+      DTS:ObjectName="PSRVWDB1663\PSQLPBI0002.NETSTAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETSTAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{42E3C2C1-E433-44B8-AA19-9DD206FDD522}"
+      DTS:ObjectName="LogDetailID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F51FED5-B9F0-4CDA-BC31-CAC9BD4AFE0A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Dim_Produkt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{53AC82D1-6043-45F5-B493-79C7880F927B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTableSchema">
+      <DTS:VariableValue
+        DTS:DataType="8">inf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44FBDA8B-06C7-4528-B071-3DF6FCA0529C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDetailID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{23D09DA3-0867-491D-ADA3-FFDFDC48924B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountAfter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E85B94B0-6B6E-4EA7-8119-AB41EFAD75BB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountBefore">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE07BBF5-E863-4D18-947B-3D456081C787}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountFetch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{726482AC-8EC2-4627-88F4-0746C6FCA2C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Build dimension values"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3C9359C7-40A5-49F2-A898-EF2F1CAC7480}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build dimension values">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Build dimension values\Load Dimension"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Be aware that an expression has been set on this task in order to change the WHERE part of the surrogate_key lookup flow"
+          DTS:DTSID="{86A0607B-FB6D-4E96-A557-9E0F51CE5DEE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Dimension"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Executes an SQL command for each row in a dataset."
+                  name="Get new SurrogateKey"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC  [dimkey].[GetSurrogateKey] ?, ?, ? OUTPUT</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Connections[OleDbConnection]"
+                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].Columns[DimensionTable]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DimensionTable"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@DimensionTableName]"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="263"
+                          cachedName="DW_BK"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@DW_BK]"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].Columns[SurrogateKey]"
+                          cachedDataType="i8"
+                          cachedName="SurrogateKey"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@SurrogateKey]"
+                          lineageId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output].Columns[SurrogateKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@DimensionTableName]"
+                          dataType="wstr"
+                          length="50"
+                          name="@DimensionTableName">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@DW_BK]"
+                          dataType="wstr"
+                          length="400"
+                          name="@DW_BK">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input].ExternalColumns[@SurrogateKey]"
+                          dataType="i8"
+                          name="@SurrogateKey">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">83</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Handle blanks"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Handle blanks"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Handle blanks.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Handle blanks.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Handle blanks.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Handle unknown"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="Handle unknown"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Handle unknown.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Handle unknown.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Handle unknown.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="NETSTAGE Produkt"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[inf].[Dim_Produkt]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETDW]"
+                      connectionManagerRefId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[BK_Produkt]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="BK_Produkt"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[BK_Produkt]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Produkt]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[Produktnavn]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Produktnavn"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produktnavn]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktnavn]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[DownloadHastighed_KB]"
+                          cachedDataType="numeric"
+                          cachedName="DownloadHastighed_KB"
+                          cachedPrecision="23"
+                          cachedScale="1"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[DownloadHastighed_KB]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DownloadHastighed_KB]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[Produktområde]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="Produktområde"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produktområde]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktområde]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[SurrogateKey]"
+                          cachedDataType="i8"
+                          cachedName="SurrogateKey"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produkt_Key]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]" />
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].Columns[dw_DateTimeLoad]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="dw_DateTimeLoad"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateTimeLoad]"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[dw_DateTimeLoad]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produkt_Key]"
+                          dataType="i4"
+                          name="Produkt_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[BK_Produkt]"
+                          dataType="wstr"
+                          length="300"
+                          name="BK_Produkt" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produktnavn]"
+                          dataType="wstr"
+                          length="200"
+                          name="Produktnavn" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[DownloadHastighed_KB]"
+                          dataType="numeric"
+                          name="DownloadHastighed_KB"
+                          precision="23"
+                          scale="1" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[Produktområde]"
+                          dataType="wstr"
+                          length="9"
+                          name="Produktområde" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateTimeCreated]"
+                          dataType="dbTimeStamp"
+                          name="dw_DateTimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input].ExternalColumns[dw_DateTimeLoad]"
+                          dataType="dbTimeStamp"
+                          name="dw_DateTimeLoad" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="NETSTAGE_v_Dim_Produkt"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[inf].[v_Dim_Produkt]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+	[CompanyID]
+	,[No_]
+	,[Name]
+FROM
+	[nav].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[PSRVWDB1663\PSQLPBI0002.NETSTAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[BK_Produkt]"
+                          length="300"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]"
+                          name="BK_Produkt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktnavn]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[Produktnavn]"
+                          length="100"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktnavn]"
+                          name="Produktnavn"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[DownloadHastighed_KB]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[DownloadHastighed_KB]"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[DownloadHastighed_KB]"
+                          name="DownloadHastighed_KB"
+                          precision="23"
+                          scale="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktområde]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[Produktområde]"
+                          length="9"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktområde]"
+                          name="Produktområde"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[dw_DateTimeLoad]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[dw_DateTimeLoad]"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[dw_DateTimeLoad]"
+                          name="dw_DateTimeLoad"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[BK_Produkt]"
+                          dataType="wstr"
+                          length="300"
+                          name="BK_Produkt" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[Produktnavn]"
+                          dataType="wstr"
+                          length="100"
+                          name="Produktnavn" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[DownloadHastighed_KB]"
+                          dataType="numeric"
+                          name="DownloadHastighed_KB"
+                          precision="23"
+                          scale="1" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[Produktområde]"
+                          dataType="wstr"
+                          length="9"
+                          name="Produktområde" />
+                        <externalMetadataColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].ExternalColumns[dw_DateTimeLoad]"
+                          dataType="dbTimeStamp"
+                          name="dw_DateTimeLoad" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[BK_Produkt]"
+                          dataType="wstr"
+                          length="300"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[BK_Produkt]"
+                          name="BK_Produkt" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[Produktnavn]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[Produktnavn]"
+                          name="Produktnavn" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[DownloadHastighed_KB]"
+                          dataType="numeric"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[DownloadHastighed_KB]"
+                          name="DownloadHastighed_KB"
+                          precision="23"
+                          scale="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[Produktområde]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[Produktområde]"
+                          name="Produktområde" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[dw_DateTimeLoad]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[dw_DateTimeLoad]"
+                          name="dw_DateTimeLoad" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Row Count Fetch"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Fetch">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountFetch</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Row Count Fetch.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Row Count Fetch.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Row Count Fetch.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Row Count Insert"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count Insert">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RowCountInsert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Row Count Insert.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Row Count Insert.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Row Count Insert.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input].Columns[BK_Produkt]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="BK_Produkt"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="263"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]"
+                          name="DW_BK"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">BK_Produkt</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]"
+                          name="DimensionTable"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[User::DestinationTableName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[User::DestinationTableName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Updates column values using expressions"
+                  name="SET SurrogateKey to -1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output].Columns[SurrogateKey]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output].Columns[SurrogateKey]"
+                          name="SurrogateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I8)-1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I8)-1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Looks up values in a reference dataset by using exact matching."
+                  name="Surrogate_Key from key store"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     SurrogateKey, DW_BK
+FROM         dimkey.DimensionKey
+WHERE     (DimensionTableName = UPPER('Customer'))</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT     SurrogateKey, DW_BK
+FROM         dimkey.DimensionKey
+WHERE     (DimensionTableName = UPPER('Customer'))) [refTable]
+where [refTable].[DW_BK] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SurrogateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DW_BK" dataType="DT_WSTR" length="400" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Connections[OleDbConnection]"
+                      connectionManagerID="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW_Utility]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="263"
+                          cachedName="DW_BK"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DW_BK</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]"
+                          name="SurrogateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SurrogateKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Build dimension values\Load Dimension\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[BK_Produkt]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="BK_Produkt"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Produkt]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Produktnavn]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Produktnavn"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktnavn]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktnavn]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[DownloadHastighed_KB]"
+                          cachedDataType="numeric"
+                          cachedName="DownloadHastighed_KB"
+                          cachedPrecision="23"
+                          cachedScale="1"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[DownloadHastighed_KB]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DownloadHastighed_KB]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[Produktområde]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="Produktområde"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktområde]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktområde]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[dw_DateTimeLoad]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="dw_DateTimeLoad"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[dw_DateTimeLoad]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[dw_DateTimeLoad]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="263"
+                          cachedName="DW_BK"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[DimensionTable]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DimensionTable"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DimensionTable]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1].Columns[SurrogateKey]"
+                          cachedDataType="i8"
+                          cachedName="SurrogateKey"
+                          lineageId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Match Output].Columns[SurrogateKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[BK_Produkt]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="BK_Produkt"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[BK_Produkt]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Produkt]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Produktnavn]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Produktnavn"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktnavn]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktnavn]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[DownloadHastighed_KB]"
+                          cachedDataType="numeric"
+                          cachedName="DownloadHastighed_KB"
+                          cachedPrecision="23"
+                          cachedScale="1"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[DownloadHastighed_KB]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DownloadHastighed_KB]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[Produktområde]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="Produktområde"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[Produktområde]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktområde]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[dw_DateTimeLoad]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="dw_DateTimeLoad"
+                          lineageId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output].Columns[dw_DateTimeLoad]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[dw_DateTimeLoad]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[DW_BK]"
+                          cachedDataType="wstr"
+                          cachedLength="263"
+                          cachedName="DW_BK"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DW_BK]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[DimensionTable]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DimensionTable"
+                          lineageId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output].Columns[DimensionTable]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DimensionTable]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2].Columns[SurrogateKey]"
+                          cachedDataType="i8"
+                          cachedName="SurrogateKey"
+                          lineageId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output].Columns[SurrogateKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Produkt]"
+                          dataType="wstr"
+                          length="300"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[BK_Produkt]"
+                          name="BK_Produkt" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktnavn]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktnavn]"
+                          name="Produktnavn" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DownloadHastighed_KB]"
+                          dataType="numeric"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DownloadHastighed_KB]"
+                          name="DownloadHastighed_KB"
+                          precision="23"
+                          scale="1" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktområde]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[Produktområde]"
+                          name="Produktområde" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[dw_DateTimeLoad]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[dw_DateTimeLoad]"
+                          name="dw_DateTimeLoad" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]"
+                          dataType="wstr"
+                          length="263"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DW_BK]"
+                          name="DW_BK" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DimensionTable]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[DimensionTable]"
+                          name="DimensionTable" />
+                        <outputColumn
+                          refId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]"
+                          dataType="i8"
+                          lineageId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1].Columns[SurrogateKey]"
+                          name="SurrogateKey" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Derived Column Output]"
+                  endId="Package\Build dimension values\Load Dimension\Row Count Insert.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\Build dimension values\Load Dimension\Handle blanks.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Derived Column Output1]"
+                  endId="Package\Build dimension values\Load Dimension\Handle blanks.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build dimension values\Load Dimension\Handle unknown.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Derived Column Output2]"
+                  endId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Derived Column Output3]"
+                  endId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
+                  endId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
+                  endId="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Build dimension values\Load Dimension\Surrogate_Key from key store.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
+                  endId="Package\Build dimension values\Load Dimension\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\Build dimension values\Load Dimension\Get new SurrogateKey.Outputs[OLE DB Command Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
+                  endId="Package\Build dimension values\Load Dimension\Row Count Fetch.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Row Count Output 1]"
+                  endId="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Build dimension values\Load Dimension\Row Count Fetch.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
+                  endId="Package\Build dimension values\Load Dimension\NETSTAGE Produkt.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Build dimension values\Load Dimension\Row Count Insert.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
+                  endId="Package\Build dimension values\Load Dimension\Handle unknown.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\Build dimension values\Load Dimension\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build dimension values\NETDW - Insert Unknown"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F962CD85-E25A-455E-8F64-0CED70231B37}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NETDW - Insert Unknown"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [inf].[InsertUnknownMember] @SchemaName = N'"+ @[User::DestinationTableSchema] + "', @TableName = N'"+ @[User::DestinationTableName] +"'"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{23F121D3-F860-4199-B035-BFBC666D51D3}"
+              SQLTask:SqlStatementSource="EXEC [inf].[InsertUnknownMember] @SchemaName = N'inf', @TableName = N'Dim_Produkt'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Build dimension values\NETDW - Truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2717D09E-539A-4A06-A8C0-514A54D4C5FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NETDW - Truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE [" + @[User::DestinationTableSchema]  + "].[" + @[User::DestinationTableName]  + "]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{23F121D3-F860-4199-B035-BFBC666D51D3}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [inf].[Dim_Produkt]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{44E32814-D6DE-452E-9419-565F29867AF0}"
+          DTS:From="Package\Build dimension values\NETDW - Truncate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Build dimension values\NETDW - Insert Unknown" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Build dimension values.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6EDED32E-304B-4479-B695-3A6D192604F8}"
+          DTS:From="Package\Build dimension values\NETDW - Insert Unknown"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Build dimension values\Load Dimension" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Build dimension values.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{7B7FD468-6B81-4CFA-BC67-BEAC26338FBB}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{59A043AC-078A-4564-ABD9-46158C442623}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Build dimension values.EventHandlers[OnError]\Utility - Update Error"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{684F079F-EF67-43DC-8B4B-51E30B73F93A}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Utility - Update Error"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+                  SQLTask:SqlStatementSource="EXEC [log].[LogDetail_Error] ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::LogDetailID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="4000" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4924C712-77C8-4763-A4F8-5B59F1106C2F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @LogDetailID INT = " + (@[$Package::LogDetailID] &gt; 0 ? (DT_WSTR, 10)@[$Package::LogDetailID] : "0") + "
+DECLARE @LogIDPackage INT = 0
+IF (@LogDetailID = 0)
+ BEGIN	EXEC [log].[Log_Begin]
+	@JobName = 'Manual Run'
+	,@LogID = @LogIDPackage OUTPUT
+	
+	EXEC [log].[LogDetail_Begin]
+	@LogID = @LogIDPackage
+	,@PackageName = '" + @[System::PackageName] + "'
+	,@PackageID = 0
+	,@LogDetailID = @LogDetailID OUTPUT
+ END 
+EXEC [log].[LogDetail_Update]
+	@LogDetailID
+	,@PackageVersion = '" + (DT_WSTR, 20)@[System::VersionMajor] + "." + (DT_WSTR, 20)@[System::VersionMinor] + "." + (DT_WSTR, 20)@[System::VersionBuild] + "'
+	,@DestinationTableSchema = '" + @[User::DestinationTableSchema] + "'
+	,@DestinationTableName = '" + @[User::DestinationTableName] + "'
+
+  
+SELECT LogDetailID = @LogDetailID"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="DECLARE @LogDetailID INT = 0&#xA;DECLARE @LogIDPackage INT = 0&#xA;IF (@LogDetailID = 0)&#xA; BEGIN&#x9;EXEC [log].[Log_Begin]&#xA;&#x9;@JobName = 'Manual Run'&#xA;&#x9;,@LogID = @LogIDPackage OUTPUT&#xA;&#x9;&#xA;&#x9;EXEC [log].[LogDetail_Begin]&#xA;&#x9;@LogID = @LogIDPackage&#xA;&#x9;,@PackageName = 'INF_Dim_Produkt'&#xA;&#x9;,@PackageID = 0&#xA;&#x9;,@LogDetailID = @LogDetailID OUTPUT&#xA; END &#xA;EXEC [log].[LogDetail_Update]&#xA;&#x9;@LogDetailID&#xA;&#x9;,@PackageVersion = '1.1.55'&#xA;&#x9;,@DestinationTableSchema = 'inf'&#xA;&#x9;,@DestinationTableName = 'Dim_Produkt'&#xA;&#xA;  &#xA;SELECT LogDetailID = @LogDetailID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LogDetailID"
+            SQLTask:DtsVariableName="User::LogDetailID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EDW_Utility - Update LogDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BFCA4C29-61D6-4039-8288-FEDCEDEF3F54}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW_Utility - Update LogDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [log].[LogDetail_End] " + (DT_WSTR, 20) @[User::LogDetailID]  + ", " +  (DT_WSTR, 20)@[User::RowCountBefore] +", " +  (DT_WSTR, 20)@[User::RowCountFetch] + ", " +  (DT_WSTR, 20)@[User::RowCountInsert] + ", " +  (DT_WSTR, 20)@[User::RowCountAfter]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA4E480B-FEE6-4AFE-B4C5-5609733158F1}"
+          SQLTask:SqlStatementSource="EXEC [log].[LogDetail_End] 0, 0, 0, 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NETDW - Row Count After"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D4C896D5-C6DB-4763-B628-3BC092BCD1FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NETDW - Row Count After"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountAfter FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{23F121D3-F860-4199-B035-BFBC666D51D3}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountAfter FROM [inf].[Dim_Produkt]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountAfter"
+            SQLTask:DtsVariableName="User::RowCountAfter" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NETDW- Row Count Before"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6622D0CE-12B6-44BF-B36C-1395D2A7851A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NETDW- Row Count Before"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) AS RowCountBefore FROM [" + @[User::DestinationTableSchema] + "].[" + @[User::DestinationTableName] + "]"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{23F121D3-F860-4199-B035-BFBC666D51D3}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS RowCountBefore FROM [inf].[Dim_Produkt]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RowCountBefore"
+            SQLTask:DtsVariableName="User::RowCountBefore" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{98B823EE-EEE0-4D08-AED8-DA904FFDEE76}"
+      DTS:From="Package\Build dimension values"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\NETDW - Row Count After" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ACD1574E-D3C6-4D9A-98E2-188876B06ECC}"
+      DTS:From="Package\NETDW - Row Count After"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\EDW_Utility - Update LogDetail" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{623B759B-AB9C-4505-A424-0DF33EA0D6C0}"
+      DTS:From="Package\NETDW- Row Count Before"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Build dimension values" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E35D3DC9-07F2-4233-9CF8-7AEC81C73A05}"
+      DTS:From="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\NETDW- Row Count Before" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Build dimension values\Load Dimension"
+          TopLeft="40,309.5" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Build dimension values\NETDW - Insert Unknown"
+          TopLeft="18.5,113.5" />
+        <NodeLayout
+          Size="134,44"
+          Id="Package\Build dimension values\NETDW - Truncate"
+          TopLeft="53,37.5" />
+        <EdgeLayout
+          Id="Package\Build dimension values.PrecedenceConstraints[Constraint]"
+          TopLeft="119.5,81.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values.PrecedenceConstraints[Constraint 1]"
+          TopLeft="118,155.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,154"
+              Start="0,0"
+              End="0,146.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,146.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="236,414"
+          Size="236,458"
+          Id="Package\Build dimension values"
+          TopLeft="166.5,209.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EDW_Utility - LogDetail Start (if not set by parent package) and Update package version on LogDetail"
+          TopLeft="6.5,4.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\EDW_Utility - Update LogDetail"
+          TopLeft="171.5,829.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\NETDW - Row Count After"
+          TopLeft="190,727.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\NETDW- Row Count Before"
+          TopLeft="186,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="284.5,667.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="284.5,769.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="287.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="287.75,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Build dimension values.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Build dimension values.EventHandlers[OnError]\Utility - Update Error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Build dimension values\Load Dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Build dimension values\Load Dimension\NETSTAGE Produkt"
+          TopLeft="173.5,1021.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt"
+          TopLeft="132.5,5.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Build dimension values\Load Dimension\Handle unknown"
+          TopLeft="177.5,719.5" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\Build dimension values\Load Dimension\SET BusinessKey and DimensionTable for Surrogat Key Lookup"
+          TopLeft="69,209.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Build dimension values\Load Dimension\Row Count Fetch"
+          TopLeft="177,107.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Build dimension values\Load Dimension\SET SurrogateKey to -1"
+          TopLeft="5.50000000000003,413.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Build dimension values\Load Dimension\Handle blanks"
+          TopLeft="184,821.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Build dimension values\Load Dimension\Surrogate_Key from key store"
+          TopLeft="144,314.86666653494" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Build dimension values\Load Dimension\Get new SurrogateKey"
+          TopLeft="10.5000000000001,523.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Build dimension values\Load Dimension\Row Count Insert"
+          TopLeft="176,923.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Build dimension values\Load Dimension\Union All"
+          TopLeft="188,641" />
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Union All Output 1]"
+          TopLeft="252.25,683">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.5"
+              Start="0,0"
+              End="0,29">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Row Count Output 11]"
+          TopLeft="257.25,965.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Row Count Output 1]"
+          TopLeft="256,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Source Output]"
+          TopLeft="236.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.5,60"
+              Start="0,0"
+              End="19.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="15.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.5,30"
+                    Point2="19.5,30"
+                    Point3="19.5,34" />
+                  <mssgle:LineSegment
+                    End="19.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[OLE DB Command Output]"
+          TopLeft="103,565.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.666666666667,75.5"
+              Start="0,0"
+              End="126.666666666667,68">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7088091353997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.7088091353997"
+                    Point2="0,44.7088091353997"
+                    Point3="4,44.7088091353997" />
+                  <mssgle:LineSegment
+                    End="122.666666666667,44.7088091353997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.666666666667,44.7088091353997"
+                    Point2="126.666666666667,44.7088091353997"
+                    Point3="126.666666666667,48.7088091353997" />
+                  <mssgle:LineSegment
+                    End="126.666666666667,68" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup No Match Output]"
+          TopLeft="254,356.86666653494">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154,56.63333346506"
+              Start="0,0"
+              End="-154,49.13333346506">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.31666673253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.31666673253"
+                    Point2="0,28.31666673253"
+                    Point3="-4,28.31666673253" />
+                  <mssgle:LineSegment
+                    End="-150,28.31666673253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150,28.31666673253"
+                    Point2="-154,28.31666673253"
+                    Point3="-154,32.31666673253" />
+                  <mssgle:LineSegment
+                    End="-154,49.13333346506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-132.80638671875,33.31666673253,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Lookup Match Output]"
+          TopLeft="289.333333333333,356.86666653494">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22,284.13333346506"
+              Start="0,0"
+              End="-22,276.63333346506">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.036368585396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,137.036368585396"
+                    Point2="0,141.036368585396"
+                    Point3="-4,141.036368585396" />
+                  <mssgle:LineSegment
+                    End="-18,141.036368585396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18,141.036368585396"
+                    Point2="-22,141.036368585396"
+                    Point3="-22,145.036368585396" />
+                  <mssgle:LineSegment
+                    End="-22,276.63333346506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-59.19138671875,146.036368585396,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Derived Column Output3]"
+          TopLeft="255,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.36666653494"
+              Start="0,0"
+              End="0,55.86666653494">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.86666653494" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Derived Column Output2]"
+          TopLeft="101.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Derived Column Output1]"
+          TopLeft="256,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Build dimension values\Load Dimension.Paths[Derived Column Output]"
+          TopLeft="256,863.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build dimension values\Load Dimension\NETSTAGE Produkt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build dimension values\Load Dimension\NETSTAGE_v_Dim_Produkt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Build dimension values\Load Dimension\Surrogate_Key from key store">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

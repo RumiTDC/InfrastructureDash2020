@@ -27,10 +27,9 @@ SELECT
   where BBR_Coax_anlaeg_id is not null
   GROUP BY
   	BBR_Coax_anlaeg_id
-
-	, WL_Coax_BB_Styret_afsaetning
-	, 	 WL_Coax_Topgruppekode
+		, WL_Coax_BB_Styret_afsaetning
+	, WL_Coax_Topgruppekode
 	, Topgruppenavn
-		, WL_Coax_sloejfe
+	, WL_Coax_sloejfe
 	, WL_Coax_KAPGR_Name
 	,[CMTS Id]

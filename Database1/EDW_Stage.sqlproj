@@ -167,13 +167,6 @@
       <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
       <DatabaseSqlCmdVariable>EDW</DatabaseSqlCmdVariable>
     </ProjectReference>
-    <ProjectReference Include="..\Database3\EDW_Stage_History.sqlproj">
-      <Name>EDW_Stage_History</Name>
-      <Project>{d64ed1e3-d18b-4786-ad91-6f065b85bedc}</Project>
-      <Private>True</Private>
-      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseSqlCmdVariable>EDW_Stage_History</DatabaseSqlCmdVariable>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="EDW">

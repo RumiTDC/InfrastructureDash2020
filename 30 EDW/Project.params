@@ -12,7 +12,7 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
@@ -22,7 +22,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="ConnectionString_EDW">
+    SSIS:Name="ConnectionString_NETDW">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{e702d71d-22d5-4bb9-a762-b246351d8ba9}</SSIS:Property>
@@ -33,17 +33,17 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=EDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="ConnectionString_EDW_Stage">
+    SSIS:Name="ConnectionString_Datamart">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{b7056ffd-80c4-4d94-8ccc-d56bd1349ede}</SSIS:Property>
@@ -54,11 +54,11 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=EDW_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=Datamart;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -75,7 +75,7 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
@@ -96,7 +96,7 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
@@ -106,7 +106,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="ConnectionString_EDW_History">
+    SSIS:Name="ConnectionString_NETSTAGE">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{35b431bf-9723-4364-ae3d-c3823cddfcea}</SSIS:Property>
@@ -121,7 +121,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=EDW_Stage_History;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=PSRVWDB1663\PSQLPBI0002;Initial Catalog=NETSTAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -138,7 +138,7 @@
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Required">1</SSIS:Property>
+        SSIS:Name="Required">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property

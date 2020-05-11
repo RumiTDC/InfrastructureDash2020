@@ -1,9 +1,0 @@
-<#@ import namespace="System.Data" #>
-<#@ import namespace="System.Data.SqlClient" #>
-<#@ property name="DestinationConnectionName" type="String" #>
-<#@ property name="UtilityConnectionName" type="String" #>
-<#@ property name="stageTable" type="DataRow" #>
-<#@ property name="ConnectionString_EDW_Utility_ADO" type="String" #>
-
-<!-- variables FactStandard begin -->
-<!-- variables FactStandard end -->

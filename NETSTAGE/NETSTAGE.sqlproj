@@ -62,6 +62,15 @@
     <Folder Include="Storage\" />
     <Folder Include="Security\" />
     <Folder Include="inf\Tables" />
+    <Folder Include="inf\Stored Procedures\" />
+    <Folder Include="dm\" />
+    <Folder Include="dm\Tables\" />
+    <Folder Include="stg\" />
+    <Folder Include="stg\Views\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="csv\" />
+    <Folder Include="csv\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Storage\INDEX.sql" />
@@ -71,12 +80,42 @@
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="inf\Tables\InfrastructureBaseData.sql" />
     <Build Include="Security\inf.sql" />
-    <Build Include="inf\Views\v_Fact_Bredbånd.sql" />
     <Build Include="inf\Tables\DongOmraade.sql" />
     <Build Include="inf\Tables\Stg_Infrastructure.sql" />
     <Build Include="Security\stg.sql" />
     <Build Include="Security\BIT-BI-DEV-SQL-LOGIN.sql" />
     <Build Include="Security\dm.sql" />
     <Build Include="Security\csv.sql" />
+    <Build Include="inf\Tables\TDN_Fiber.sql" />
+    <Build Include="inf\Tables\TDN_Coax.sql" />
+    <Build Include="inf\Stored Procedures\Stage_Infrastructure.sql" />
+    <Build Include="dm\Tables\Total_utility_Fiber_tbl.sql" />
+    <Build Include="stg\Views\v_Dim_Adresse_Churn.sql" />
+    <Build Include="inf\Views\v_Fact_InfrastructureHistory.sql" />
+    <Build Include="inf\Views\v_Fact_Infrastructure.sql" />
+    <Build Include="dbo\Tables\DimDateAcc.sql" />
+    <Build Include="inf\Views\V_ServiceProviders.sql" />
+    <Build Include="inf\Views\V_Dim_Teknologi.sql" />
+    <Build Include="inf\Views\V_Dim_TDNFiber.sql" />
+    <Build Include="inf\Views\V_Dim_TDNCoax.sql" />
+    <Build Include="inf\Views\V_Dim_Produkt.sql" />
+    <Build Include="inf\Views\V_Dim_Operatoer.sql" />
+    <Build Include="inf\Views\V_Dim_Adresse.sql" />
+    <Build Include="inf\Stored Procedures\Stage_InfrastructureDatelag.sql" />
+    <Build Include="inf\Stored Procedures\Stage_Infrastructure030320.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Teknologi_Outdated.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Teknologi.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Movementtype.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Anlægsinformation_Outdated.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Adresse_BF.sql" />
+    <Build Include="inf\Stored Procedures\Dim_Adresse.sql" />
+    <Build Include="dm\Tables\Total_utility_Fiber.sql" />
+    <Build Include="dm\Tables\InfrastructureBaseDataV2.sql" />
+    <Build Include="dm\Tables\HHI_KVHX.sql" />
+    <Build Include="dm\Tables\cognito.sql" />
+    <Build Include="csv\Tables\TDN_Fiber.sql" />
+    <Build Include="csv\Tables\TDN_Coax.sql" />
+    <Build Include="csv\Tables\ServiceProviders.sql" />
+    <Build Include="csv\Tables\PDSKabling.sql" />
   </ItemGroup>
 </Project>

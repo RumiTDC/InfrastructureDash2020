@@ -76,5 +76,9 @@
     <Build Include="Security\NetworkTechnology.sql" />
     <Build Include="Security\ACCDOM01_m41455.sql" />
     <Build Include="inf\Tables\Fact_Infrastructure.sql" />
+    <Build Include="inf\Tables\Dim_Anlaeg.sql" />
+    <Build Include="inf\Tables\Dim_Teknologi.sql" />
+    <Build Include="inf\Tables\Dim_Operatør.sql" />
+    <Build Include="inf\Tables\Dim_Produkt.sql" />
   </ItemGroup>
 </Project>

@@ -181,8 +181,6 @@
     <Build Include="Security\ACCDOM01_A15559.sql" />
     <Build Include="Security\ACCDOM01_A14538_ADM.sql" />
     <Build Include="Security\ACCDOM01_a12702.sql" />
-    <Build Include="dbo\Stored Procedures\GrantReadAccesOnAllViewTo_GeneralReportReader.sql" />
-    <Build Include="Database Triggers\7000 DBA Object ddl trigger.sql" />
     <Build Include="Security\TechnologyDashBoard.sql" />
     <Build Include="Security\Nuuday.sql" />
   </ItemGroup>
