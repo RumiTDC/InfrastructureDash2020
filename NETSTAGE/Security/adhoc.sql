@@ -1,4 +1,4 @@
-﻿CREATE SCHEMA [Nuuday]
+﻿CREATE SCHEMA [adhoc]
     AUTHORIZATION [dbo];
 
 

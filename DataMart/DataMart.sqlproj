@@ -183,5 +183,7 @@
     <Build Include="Security\ACCDOM01_a12702.sql" />
     <Build Include="Security\TechnologyDashBoard.sql" />
     <Build Include="Security\Nuuday.sql" />
+    <Build Include="dbo\Tables\BSACoax_Topgruppenavn_Klassifikation_tbl.sql" />
+    <Build Include="dbo\Views\BSACoax_Topgruppenavn_Klassifikation.sql" />
   </ItemGroup>
 </Project>

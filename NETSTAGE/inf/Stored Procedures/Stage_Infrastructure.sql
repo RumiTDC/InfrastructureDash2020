@@ -20,6 +20,28 @@ adresse_kvhx,
 		WHEN WL_Fiber = '1' THEN 1
 		ELSE 0
 	END
+
+/**********************************************************************************
+COAX ENABLED
+Jf. dialog med Finn Rosendal Larsen <FIRLA@tdcnet.dk>, defineres TDC_Coax_enabled ved - 
+for at være COAX enabled tages udgangspunkt i WL, men nogle har et COAX anlæg, men styret afsætning er nej. Dem defineres ikke, som COAX enabled
+Det omhandler anlæg, som vi har adgang til, men ikke kan sælge på. 
+AKA hvis der står fx gigabredbånd i afsætning -- RUMI & CAFO 20-05-2020
+
+Udviklingsnote: blanke skal nok nedenfor rettes til NULLS
+Mulig løsning, skal testes
+	 , TDC_Coax_Enabled =
+		CASE
+			WHEN BBR_Coax_anlaeg_id <> '' THEN
+				CASE
+					WHEN ISNULL(WL_Coax_Adgang_Andre_BBOperatoer, '') IN ('Nej', '') and WL_Coax_BB_Styret_afsaetning NOT IN ('Nej', '') THEN 1
+					WHEN ISNULL(WL_Coax_Adgang_Andre_BBOperatoer, '') NOT IN ('', 'Nej') and WL_Coax_BB_Styret_afsaetning NOT IN ('Nej', '') THEN 1
+					ELSE 0
+				END
+			WHEN WL_Coax = 1 THEN 1
+			ELSE 0
+		END
+************************************************************************************/
 	 , TDC_Coax_Enabled =
 		CASE
 			WHEN BBR_Coax_anlaeg_id <> '' THEN

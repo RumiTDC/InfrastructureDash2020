@@ -46,6 +46,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <SqlTargetName>DEV_NETSTAGE</SqlTargetName>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -71,6 +72,12 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="csv\" />
     <Folder Include="csv\Tables\" />
+    <Folder Include="stg\Tables\" />
+    <Folder Include="bf\" />
+    <Folder Include="bf\Views\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Storage\INDEX.sql" />
@@ -83,21 +90,15 @@
     <Build Include="inf\Tables\DongOmraade.sql" />
     <Build Include="inf\Tables\Stg_Infrastructure.sql" />
     <Build Include="Security\stg.sql" />
-    <Build Include="Security\BIT-BI-DEV-SQL-LOGIN.sql" />
     <Build Include="Security\dm.sql" />
     <Build Include="Security\csv.sql" />
-    <Build Include="inf\Tables\TDN_Fiber.sql" />
-    <Build Include="inf\Tables\TDN_Coax.sql" />
     <Build Include="inf\Stored Procedures\Stage_Infrastructure.sql" />
-    <Build Include="dm\Tables\Total_utility_Fiber_tbl.sql" />
     <Build Include="stg\Views\v_Dim_Adresse_Churn.sql" />
     <Build Include="inf\Views\v_Fact_InfrastructureHistory.sql" />
     <Build Include="inf\Views\v_Fact_Infrastructure.sql" />
     <Build Include="dbo\Tables\DimDateAcc.sql" />
     <Build Include="inf\Views\V_ServiceProviders.sql" />
     <Build Include="inf\Views\V_Dim_Teknologi.sql" />
-    <Build Include="inf\Views\V_Dim_TDNFiber.sql" />
-    <Build Include="inf\Views\V_Dim_TDNCoax.sql" />
     <Build Include="inf\Views\V_Dim_Produkt.sql" />
     <Build Include="inf\Views\V_Dim_Operatoer.sql" />
     <Build Include="inf\Views\V_Dim_Adresse.sql" />
@@ -117,5 +118,53 @@
     <Build Include="csv\Tables\TDN_Coax.sql" />
     <Build Include="csv\Tables\ServiceProviders.sql" />
     <Build Include="csv\Tables\PDSKabling.sql" />
+    <Build Include="stg\Tables\test_CVRKVHX_BF2.sql" />
+    <Build Include="stg\Tables\test_CVRKVHX_BF.sql" />
+    <Build Include="stg\Tables\test_Adresse_BF.sql" />
+    <Build Include="stg\Tables\Teknologi_Inf_1.sql" />
+    <Build Include="stg\Tables\Adresse_inf_1.sql" />
+    <Build Include="inf\Views\v_Dim_Anlægsinformation_1.sql" />
+    <Build Include="bf\Views\V_Fact_Infrastructure_1.sql" />
+    <Build Include="Security\OK.sql" />
+    <Build Include="Security\DW.sql" />
+    <Build Include="Security\bf_1.sql" />
+    <Build Include="Security\adhoc.sql" />
+    <Build Include="stg\Tables\InfrastructureDate_1.sql" />
+    <Build Include="stg\Tables\Adresse_INF2_1.sql" />
+    <Build Include="dbo\Tables\Dim_Adresse.sql" />
+    <Build Include="csv\Tables\OK_Base.sql" />
+    <Build Include="Security\ACCDOM01_r37938.sql" />
+    <Build Include="dbo\Functions\udf_GetSlash_1.sql" />
+    <Build Include="dbo\Functions\udf_GetNumericsOnly_1.sql" />
+    <Build Include="dbo\Functions\udf_GetNumeric2_1.sql" />
+    <Build Include="dbo\Functions\udf_GetNumeric_1.sql" />
+    <Build Include="dbo\Functions\udf_GetMb_1.sql" />
+    <Build Include="dbo\Functions\udf_GetKb_1.sql" />
+    <Build Include="dbo\Functions\udf_GetGb_1.sql" />
+    <Build Include="inf\Stored Procedures\test_CVRKVHX_BF2.sql" />
+    <Build Include="inf\Stored Procedures\test_CVRKVHX_BF.sql" />
+    <Build Include="inf\Stored Procedures\Dim_AdresseOneSP.sql" />
+    <Build Include="dbo\Stored Procedures\DimDateGeneratorAcc.sql" />
+    <Build Include="inf\Views\V_Dim_TDNFiber.sql" />
+    <Build Include="inf\Views\V_Dim_TDNCoax.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataMart\DataMart.sqlproj">
+      <Name>DataMart</Name>
+      <Project>{b304fc1b-96d4-4e65-9ca0-c47a65f5bb2f}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DataMart</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="DataMart">
+      <DefaultValue>DataMart</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="Sandbox">
+      <DefaultValue>SandBox</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

@@ -25,6 +25,8 @@
 );
 
 
+
+
 GO
 CREATE TRIGGER [dbo].[BSACoax_Anlaeg_tbl_IsCurrentTrigger]
    ON  [dbo].[BSACoax_Anlaeg_tbl]
@@ -34,7 +36,10 @@ BEGIN
 	SET NOCOUNT ON;	
 
     UPDATE BD
-	SET [IsCurrent] = 0
+	SET 
+		[IsCurrent] = 0,
+		[ValidToDatetime] = I.[ValidFromDatetime],
+		[ChangedDatetime] = GETDATE()
 	FROM [dbo].[BSACoax_Anlaeg_tbl] BD
 		JOIN inserted I
 			ON I.[AnlaegsId] = BD.[AnlaegsId]			
